@@ -1,0 +1,46 @@
+body,html{
+	margin: 0;
+}
+a{
+	cursor:pointer;
+}
+div.content{
+	padding-bottom: 5px;background: #99BBFF;
+}
+.tb-head{
+	width: 100%;height: 50px;text-align: center;border-collapse: collapse; 
+}
+.tb-head td.left{
+	width: 30%;text-align: right;
+}
+.tb-head td.center{
+	width: 40%;text-align: center;
+}
+.tb-head td.right{
+	width: 30%;text-align: left;
+}
+.tb-head a{
+    padding: 8px 10px;border-radius: 100px;background: white;color: chocolate;
+}
+.tb-head a.date{
+	background: white;color: chocolate;border-radius: 20px;font-size: 18px;
+}
+.calendar-content *{
+	padding: 5px 0;color:#fff ;
+}
+
+.tb-calendar-week  {
+  width: 100%;table-layout: fixed;font-size: 18px;text-align: center;border-collapse: collapse; 
+}
+.tb-calendar-week-head {
+	height: 30px; border-bottom: solid 1px;
+}
+.tb-calendar-week-date[disabled='disabled'] a  {
+ 	color:#ccc;
+}
+
+.tb-calendar-week-date-today a {
+ 	color: orange;
+}
+
+

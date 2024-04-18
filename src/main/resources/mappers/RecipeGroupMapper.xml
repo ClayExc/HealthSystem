@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.RecipeGroupMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.RecipeGroup">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="effect" jdbcType="VARCHAR" property="effect" />
+    <result column="recipe_name" jdbcType="VARCHAR" property="recipeName" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="typeValue" jdbcType="VARCHAR" property="typevalue" />
+    <result column="muscles_trained" jdbcType="VARCHAR" property="musclesTrained" />
+    <result column="method_introduction" jdbcType="VARCHAR" property="methodIntroduction" />
+    <result column="age_group" jdbcType="VARCHAR" property="ageGroup" />
+    <result column="min_heartrate" jdbcType="INTEGER" property="minHeartrate" />
+    <result column="max_heartrate" jdbcType="INTEGER" property="maxHeartrate" />
+    <result column="sports_frequency" jdbcType="VARCHAR" property="sportsFrequency" />
+    <result column="sports_time" jdbcType="VARCHAR" property="sportsTime" />
+    <result column="notice" jdbcType="VARCHAR" property="notice" />
+    <result column="equipment" jdbcType="VARCHAR" property="equipment" />
+    <result column="taboo_disease" jdbcType="VARCHAR" property="tabooDisease" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="other" jdbcType="VARCHAR" property="other" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, effect, recipe_name, type, typeValue, muscles_trained, method_introduction, age_group, 
+    min_heartrate, max_heartrate, sports_frequency, sports_time, notice, equipment, taboo_disease, 
+    image, other
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_recipe_group
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_recipe_group
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.RecipeGroup">
+    insert into t_recipe_group (id, effect, recipe_name, 
+      type, typeValue, muscles_trained, 
+      method_introduction, age_group, min_heartrate, 
+      max_heartrate, sports_frequency, sports_time, 
+      notice, equipment, taboo_disease, 
+      image, other)
+    values (#{id,jdbcType=INTEGER}, #{effect,jdbcType=VARCHAR}, #{recipeName,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{typevalue,jdbcType=VARCHAR}, #{musclesTrained,jdbcType=VARCHAR}, 
+      #{methodIntroduction,jdbcType=VARCHAR}, #{ageGroup,jdbcType=VARCHAR}, #{minHeartrate,jdbcType=INTEGER}, 
+      #{maxHeartrate,jdbcType=INTEGER}, #{sportsFrequency,jdbcType=VARCHAR}, #{sportsTime,jdbcType=VARCHAR}, 
+      #{notice,jdbcType=VARCHAR}, #{equipment,jdbcType=VARCHAR}, #{tabooDisease,jdbcType=VARCHAR}, 
+      #{image,jdbcType=VARCHAR}, #{other,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.RecipeGroup">
+    insert into t_recipe_group
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="effect != null">
+        effect,
+      </if>
+      <if test="recipeName != null">
+        recipe_name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="typevalue != null">
+        typeValue,
+      </if>
+      <if test="musclesTrained != null">
+        muscles_trained,
+      </if>
+      <if test="methodIntroduction != null">
+        method_introduction,
+      </if>
+      <if test="ageGroup != null">
+        age_group,
+      </if>
+      <if test="minHeartrate != null">
+        min_heartrate,
+      </if>
+      <if test="maxHeartrate != null">
+        max_heartrate,
+      </if>
+      <if test="sportsFrequency != null">
+        sports_frequency,
+      </if>
+      <if test="sportsTime != null">
+        sports_time,
+      </if>
+      <if test="notice != null">
+        notice,
+      </if>
+      <if test="equipment != null">
+        equipment,
+      </if>
+      <if test="tabooDisease != null">
+        taboo_disease,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="other != null">
+        other,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="effect != null">
+        #{effect,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeName != null">
+        #{recipeName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typevalue != null">
+        #{typevalue,jdbcType=VARCHAR},
+      </if>
+      <if test="musclesTrained != null">
+        #{musclesTrained,jdbcType=VARCHAR},
+      </if>
+      <if test="methodIntroduction != null">
+        #{methodIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="ageGroup != null">
+        #{ageGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="minHeartrate != null">
+        #{minHeartrate,jdbcType=INTEGER},
+      </if>
+      <if test="maxHeartrate != null">
+        #{maxHeartrate,jdbcType=INTEGER},
+      </if>
+      <if test="sportsFrequency != null">
+        #{sportsFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsTime != null">
+        #{sportsTime,jdbcType=VARCHAR},
+      </if>
+      <if test="notice != null">
+        #{notice,jdbcType=VARCHAR},
+      </if>
+      <if test="equipment != null">
+        #{equipment,jdbcType=VARCHAR},
+      </if>
+      <if test="tabooDisease != null">
+        #{tabooDisease,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.RecipeGroup">
+    update t_recipe_group
+    <set>
+      <if test="effect != null">
+        effect = #{effect,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeName != null">
+        recipe_name = #{recipeName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typevalue != null">
+        typeValue = #{typevalue,jdbcType=VARCHAR},
+      </if>
+      <if test="musclesTrained != null">
+        muscles_trained = #{musclesTrained,jdbcType=VARCHAR},
+      </if>
+      <if test="methodIntroduction != null">
+        method_introduction = #{methodIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="ageGroup != null">
+        age_group = #{ageGroup,jdbcType=VARCHAR},
+      </if>
+      <if test="minHeartrate != null">
+        min_heartrate = #{minHeartrate,jdbcType=INTEGER},
+      </if>
+      <if test="maxHeartrate != null">
+        max_heartrate = #{maxHeartrate,jdbcType=INTEGER},
+      </if>
+      <if test="sportsFrequency != null">
+        sports_frequency = #{sportsFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsTime != null">
+        sports_time = #{sportsTime,jdbcType=VARCHAR},
+      </if>
+      <if test="notice != null">
+        notice = #{notice,jdbcType=VARCHAR},
+      </if>
+      <if test="equipment != null">
+        equipment = #{equipment,jdbcType=VARCHAR},
+      </if>
+      <if test="tabooDisease != null">
+        taboo_disease = #{tabooDisease,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        other = #{other,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.RecipeGroup">
+    update t_recipe_group
+    set effect = #{effect,jdbcType=VARCHAR},
+      recipe_name = #{recipeName,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      typeValue = #{typevalue,jdbcType=VARCHAR},
+      muscles_trained = #{musclesTrained,jdbcType=VARCHAR},
+      method_introduction = #{methodIntroduction,jdbcType=VARCHAR},
+      age_group = #{ageGroup,jdbcType=VARCHAR},
+      min_heartrate = #{minHeartrate,jdbcType=INTEGER},
+      max_heartrate = #{maxHeartrate,jdbcType=INTEGER},
+      sports_frequency = #{sportsFrequency,jdbcType=VARCHAR},
+      sports_time = #{sportsTime,jdbcType=VARCHAR},
+      notice = #{notice,jdbcType=VARCHAR},
+      equipment = #{equipment,jdbcType=VARCHAR},
+      taboo_disease = #{tabooDisease,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      other = #{other,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select *
+    from
+    t_recipe_group
+  </select>
+
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_group
+    where
+    recipe_name like '%${recipeName}%'
+  </select>
+
+  <select id="selectByEffect" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_group
+    where
+    effect like '%${recipeEffect}%'
+  </select>
+
+  <select id="selectByAge" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_group
+    where
+    age_group like '%${ageGroup}%'
+  </select>
+
+  <select id="selectRecipe" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_group
+    where
+     effect = #{recipeEffect}
+    <if test="recipeName!='' and recipeName!=null">
+      and recipe_name = #{recipeName}
+    </if>
+    <if test="ageGroup!='' and ageGroup!=null">
+       and age_group = #{ageGroup}
+    </if>
+  </select>
+
+  <select id="selectByNameAndAge" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_group
+    where
+      recipe_name = #{recipeName}
+      and age_group = #{ageGroup}
+  </select>
+</mapper>

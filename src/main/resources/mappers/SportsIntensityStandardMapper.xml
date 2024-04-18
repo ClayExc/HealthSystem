@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.SportsIntensityStandardMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.SportsIntensityStandard">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="heart_rate_min" jdbcType="INTEGER" property="heartRateMin" />
+    <result column="heart_rate_max" jdbcType="INTEGER" property="heartRateMax" />
+    <result column="fuzhong_range" jdbcType="VARCHAR" property="fuzhongRange" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="group_num" jdbcType="VARCHAR" property="groupNum" />
+    <result column="intensity_type" jdbcType="VARCHAR" property="intensityType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, heart_rate_min, heart_rate_max, fuzhong_range, number, group_num, intensity_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sports_intensity_standard
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_sports_intensity_standard
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.SportsIntensityStandard">
+    insert into t_sports_intensity_standard (id, heart_rate_min, heart_rate_max, 
+      fuzhong_range, number, group_num, 
+      intensity_type)
+    values (#{id,jdbcType=INTEGER}, #{heartRateMin,jdbcType=INTEGER}, #{heartRateMax,jdbcType=INTEGER}, 
+      #{fuzhongRange,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{groupNum,jdbcType=VARCHAR}, 
+      #{intensityType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.SportsIntensityStandard">
+    insert into t_sports_intensity_standard
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="heartRateMin != null">
+        heart_rate_min,
+      </if>
+      <if test="heartRateMax != null">
+        heart_rate_max,
+      </if>
+      <if test="fuzhongRange != null">
+        fuzhong_range,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="groupNum != null">
+        group_num,
+      </if>
+      <if test="intensityType != null">
+        intensity_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="heartRateMin != null">
+        #{heartRateMin,jdbcType=INTEGER},
+      </if>
+      <if test="heartRateMax != null">
+        #{heartRateMax,jdbcType=INTEGER},
+      </if>
+      <if test="fuzhongRange != null">
+        #{fuzhongRange,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNum != null">
+        #{groupNum,jdbcType=VARCHAR},
+      </if>
+      <if test="intensityType != null">
+        #{intensityType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.SportsIntensityStandard">
+    update t_sports_intensity_standard
+    <set>
+      <if test="heartRateMin != null">
+        heart_rate_min = #{heartRateMin,jdbcType=INTEGER},
+      </if>
+      <if test="heartRateMax != null">
+        heart_rate_max = #{heartRateMax,jdbcType=INTEGER},
+      </if>
+      <if test="fuzhongRange != null">
+        fuzhong_range = #{fuzhongRange,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNum != null">
+        group_num = #{groupNum,jdbcType=VARCHAR},
+      </if>
+      <if test="intensityType != null">
+        intensity_type = #{intensityType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.SportsIntensityStandard">
+    update t_sports_intensity_standard
+    set heart_rate_min = #{heartRateMin,jdbcType=INTEGER},
+      heart_rate_max = #{heartRateMax,jdbcType=INTEGER},
+      fuzhong_range = #{fuzhongRange,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR},
+      group_num = #{groupNum,jdbcType=VARCHAR},
+      intensity_type = #{intensityType,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectHeartMax" resultMap="BaseResultMap">
+     select
+    id,heart_rate_max
+    from
+    t_sports_intensity_standard
+  </select>
+
+  <select id="selectMaxId" resultMap="BaseResultMap">
+    select
+    id
+    from
+    t_sports_intensity_standard
+    order by id DESC LIMIT 1
+  </select>
+  <insert id="insert2" parameterType="com.sports.entity.SportsIntensityStandard">
+    insert into t_sports_intensity_standard (id, heart_rate_min, heart_rate_max,
+      fuzhong_range, number, group_num,
+      intensity_type)
+    values (#{id,jdbcType=INTEGER}, #{heartRateMin,jdbcType=INTEGER}, #{heartRateMax,jdbcType=INTEGER},
+      #{fuzhongRange,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{groupNum,jdbcType=VARCHAR},
+      #{intensityType,jdbcType=VARCHAR})
+  </insert>
+</mapper>

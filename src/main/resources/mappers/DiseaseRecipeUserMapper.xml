@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.DiseaseRecipeUserMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.DiseaseRecipeUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="dis_1" jdbcType="INTEGER" property="dis1" />
+    <result column="dis_2" jdbcType="INTEGER" property="dis2" />
+    <result column="dis_3" jdbcType="INTEGER" property="dis3" />
+    <result column="dis_4" jdbcType="INTEGER" property="dis4" />
+    <result column="dis_5" jdbcType="INTEGER" property="dis5" />
+    <result column="dis_6" jdbcType="INTEGER" property="dis6" />
+    <result column="dis_7" jdbcType="INTEGER" property="dis7" />
+    <result column="dis_8" jdbcType="INTEGER" property="dis8" />
+    <result column="dis_9" jdbcType="INTEGER" property="dis9" />
+    <result column="dis_10" jdbcType="INTEGER" property="dis10" />
+    <result column="dis_11" jdbcType="INTEGER" property="dis11" />
+    <result column="dis_12" jdbcType="INTEGER" property="dis12" />
+    <result column="dis_13" jdbcType="INTEGER" property="dis13" />
+    <result column="dis_14" jdbcType="INTEGER" property="dis14" />
+    <result column="dis_15" jdbcType="INTEGER" property="dis15" />
+    <result column="dis_16" jdbcType="INTEGER" property="dis16" />
+    <result column="dis_17" jdbcType="INTEGER" property="dis17" />
+    <result column="dis_18" jdbcType="INTEGER" property="dis18" />
+    <result column="dis_19" jdbcType="INTEGER" property="dis19" />
+    <result column="dis_20" jdbcType="INTEGER" property="dis20" />
+    <result column="dis_21" jdbcType="INTEGER" property="dis21" />
+    <result column="dis_22" jdbcType="INTEGER" property="dis22" />
+    <result column="dis_23" jdbcType="INTEGER" property="dis23" />
+    <result column="dis_24" jdbcType="INTEGER" property="dis24" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, dis_1, dis_2, dis_3, dis_4, dis_5, dis_6, dis_7, dis_8, dis_9, dis_10, 
+    dis_11, dis_12, dis_13, dis_14, dis_15, dis_16, dis_17, dis_18, dis_19, dis_20, dis_21, 
+    dis_22, dis_23, dis_24
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_disease_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_disease_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.DiseaseRecipeUser">
+    insert into t_disease_user (id, user_id, dis_1, 
+      dis_2, dis_3, dis_4, dis_5, 
+      dis_6, dis_7, dis_8, dis_9, 
+      dis_10, dis_11, dis_12, 
+      dis_13, dis_14, dis_15, 
+      dis_16, dis_17, dis_18, 
+      dis_19, dis_20, dis_21, 
+      dis_22, dis_23, dis_24
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{dis1,jdbcType=INTEGER}, 
+      #{dis2,jdbcType=INTEGER}, #{dis3,jdbcType=INTEGER}, #{dis4,jdbcType=INTEGER}, #{dis5,jdbcType=INTEGER}, 
+      #{dis6,jdbcType=INTEGER}, #{dis7,jdbcType=INTEGER}, #{dis8,jdbcType=INTEGER}, #{dis9,jdbcType=INTEGER}, 
+      #{dis10,jdbcType=INTEGER}, #{dis11,jdbcType=INTEGER}, #{dis12,jdbcType=INTEGER}, 
+      #{dis13,jdbcType=INTEGER}, #{dis14,jdbcType=INTEGER}, #{dis15,jdbcType=INTEGER}, 
+      #{dis16,jdbcType=INTEGER}, #{dis17,jdbcType=INTEGER}, #{dis18,jdbcType=INTEGER}, 
+      #{dis19,jdbcType=INTEGER}, #{dis20,jdbcType=INTEGER}, #{dis21,jdbcType=INTEGER}, 
+      #{dis22,jdbcType=INTEGER}, #{dis23,jdbcType=INTEGER}, #{dis24,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.DiseaseRecipeUser">
+    insert into t_disease_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="dis1 != null">
+        dis_1,
+      </if>
+      <if test="dis2 != null">
+        dis_2,
+      </if>
+      <if test="dis3 != null">
+        dis_3,
+      </if>
+      <if test="dis4 != null">
+        dis_4,
+      </if>
+      <if test="dis5 != null">
+        dis_5,
+      </if>
+      <if test="dis6 != null">
+        dis_6,
+      </if>
+      <if test="dis7 != null">
+        dis_7,
+      </if>
+      <if test="dis8 != null">
+        dis_8,
+      </if>
+      <if test="dis9 != null">
+        dis_9,
+      </if>
+      <if test="dis10 != null">
+        dis_10,
+      </if>
+      <if test="dis11 != null">
+        dis_11,
+      </if>
+      <if test="dis12 != null">
+        dis_12,
+      </if>
+      <if test="dis13 != null">
+        dis_13,
+      </if>
+      <if test="dis14 != null">
+        dis_14,
+      </if>
+      <if test="dis15 != null">
+        dis_15,
+      </if>
+      <if test="dis16 != null">
+        dis_16,
+      </if>
+      <if test="dis17 != null">
+        dis_17,
+      </if>
+      <if test="dis18 != null">
+        dis_18,
+      </if>
+      <if test="dis19 != null">
+        dis_19,
+      </if>
+      <if test="dis20 != null">
+        dis_20,
+      </if>
+      <if test="dis21 != null">
+        dis_21,
+      </if>
+      <if test="dis22 != null">
+        dis_22,
+      </if>
+      <if test="dis23 != null">
+        dis_23,
+      </if>
+      <if test="dis24 != null">
+        dis_24,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="dis1 != null">
+        #{dis1,jdbcType=INTEGER},
+      </if>
+      <if test="dis2 != null">
+        #{dis2,jdbcType=INTEGER},
+      </if>
+      <if test="dis3 != null">
+        #{dis3,jdbcType=INTEGER},
+      </if>
+      <if test="dis4 != null">
+        #{dis4,jdbcType=INTEGER},
+      </if>
+      <if test="dis5 != null">
+        #{dis5,jdbcType=INTEGER},
+      </if>
+      <if test="dis6 != null">
+        #{dis6,jdbcType=INTEGER},
+      </if>
+      <if test="dis7 != null">
+        #{dis7,jdbcType=INTEGER},
+      </if>
+      <if test="dis8 != null">
+        #{dis8,jdbcType=INTEGER},
+      </if>
+      <if test="dis9 != null">
+        #{dis9,jdbcType=INTEGER},
+      </if>
+      <if test="dis10 != null">
+        #{dis10,jdbcType=INTEGER},
+      </if>
+      <if test="dis11 != null">
+        #{dis11,jdbcType=INTEGER},
+      </if>
+      <if test="dis12 != null">
+        #{dis12,jdbcType=INTEGER},
+      </if>
+      <if test="dis13 != null">
+        #{dis13,jdbcType=INTEGER},
+      </if>
+      <if test="dis14 != null">
+        #{dis14,jdbcType=INTEGER},
+      </if>
+      <if test="dis15 != null">
+        #{dis15,jdbcType=INTEGER},
+      </if>
+      <if test="dis16 != null">
+        #{dis16,jdbcType=INTEGER},
+      </if>
+      <if test="dis17 != null">
+        #{dis17,jdbcType=INTEGER},
+      </if>
+      <if test="dis18 != null">
+        #{dis18,jdbcType=INTEGER},
+      </if>
+      <if test="dis19 != null">
+        #{dis19,jdbcType=INTEGER},
+      </if>
+      <if test="dis20 != null">
+        #{dis20,jdbcType=INTEGER},
+      </if>
+      <if test="dis21 != null">
+        #{dis21,jdbcType=INTEGER},
+      </if>
+      <if test="dis22 != null">
+        #{dis22,jdbcType=INTEGER},
+      </if>
+      <if test="dis23 != null">
+        #{dis23,jdbcType=INTEGER},
+      </if>
+      <if test="dis24 != null">
+        #{dis24,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.DiseaseRecipeUser">
+    update t_disease_user
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="dis1 != null">
+        dis_1 = #{dis1,jdbcType=INTEGER},
+      </if>
+      <if test="dis2 != null">
+        dis_2 = #{dis2,jdbcType=INTEGER},
+      </if>
+      <if test="dis3 != null">
+        dis_3 = #{dis3,jdbcType=INTEGER},
+      </if>
+      <if test="dis4 != null">
+        dis_4 = #{dis4,jdbcType=INTEGER},
+      </if>
+      <if test="dis5 != null">
+        dis_5 = #{dis5,jdbcType=INTEGER},
+      </if>
+      <if test="dis6 != null">
+        dis_6 = #{dis6,jdbcType=INTEGER},
+      </if>
+      <if test="dis7 != null">
+        dis_7 = #{dis7,jdbcType=INTEGER},
+      </if>
+      <if test="dis8 != null">
+        dis_8 = #{dis8,jdbcType=INTEGER},
+      </if>
+      <if test="dis9 != null">
+        dis_9 = #{dis9,jdbcType=INTEGER},
+      </if>
+      <if test="dis10 != null">
+        dis_10 = #{dis10,jdbcType=INTEGER},
+      </if>
+      <if test="dis11 != null">
+        dis_11 = #{dis11,jdbcType=INTEGER},
+      </if>
+      <if test="dis12 != null">
+        dis_12 = #{dis12,jdbcType=INTEGER},
+      </if>
+      <if test="dis13 != null">
+        dis_13 = #{dis13,jdbcType=INTEGER},
+      </if>
+      <if test="dis14 != null">
+        dis_14 = #{dis14,jdbcType=INTEGER},
+      </if>
+      <if test="dis15 != null">
+        dis_15 = #{dis15,jdbcType=INTEGER},
+      </if>
+      <if test="dis16 != null">
+        dis_16 = #{dis16,jdbcType=INTEGER},
+      </if>
+      <if test="dis17 != null">
+        dis_17 = #{dis17,jdbcType=INTEGER},
+      </if>
+      <if test="dis18 != null">
+        dis_18 = #{dis18,jdbcType=INTEGER},
+      </if>
+      <if test="dis19 != null">
+        dis_19 = #{dis19,jdbcType=INTEGER},
+      </if>
+      <if test="dis20 != null">
+        dis_20 = #{dis20,jdbcType=INTEGER},
+      </if>
+      <if test="dis21 != null">
+        dis_21 = #{dis21,jdbcType=INTEGER},
+      </if>
+      <if test="dis22 != null">
+        dis_22 = #{dis22,jdbcType=INTEGER},
+      </if>
+      <if test="dis23 != null">
+        dis_23 = #{dis23,jdbcType=INTEGER},
+      </if>
+      <if test="dis24 != null">
+        dis_24 = #{dis24,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.DiseaseRecipeUser">
+    update t_disease_user
+    set user_id = #{userId,jdbcType=INTEGER},
+      dis_1 = #{dis1,jdbcType=INTEGER},
+      dis_2 = #{dis2,jdbcType=INTEGER},
+      dis_3 = #{dis3,jdbcType=INTEGER},
+      dis_4 = #{dis4,jdbcType=INTEGER},
+      dis_5 = #{dis5,jdbcType=INTEGER},
+      dis_6 = #{dis6,jdbcType=INTEGER},
+      dis_7 = #{dis7,jdbcType=INTEGER},
+      dis_8 = #{dis8,jdbcType=INTEGER},
+      dis_9 = #{dis9,jdbcType=INTEGER},
+      dis_10 = #{dis10,jdbcType=INTEGER},
+      dis_11 = #{dis11,jdbcType=INTEGER},
+      dis_12 = #{dis12,jdbcType=INTEGER},
+      dis_13 = #{dis13,jdbcType=INTEGER},
+      dis_14 = #{dis14,jdbcType=INTEGER},
+      dis_15 = #{dis15,jdbcType=INTEGER},
+      dis_16 = #{dis16,jdbcType=INTEGER},
+      dis_17 = #{dis17,jdbcType=INTEGER},
+      dis_18 = #{dis18,jdbcType=INTEGER},
+      dis_19 = #{dis19,jdbcType=INTEGER},
+      dis_20 = #{dis20,jdbcType=INTEGER},
+      dis_21 = #{dis21,jdbcType=INTEGER},
+      dis_22 = #{dis22,jdbcType=INTEGER},
+      dis_23 = #{dis23,jdbcType=INTEGER},
+      dis_24 = #{dis24,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

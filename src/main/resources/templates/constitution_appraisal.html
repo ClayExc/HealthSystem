@@ -1,0 +1,1322 @@
+﻿<!doctype html>
+<html class="no-js " lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+    <title>体质测评</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/>
+    <link rel="stylesheet" href="assets/plugins/morrisjs/morris.min.css" />
+
+
+    <!-- Animation Css 新-->
+
+    <link href="assets/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+</head>
+<body class="theme-purple">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="Oreo"></div>
+        <p>正在努力加载中...</p>
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- Top Bar -->
+<nav class="navbar p-l-5 p-r-5">
+    <ul class="nav navbar-nav navbar-left">
+        <li>
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html"><span class="m-l-10">首页</span></a>
+            </div>
+        </li>
+        <li><a href="#" title="订单"><i class="zmdi zmdi-reader"></i></a></li>
+        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i>
+            <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+        </a>
+            <ul class="dropdown-menu pullDown">
+                <li class="body">
+                    <ul class="menu list-unstyled">
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <span class="name">运动助手 <span class="time">30min ago</span></span>
+                                        <span class="message" style="margin-top: 10px;">今天天气非常适合当前运动，不要错过哦!</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="footer"> <a href="javascript:void(0);"></a> </li>
+            </ul>
+        </li>
+        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i>
+            <div class="notify">
+                <span class="heartbit"></span>
+                <span class="point"></span>
+            </div>
+        </a>
+            <ul class="dropdown-menu pullDown">
+                <li class="header">今日目标</li>
+                <li class="body">
+                    <ul class="menu tasks list-unstyled">
+                        <li>
+                            <a href="javascript:void(0);">
+                                <p style="color: #8BC34A;">运动类型：健身跑</p>
+                                <p style="color: #8BC34A;">运动心率：135-150/分钟</p>
+                                <p style="color: #8BC34A;">运动时间：40分钟-55分钟</p>
+                                <p style="color: #8BC34A;">跑步速度：7分20秒-8分10秒/公里</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">今日完成度</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                            <span class="progress-value">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="progress-container progress-info">
+                                    <span class="progress-badge">总完成度</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                                            <span class="progress-value">86%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="footer"><a href="javascript:void(0);"></a></li>
+            </ul>
+        </li>
+        <li class="hidden-sm-down">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search...">
+                <span class="input-group-addon">
+                    <i class="zmdi zmdi-search"></i>
+                </span>
+            </div>
+        </li>
+        <li class="float-right">
+            <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+            <a href="#" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>菜单</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#user"><i class="zmdi zmdi-account m-r-5"></i>我的</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane stretchRight active" id="dashboard">
+            <div class="menu">
+                <ul class="list">
+                    <li class="header" style="font-size: 17px; color:#009688 ;"><span style="margin-left: 10px;">运动</span></li>
+                    <li class="active open"><a href="prescription.html" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>运动处方</span></a></li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>自主运动</span></a>
+                        <ul class="ml-menu">
+                            <li class="active"><a href="run.html">跑步</a> </li>
+                            <li><a href="riding.html">骑行</a></li>
+                            <li><a href="course.html">课程</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prescription.html" class="menu-toggle"><i class="zmdi zmdi-calendar"></i><span>更换处方</span></a></li>
+                    </li>
+                    <li class="header" style="font-size: 17px;color:#009688 ;"><span style="margin-left: 10px;color:#009688 ;">发现</span></li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>运动场地</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="exercise_field.html">健身场馆</a> </li>
+                            <li><a href="public_space.html">公共场地</a> </li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>运动设备</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="equipment.html">运动器械</a> </li>
+                            <li> <a href="clothes.html">运动服装</a> </li>
+                            <li> <a href="#">监控设备</a> </li>
+                            <li> <a href="#">淘二手</a> </li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">airplay</i><span>运动资讯</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="match.html">赛事</a> </li>
+                            <li> <a href="news.html">新闻</a> </li>
+                            <li> <a href="topic.html">话题</a> </li>
+
+                        </ul>
+                    </li>
+                    <li class="header" style="font-size: 17px;color:#009688 ;"><span style="margin-left: 10px;color:#009688 ;">健康</span></li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">directions_run</i><span>运动状态</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="history.html">历史记录</a></li>
+                            <li><a href="#">效果预测</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="body_status.html" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">favorite</i><span>身体状态</span> </a>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">local_library</i><span>健康常识</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="#">我的推荐</a> </li>
+                            <li> <a href="#">分类检索</a> </li>
+                        </ul>
+                    </li>
+                    <li class="header" style="font-size: 17px;color:#009688 ;"><span style="margin-left: 10px;color:#009688 ;">进度</span></li>
+                    <li>
+                        <div class="progress-container progress-primary m-t-10">
+                            <span class="progress-badge">今日完成度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width: 67%;">
+                                    <span class="progress-value">67%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-container progress-info">
+                            <span class="progress-badge">总完成度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
+                                    <span class="progress-value">86%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab-pane stretchLeft" id="user">
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <div class="user-info m-b-20 p-b-15">
+                            <div class="image"><a href="profile.html"><img src="img/userimg.png" alt="User"></a></div>
+                            <div class="detail">
+                                <h4>wkz</h4>
+                                <small>加油，让自己动起来</small>
+                            </div>
+
+
+                            <!--<div class="row">
+                                <div class="col-4">
+                                    <h5 class="m-b-5">5852</h5>
+                                    <small>步数</small>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="m-b-5">256KJ</h5>
+                                    <small>消耗</small>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="m-b-5">0%</h5>
+                                    <small>完成度</small>
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </li>
+                    <li>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <div style="float: left;">今日完成度</div>
+                                <div style="float:none;" class="text-right">89%</div>
+                                <div class="progress m-b-20">
+                                    <div class="progress-bar l-blue " role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%"> <span class="sr-only">62% Complete</span> </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="float: left;">平均完成度</div>
+                                <div style="float:none;" class="text-right">82%</div>
+                                <div class="progress m-b-20">
+                                    <div class="progress-bar l-green " role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" style="width: 82%"> <span class="sr-only">82%</span> </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="float: left;">总完成度</div>
+                                <div style="float:none;" class="text-right">86%</div>
+                                <div class="progress m-b-20">
+                                    <div class="progress-bar l-amber " role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span class="sr-only">56%</span> </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">chrome_reader_mode</i><span>我的订单</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="#">运动场馆</a></li>
+                            <li><a href="#">运动设备</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">folder_special</i><span>我的收藏</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="#">运动课程</a></li>
+                            <li><a href="#">运动处方</a></li>
+                            <li><a href="#">运动场馆</a></li>
+                            <li><a href="#">运动设备</a></li>
+                            <li><a href="#">运动资讯</a></li>
+                            <li><a href="#">健康常识</a></li>
+                        </ul>
+                    </li>
+
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">assignment_ind</i><span>账号资料</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="#">修改个人信息</a></li>
+                            <li><a href="#">隐私设置</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Right Sidebar -->
+<aside id="rightsidebar" class="right-sidebar">
+    <div class="tab-content">
+        <div class="tab-pane slideRight active" id="setting">
+            <div class="slim_scroll">
+                <div class="card">
+                    <h6>皮肤</h6>
+                    <ul class="choose-skin list-unstyled">
+                        <li data-theme="purple" class="active">
+                            <div class="purple"></div>
+                        </li>
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                        </li>
+                        <li data-theme="cyan">
+                            <div class="cyan"></div>
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                        </li>
+                        <li data-theme="blush">
+                            <div class="blush"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card theme-light-dark">
+                    <h6>菜单样式</h6>
+                    <button class="t-light btn btn-default btn-simple btn-round btn-block">亮背景</button>
+                    <button class="t-dark btn btn-default btn-round btn-block">暗背景</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+<!--内容部分 -->
+<section class="content home">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12" id="tizhibody">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>体质测评</strong> </h2>
+                </div>
+                <div class="body" id="tizhi">
+                    <form id="wizard_with_validation" method="POST">
+                        <h3>信息一</h3>
+                        <fieldset>
+                            <div class="form-group form-float">
+                                <div class="row clearfix">
+                                    <div class="col-md-6"> <b>身高</b>
+                                        <div class="input-group colorpicker">
+                                            <input type="number" class="form-control" name="user_height" value="">
+                                            <span class="input-group-addon"> <i>cm</i> </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"> <b>体重</b>
+                                        <div class="input-group colorpicker">
+                                            <input type="number" class="form-control" name="user_weight" value="">
+                                            <span class="input-group-addon"> <i>kg</i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="row clearfix">
+                                    <div class="col-md-6"> <b>安静心率测试1</b>
+                                        <div class="input-group colorpicker">
+                                            <input type="number" class="form-control" name="user_optimal_rate1" value="">
+                                            <span class="input-group-addon"> <i>/min</i> </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"> <b>安静心率测试2</b>
+                                        <div class="input-group colorpicker">
+                                            <input type="number" class="form-control" name="user_optimal_rate2"  value="">
+                                            <span class="input-group-addon"> <i>/min</i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <h3>信息二</h3>
+                        <fieldset>
+                            <div class="form-group form-float">
+                                <div class="row clearfix">
+                                    <div class="col-md-6"> <b>胸围</b>
+                                        <div class="input-group colorpicker">
+                                            <input type="number" class="form-control" name="user_chest" value="">
+                                            <span class="input-group-addon"> <i>cm</i> </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"> <b>腰围</b>
+                                        <div class="input-group colorpicker">
+                                            <input type="number" class="form-control" name="user_waist" value="">
+                                            <span class="input-group-addon"> <i>cm</i> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-float">
+                                <div class="row clearfix">
+                                    <div class="col-md-6"> <b>臀围</b>
+                                        <div class="input-group colorpicker">
+                                            <input type="number" class="form-control" name="user_hipline" value="">
+                                            <span class="input-group-addon"> <i>cm</i> </span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </fieldset>
+                        <h3>信息三</h3>
+
+                        <fieldset>
+                            <div style="height: 50px;color: #FF5722;font-size: 16px"> 请选择您的身体疾病</div>
+                            <div class="row col-md-12">
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me1" type="checkbox" name="disease" value="1">
+                                    <label for="remember_me1">
+                                        l性糖尿病
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me2" type="checkbox" name="disease" value="2">
+                                    <label for="remember_me2">
+                                        冠心病
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me3" type="checkbox" name="disease" value="3">
+                                    <label for="remember_me3">
+                                        高血压
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me4" type="checkbox" name="disease" value="4">
+                                    <label for="remember_me4">
+                                        退行性骨关节炎
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me5" type="checkbox" name="disease" value="5">
+                                    <label for="remember_me5">
+                                        骨质疏松症
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me6" type="checkbox" name="disease" value="6">
+                                    <label for="remember_me6">
+                                        急性肝炎
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me7" type="checkbox" name="disease" value="7">
+                                    <label for="remember_me7">
+                                        细菌性痢疾
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me8" type="checkbox" name="disease" value="8">
+                                    <label for="remember_me8">
+                                        急性扁桃体炎
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me9" type="checkbox" name="disease" value="9">
+                                    <label for="remember_me9">
+                                        肺炎
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me10" type="checkbox" name="disease" value="10">
+                                    <label for="remember_me10">
+                                        血友病
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me11" type="checkbox" name="disease" value="11">
+                                    <label for="remember_me11">
+                                        白血病
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me12" type="checkbox" name="disease" value="12">
+                                    <label for="remember_me12">
+                                        血小板减少性紫癜
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me13" type="checkbox" name="disease" value="13">
+                                    <label for="remember_me13">
+                                        支气管扩张咯血
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me14" type="checkbox" name="disease" value="14">
+                                    <label for="remember_me14">
+                                        消化道出血
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me15" type="checkbox" name="disease" value="15">
+                                    <label for="remember_me15">
+                                        病毒性心肌炎
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me16" type="checkbox" name="disease" value="16">
+                                    <label for="remember_me16">
+                                        急性病毒性肝炎
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me17" type="checkbox" name="disease" value="17">
+                                    <label for="remember_me17">
+                                        肺结核病的急性期
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me18" type="checkbox" name="disease" value="18">
+                                    <label for="remember_me18">
+                                        心肌梗塞
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me19" type="checkbox" name="disease" value="19">
+                                    <label for="remember_me19">
+                                        视网膜病变
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me20" type="checkbox" name="disease" value="20">
+                                    <label for="remember_me20">
+                                        充血性心脏衰竭
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me21" type="checkbox" name="disease" value="21">
+                                    <label for="remember_me21">
+                                        不稳定的心绞痛
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me22" type="checkbox" name="disease" value="22">
+                                    <label for="remember_me22">
+                                        急性心肌炎或心包炎
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me23" type="checkbox" name="disease" value="23">
+                                    <label for="remember_me23">
+                                        严重的主动脉狭窄
+                                    </label>
+                                </div>
+                                <div class="checkbox col-md-4">
+                                    <input id="remember_me24" type="checkbox" name="disease" value="24">
+                                    <label for="remember_me24">
+                                        人工起搏等心血管疾病
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <h3>信息四</h3>
+                        <fieldset>
+                            <div style="height: 50px;color: #FF5722;font-size: 16px">请您依照实际情况进行选择</div>
+                            <h5 style="font-size: 18px">1、我感觉到疲乏 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender1" id="011"  class="with-gap" value="1">
+                                    <label for="011">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender1" id="012"  class="with-gap" value="2" >
+                                    <label for="012">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender1" id="013"  class="with-gap" value="3">
+                                    <label for="013">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender1" id="014"  class="with-gap" value="4" >
+                                    <label for="014">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender1" id="015"  class="with-gap" value="5" checked="true">
+                                    <label for="015">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">2、我的疲乏在休息后不能缓解</h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender2" id="021"  class="with-gap" value="1">
+                                    <label for="021">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender2" id="022"  class="with-gap" value="2" >
+                                    <label for="022">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender2" id="023"  class="with-gap" value="3">
+                                    <label for="023">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender2" id="024"  class="with-gap" value="4" >
+                                    <label for="024">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender2" id="025"  class="with-gap" value="5" checked="true">
+                                    <label for="025">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">3、我感到头脑昏沉</h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender3" id="031"  class="with-gap" value="1">
+                                    <label for="031">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender3" id="032"  class="with-gap" value="2" >
+                                    <label for="032">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender3" id="033"  class="with-gap" value="3">
+                                    <label for="033">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender3" id="034"  class="with-gap" value="4" >
+                                    <label for="034">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender3" id="035"  class="with-gap" value="5" checked="true">
+                                    <label for="035">非常符合</label>
+                                </div>
+                            </div>
+                            <h5 style="font-size: 18px">4、我颈背肌肉酸痛 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender4" id="041"  class="with-gap" value="1">
+                                    <label for="041">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender4" id="042"  class="with-gap" value="2" >
+                                    <label for="042">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender4" id="043"  class="with-gap" value="3">
+                                    <label for="043">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender4" id="044"  class="with-gap" value="4" >
+                                    <label for="44">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender4" id="045"  class="with-gap" value="5" checked="true">
+                                    <label for="045">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">5、我感到眼睛干涩酸胀 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender5" id="051"  class="with-gap" value="1">
+                                    <label for="051">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender5" id="052"  class="with-gap" value="2" >
+                                    <label for="052">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender5" id="053"  class="with-gap" value="3">
+                                    <label for="053">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender5" id="054"  class="with-gap" value="4" >
+                                    <label for="054">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender5" id="055"  class="with-gap" value="5" checked="true">
+                                    <label for="055">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">6、我感到咽干</h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender6" id="061"  class="with-gap" value="1">
+                                    <label for="061">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender6" id="062"  class="with-gap" value="2" >
+                                    <label for="062">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender6" id="063"  class="with-gap" value="3">
+                                    <label for="063">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender6" id="064"  class="with-gap" value="4" >
+                                    <label for="064">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender6" id="065"  class="with-gap" value="5" checked="true">
+                                    <label for="065">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">7、我感到记住事情很困难 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender7" id="071"  class="with-gap" value="1">
+                                    <label for="071">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender7" id="072"  class="with-gap" value="2" >
+                                    <label for="072">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender7" id="073"  class="with-gap" value="3">
+                                    <label for="073">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender7" id="074"  class="with-gap" value="4" >
+                                    <label for="074">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender7" id="075"  class="with-gap" value="5" checked="true">
+                                    <label for="075">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">8、我的食欲很差 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender8" id="081"  class="with-gap" value="1">
+                                    <label for="081">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender8" id="082"  class="with-gap" value="2" >
+                                    <label for="082">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender8" id="083"  class="with-gap" value="3">
+                                    <label for="083">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender8" id="084"  class="with-gap" value="4" >
+                                    <label for="084">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender8" id="085"  class="with-gap" value="5" checked="true">
+                                    <label for="085">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">9、我感到腹满腹胀 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender9" id="091"  class="with-gap" value="1">
+                                    <label for="091">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender9" id="092"  class="with-gap" value="2" >
+                                    <label for="092">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender9" id="093"  class="with-gap" value="3">
+                                    <label for="093">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender9" id="094"  class="with-gap" value="4" >
+                                    <label for="094">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender9" id="095"  class="with-gap" value="5" checked="true">
+                                    <label for="095">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">10、我很容易出汗 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender10" id="101"  class="with-gap" value="1">
+                                    <label for="101">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender10" id="102"  class="with-gap" value="2" >
+                                    <label for="102">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender10" id="103"  class="with-gap" value="3">
+                                    <label for="103">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender10" id="104"  class="with-gap" value="4" >
+                                    <label for="104">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender10" id="105"  class="with-gap" value="5" checked="true">
+                                    <label for="105">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">11、我睡着后经常出汗 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender11" id="111"  class="with-gap" value="1">
+                                    <label for="111">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender11" id="112"  class="with-gap" value="2" >
+                                    <label for="112">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender11" id="113"  class="with-gap" value="3">
+                                    <label for="113">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender11" id="114"  class="with-gap" value="4" >
+                                    <label for="114">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender11" id="115"  class="with-gap" value="5" checked="true">
+                                    <label for="115">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">12、我感到手脚心发热 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender12" id="121"  class="with-gap" value="1">
+                                    <label for="121">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender12" id="122"  class="with-gap" value="2" >
+                                    <label for="122">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender12" id="123"  class="with-gap" value="3">
+                                    <label for="123">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender12" id="124"  class="with-gap" value="4" >
+                                    <label for="124">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender12" id="125"  class="with-gap" value="5" checked="true">
+                                    <label for="125">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">13、我感到心慌 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender13" id="131"  class="with-gap" value="1">
+                                    <label for="131">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender13" id="132"  class="with-gap" value="2" >
+                                    <label for="132">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender13" id="133"  class="with-gap" value="3">
+                                    <label for="133">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender13" id="134"  class="with-gap" value="4" >
+                                    <label for="134">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender13" id="135"  class="with-gap" value="5" checked="true">
+                                    <label for="135">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">14、我感到胸闷 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender" id="141"  class="with-gap" value="1">
+                                    <label for="141">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender14" id="142"  class="with-gap" value="2" >
+                                    <label for="142">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender14" id="143"  class="with-gap" value="3">
+                                    <label for="143">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender14" id="144"  class="with-gap" value="4" >
+                                    <label for="144">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender14" id="145"  class="with-gap" value="5" checked="true">
+                                    <label for="145">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">15、我感到身体有疼痛 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender15" id="151"  class="with-gap" value="1">
+                                    <label for="151">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender15" id="152"  class="with-gap" value="2" >
+                                    <label for="152">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender15" id="153"  class="with-gap" value="3">
+                                    <label for="153">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender15" id="154"  class="with-gap" value="4" >
+                                    <label for="154">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender15" id="155"  class="with-gap" value="5" checked="true">
+                                    <label for="155">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">16、我的睡眠质量很差 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender16" id="161"  class="with-gap" value="1">
+                                    <label for="161">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender16" id="162"  class="with-gap" value="2" >
+                                    <label for="162">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender16" id="163"  class="with-gap" value="3">
+                                    <label for="163">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender16" id="164"  class="with-gap" value="4" >
+                                    <label for="164">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender16" id="165"  class="with-gap" value="5" checked="true">
+                                    <label for="165">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">17、我每天都难以入睡 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender17" id="171"  class="with-gap" value="1">
+                                    <label for="171">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender17" id="172"  class="with-gap" value="2" >
+                                    <label for="172">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender17" id="173"  class="with-gap" value="3">
+                                    <label for="173">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender17" id="174"  class="with-gap" value="4" >
+                                    <label for="174">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender17" id="175"  class="with-gap" value="5" checked="true">
+                                    <label for="175">非常符合</label>
+                                </div>
+                            </div>
+                            <h5 style="font-size: 18px">18、我睡觉时蒙多，经常从噩梦中惊醒 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender18" id="181"  class="with-gap" value="1">
+                                    <label for="181">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender18" id="182"  class="with-gap" value="2" >
+                                    <label for="182">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender18" id="183"  class="with-gap" value="3">
+                                    <label for="183">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender18" id="184"  class="with-gap" value="4" >
+                                    <label for="184">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender18" id="185"  class="with-gap" value="5" checked="true">
+                                    <label for="185">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">19、我思考问题时注意力不容易集中 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender19" id="191"  class="with-gap" value="1">
+                                    <label for="191">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender19" id="192"  class="with-gap" value="2" >
+                                    <label for="192">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender19" id="193"  class="with-gap" value="3">
+                                    <label for="193">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender19" id="194"  class="with-gap" value="4" >
+                                    <label for="194">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender19" id="195"  class="with-gap" value="5" checked="true">
+                                    <label for="195">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">20、我感觉心情烦躁 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender20" id="201"  class="with-gap" value="1">
+                                    <label for="201">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender20" id="202"  class="with-gap" value="2" >
+                                    <label for="202">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender20" id="203"  class="with-gap" value="3">
+                                    <label for="203">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender20" id="204"  class="with-gap" value="4" >
+                                    <label for="204">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender20" id="205"  class="with-gap" value="5" checked="true">
+                                    <label for="205">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">21、我对什么事情都不感兴趣 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender21" id="211"  class="with-gap" value="1">
+                                    <label for="211">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender21" id="212"  class="with-gap" value="2" >
+                                    <label for="212">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender21" id="213"  class="with-gap" value="3">
+                                    <label for="213">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender21" id="214"  class="with-gap" value="4" >
+                                    <label for="214">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender21" id="215"  class="with-gap" value="5" checked="true">
+                                    <label for="215">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">22、我的情绪非常不好，什么事都不能使我高兴 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender22" id="221"  class="with-gap" value="1">
+                                    <label for="221">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender22" id="222"  class="with-gap" value="2" >
+                                    <label for="222">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender22" id="223"  class="with-gap" value="3">
+                                    <label for="223">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender22" id="224"  class="with-gap" value="4" >
+                                    <label for="224">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender22" id="225"  class="with-gap" value="5" checked="true">
+                                    <label for="225">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">23、我经常对身边的人发脾气 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender23" id="231"  class="with-gap" value="1">
+                                    <label for="231">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender23" id="232"  class="with-gap" value="2" >
+                                    <label for="232">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender23" id="233"  class="with-gap" value="3">
+                                    <label for="233">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender23" id="234"  class="with-gap" value="4" >
+                                    <label for="234">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender23" id="235"  class="with-gap" value="5" checked="true">
+                                    <label for="235">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">24、我总觉得似乎有不幸事情要降临 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender24" id="241"  class="with-gap" value="1">
+                                    <label for="241">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender24" id="242"  class="with-gap" value="2" >
+                                    <label for="242">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender24" id="243"  class="with-gap" value="3">
+                                    <label for="243">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender24" id="244"  class="with-gap" value="4" >
+                                    <label for="244">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender24" id="245"  class="with-gap" value="5" checked="true">
+                                    <label for="245">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">25、我没有充沛的精力去应付日常生活 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender25" id="251"  class="with-gap" value="1">
+                                    <label for="251">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender25" id="252"  class="with-gap" value="2" >
+                                    <label for="252">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender25" id="253"  class="with-gap" value="3">
+                                    <label for="253">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender25" id="254"  class="with-gap" value="4" >
+                                    <label for="254">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender25" id="255"  class="with-gap" value="5" checked="true">
+                                    <label for="255">非常符合</label>
+                                </div>
+                            </div>
+
+                            <h5 style="font-size: 18px">26、我感觉到压力很大 </h5>
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender26" id="261"  class="with-gap" value="1">
+                                    <label for="261">完全不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender26" id="262"  class="with-gap" value="2" >
+                                    <label for="262">基本不符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender26" id="263"  class="with-gap" value="3">
+                                    <label for="263">符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender26" id="264"  class="with-gap" value="4" >
+                                    <label for="264">比较符合</label>
+                                </div>
+                                <div class="radio inlineblock col-md-2">
+                                    <input type="radio" name="gender26" id="265"  class="with-gap" value="5" checked="true">
+                                    <label for="265">非常符合</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row clearfix" id="ydnlbody">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>运动能力测评</strong></h2>
+
+                </div>
+                <div class="body" id="ydnl">
+                    <div id="wizard_vertical" >
+                        <h2>测试一</h2>
+                        <section>
+                            <div style="color: #FF5722;font-size: 15px;padding-bottom: 8px;">请在规定时间内完成卧撑测试</div>
+
+                            <div class="test_content" style="padding-bottom: 8px;">
+                                <span style="color: #F44336;font-size: 15px">做法：</span>先全身放松，然后开始参考标准示例做俯卧撑，并记录一分钟所做俯卧撑的个数。
+                            </div >
+                            <div class="test_notice" style="padding-bottom: 8px;">
+                                <span style="color: #F44336;font-size: 15px">注意：</span>如果身体有任何不适请立即停止测试。
+                            </div >
+                            <div class="test_img">
+                                <div><span style="color: #F44336;font-size: 15px">示例：</span></div>
+                                <div >
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px;padding-left: 5px;" src="img/fuwocheng/fuwocheng1.png" alt="">
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px; padding-left: 5px;" src="img/fuwocheng/fuwocheng2.png" alt="">
+                                </div>
+                            </div >
+                            <div class="test_input">
+                                <div><span style="color: #F44336;font-size: 15px">个数：</span></div>
+                                <div class="input-group colorpicker">
+                                    <input type="number" class="form-control" placeholder="一分钟俯卧撑个数" name="fuwocheng_number" value="">
+                                    <span class="input-group-addon"> <i>个</i> </span>
+                                </div>
+                            </div >
+
+                        </section>
+                        <h2>测试二</h2>
+                        <section>
+                            <div style="color: #FF5722;font-size: 15px;padding-bottom: 8px;">请在规定时间内完成仰卧起坐测试</div>
+
+                            <div class="test_content" style="padding-bottom: 8px;">
+                                <span style="color: #F44336;font-size: 15px">做法：</span>先全身放松，然后开始参考标准示例做仰卧起坐，并记录一分钟所做仰卧起坐的个数。
+                            </div >
+                            <div class="test_notice" style="padding-bottom: 8px;">
+                                <span style="color: #F44336;font-size: 15px">注意：</span>如果身体有任何不适请立即停止测试，不能用手把头抬起来，要用腰部力量抬起身体。
+                            </div >
+                            <div class="test_img">
+                                <div><span style="color: #F44336;font-size: 15px">示例：</span></div>
+                                <div >
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px;padding-left: 5px;" src="img/yangwoqizuo/yangwoqizuo1.png" alt="">
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px; padding-left: 5px;" src="img/yangwoqizuo/yangwoqizuo2.png" alt="">
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px;padding-left: 5px;" src="img/yangwoqizuo/yangwoqizuo3.png" alt="">
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px; padding-left: 5px;" src="img/yangwoqizuo/yangwoqizuo4.png" alt="">
+                                </div>
+                            </div >
+
+                            <div class="test_input">
+                                <div><span style="color: #F44336;font-size: 15px">个数：</span></div>
+                                <div class="input-group colorpicker">
+                                    <input type="number" class="form-control" placeholder="一分钟仰卧起坐个数" name="yangwoqizuo_number" value="" >
+                                    <span class="input-group-addon"> <i>个</i> </span>
+                                </div>
+                            </div >
+                        </section>
+                        <h2>测试三</h2>
+                        <section>
+                            <div style="color: #FF5722;font-size: 15px;padding-bottom: 8px;">请按照规定流程完成台阶测试</div>
+
+                            <div class="test_content" style="padding-bottom: 8px;">
+                                <span style="color: #F44336;font-size: 15px">做法：</span>按照示例从预备姿势开始，（1）被测试者一只脚踏在台阶上，（2）踏台腿伸直成台上站立，（3）先踏台的脚先下地，（4）还原成预备姿势。用2秒上、下一次的速度（按节拍器的节律来做）连续做3分钟，每分钟踏30次（上下）。测试后，你应立即坐下，并测量运动后1分钟至1分30秒、2分钟至2分30秒、三分钟至3分30秒的3个恢复期的心率，并完成心率填写。
+                            </div >
+                            <div class="test_notice" style="padding-bottom: 8px;">
+                                <span style="color: #F44336;font-size: 15px">注意：</span>测验前应做轻度的准备活动，主要是活动下肢关节。男生用高40厘米的台阶（或凳子）；女生用高35厘米的台阶（或凳子）。如果身体有任何不适请立即停止测试。
+                            </div >
+                            <div class="test_img">
+                                <div><span style="color: #F44336;font-size: 15px">示例：</span></div>
+                                <div >
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px;padding-left: 5px;" src="img/taijieceshi/taijieceshi1.png" alt="">
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px; padding-left: 5px;" src="img/taijieceshi/taijieceshi2.png" alt="">
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px;padding-left: 5px;" src="img/taijieceshi/taijieceshi3.png" alt="">
+                                    <img class="media-object " style="height: 100px;width: 90px;padding-top: 5px; padding-left: 5px;" src="img/taijieceshi/taijieceshi4.png" alt="">
+                                </div>
+                            </div >
+                            <div class="test_input" style="padding-top: 5px;">
+                                <div><span style="color: #F44336;font-size: 15px;padding-top: 15px;">1分钟至1分30秒心率：</span></div>
+                                <div class="input-group colorpicker">
+                                    <input type="number" class="form-control" name="taijie1_number" value="">
+                                    <span class="input-group-addon"> <i>次</i> </span>
+                                </div>
+                                <div><span style="color: #F44336;font-size: 15px;padding-top: 5px;">2分钟至2分30秒心率：</span></div>
+                                <div class="input-group colorpicker">
+                                    <input type="number" class="form-control" name="taijie2_number" value="">
+                                    <span class="input-group-addon"> <i>次</i> </span>
+                                </div>
+                                <div><span style="color: #F44336;font-size: 15px;padding-top: 5px;">3分钟至3分30秒心率：</span></div>
+                                <div class="input-group colorpicker">
+                                    <input type="number" class="form-control" name="taijie3_number" value="">
+                                    <span class="input-group-addon"> <i>次</i> </span>
+                                </div>
+                            </div >
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<!-- Jquery Core Js -->
+<script src="js/jquery.min.js"></script>
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+
+<script src="assets/bundles/morrisscripts.bundle.js"></script><!-- Morris Plugin Js -->
+<script src="assets/bundles/jvectormap.bundle.js"></script> <!-- JVectorMap Plugin Js -->
+<script src="assets/bundles/knob.bundle.js"></script> <!-- Jquery Knob, Count To, Sparkline Js -->
+
+<script src="assets/bundles/mainscripts.bundle.js"></script>
+<script src="assets/js/pages/index.js"></script>
+
+<script src="assets/plugins/jquery-validation/jquery.validate.js"></script> <!-- Jquery Validation Plugin Css -->
+<script src="assets/plugins/jquery-steps/jquery.steps.js"></script> <!-- JQuery Steps Plugin Js -->
+<script src="assets/js/pages/forms/form-wizard.js"></script>
+<script src="js/healthy/constitution_appraisal.js"></script>
+</body>
+</html>

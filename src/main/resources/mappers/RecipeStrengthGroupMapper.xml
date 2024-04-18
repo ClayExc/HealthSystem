@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.RecipeStrengthGroupMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.RecipeStrengthGroup">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="effect" jdbcType="VARCHAR" property="effect" />
+    <result column="recipe_name" jdbcType="VARCHAR" property="recipeName" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="type_Value" jdbcType="VARCHAR" property="typeValue" />
+    <result column="muscles_trained" jdbcType="VARCHAR" property="musclesTrained" />
+    <result column="method_introduction" jdbcType="VARCHAR" property="methodIntroduction" />
+    <result column="load_range" jdbcType="VARCHAR" property="loadRange" />
+    <result column="frequency_range" jdbcType="VARCHAR" property="frequencyRange" />
+    <result column="group_range" jdbcType="VARCHAR" property="groupRange" />
+    <result column="sports_frequency" jdbcType="VARCHAR" property="sportsFrequency" />
+    <result column="notice" jdbcType="VARCHAR" property="notice" />
+    <result column="equipment" jdbcType="VARCHAR" property="equipment" />
+    <result column="taboo_disease" jdbcType="VARCHAR" property="tabooDisease" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="other" jdbcType="VARCHAR" property="other" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, effect, recipe_name, type, type_Value, muscles_trained, method_introduction, 
+    load_range, frequency_range, group_range, sports_frequency, notice, equipment, taboo_disease, 
+    image, other
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_recipe_strength_group
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_recipe_strength_group
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.RecipeStrengthGroup">
+    insert into t_recipe_strength_group (id, effect, recipe_name, 
+      type, type_Value, muscles_trained, 
+      method_introduction, load_range, frequency_range, 
+      group_range, sports_frequency, notice, 
+      equipment, taboo_disease, image, 
+      other)
+    values (#{id,jdbcType=INTEGER}, #{effect,jdbcType=VARCHAR}, #{recipeName,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{typeValue,jdbcType=VARCHAR}, #{musclesTrained,jdbcType=VARCHAR}, 
+      #{methodIntroduction,jdbcType=VARCHAR}, #{loadRange,jdbcType=VARCHAR}, #{frequencyRange,jdbcType=VARCHAR}, 
+      #{groupRange,jdbcType=VARCHAR}, #{sportsFrequency,jdbcType=VARCHAR}, #{notice,jdbcType=VARCHAR}, 
+      #{equipment,jdbcType=VARCHAR}, #{tabooDisease,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{other,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.RecipeStrengthGroup">
+    insert into t_recipe_strength_group
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="effect != null">
+        effect,
+      </if>
+      <if test="recipeName != null">
+        recipe_name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="typeValue != null">
+        type_Value,
+      </if>
+      <if test="musclesTrained != null">
+        muscles_trained,
+      </if>
+      <if test="methodIntroduction != null">
+        method_introduction,
+      </if>
+      <if test="loadRange != null">
+        load_range,
+      </if>
+      <if test="frequencyRange != null">
+        frequency_range,
+      </if>
+      <if test="groupRange != null">
+        group_range,
+      </if>
+      <if test="sportsFrequency != null">
+        sports_frequency,
+      </if>
+      <if test="notice != null">
+        notice,
+      </if>
+      <if test="equipment != null">
+        equipment,
+      </if>
+      <if test="tabooDisease != null">
+        taboo_disease,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="other != null">
+        other,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="effect != null">
+        #{effect,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeName != null">
+        #{recipeName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typeValue != null">
+        #{typeValue,jdbcType=VARCHAR},
+      </if>
+      <if test="musclesTrained != null">
+        #{musclesTrained,jdbcType=VARCHAR},
+      </if>
+      <if test="methodIntroduction != null">
+        #{methodIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="loadRange != null">
+        #{loadRange,jdbcType=VARCHAR},
+      </if>
+      <if test="frequencyRange != null">
+        #{frequencyRange,jdbcType=VARCHAR},
+      </if>
+      <if test="groupRange != null">
+        #{groupRange,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsFrequency != null">
+        #{sportsFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="notice != null">
+        #{notice,jdbcType=VARCHAR},
+      </if>
+      <if test="equipment != null">
+        #{equipment,jdbcType=VARCHAR},
+      </if>
+      <if test="tabooDisease != null">
+        #{tabooDisease,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        #{other,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.RecipeStrengthGroup">
+    update t_recipe_strength_group
+    <set>
+      <if test="effect != null">
+        effect = #{effect,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeName != null">
+        recipe_name = #{recipeName,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typeValue != null">
+        type_Value = #{typeValue,jdbcType=VARCHAR},
+      </if>
+      <if test="musclesTrained != null">
+        muscles_trained = #{musclesTrained,jdbcType=VARCHAR},
+      </if>
+      <if test="methodIntroduction != null">
+        method_introduction = #{methodIntroduction,jdbcType=VARCHAR},
+      </if>
+      <if test="loadRange != null">
+        load_range = #{loadRange,jdbcType=VARCHAR},
+      </if>
+      <if test="frequencyRange != null">
+        frequency_range = #{frequencyRange,jdbcType=VARCHAR},
+      </if>
+      <if test="groupRange != null">
+        group_range = #{groupRange,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsFrequency != null">
+        sports_frequency = #{sportsFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="notice != null">
+        notice = #{notice,jdbcType=VARCHAR},
+      </if>
+      <if test="equipment != null">
+        equipment = #{equipment,jdbcType=VARCHAR},
+      </if>
+      <if test="tabooDisease != null">
+        taboo_disease = #{tabooDisease,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null">
+        other = #{other,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.RecipeStrengthGroup">
+    update t_recipe_strength_group
+    set effect = #{effect,jdbcType=VARCHAR},
+      recipe_name = #{recipeName,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      type_Value = #{typeValue,jdbcType=VARCHAR},
+      muscles_trained = #{musclesTrained,jdbcType=VARCHAR},
+      method_introduction = #{methodIntroduction,jdbcType=VARCHAR},
+      load_range = #{loadRange,jdbcType=VARCHAR},
+      frequency_range = #{frequencyRange,jdbcType=VARCHAR},
+      group_range = #{groupRange,jdbcType=VARCHAR},
+      sports_frequency = #{sportsFrequency,jdbcType=VARCHAR},
+      notice = #{notice,jdbcType=VARCHAR},
+      equipment = #{equipment,jdbcType=VARCHAR},
+      taboo_disease = #{tabooDisease,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      other = #{other,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+  </select>
+
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    recipe_name like '%${recipeName}%'
+  </select>
+
+  <select id="selectByEffect" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    effect like '%${recipeEffect}%'
+  </select>
+
+  <select id="selectByMuscles" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    muscles_trained = #{musclesTrained}
+  </select>
+
+  <select id="selectByEquipment" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    equipment = #{equipment}
+  </select>
+
+  <select id="selectByNameAndEffect" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    recipe_name like '%${recipeName}%'
+    and
+    effect like '%${recipeEffect}%'
+  </select>
+
+  <select id="selectByNameAndMuscles" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    recipe_name like '%${recipeName}%'
+    and
+    muscles_trained = #{musclesTrained}
+  </select>
+
+  <select id="selectByNameAndEquipment" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    recipe_name like '%${recipeName}%'
+    and
+    equipment = #{equipment}
+  </select>
+
+  <select id="selectByEffectAndMuscles" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    effect like '%${recipeEffect}%'
+    and
+    muscles_trained = #{musclesTrained}
+  </select>
+
+  <select id="selectByEffectAndEquipment" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    effect like '%${recipeEffect}%'
+    and
+    equipment = #{equipment}
+  </select>
+
+  <select id="selectMusclesAndEquipment" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    muscles_trained = #{musclesTrained}
+    and
+    equipment = #{equipment}
+  </select>
+
+  <select id="selectByNameAndEffectAndMuscles" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    recipe_name like '%${recipeName}%'
+    and
+    effect like '%${recipeEffect}%'
+    and
+    muscles_trained = #{musclesTrained}
+  </select>
+
+  <select id="selectByNameAndEffectAndEquipment" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    recipe_name like '%${recipeName}%'
+    and
+    effect like '%${recipeEffect}%'
+    and
+    equipment = #{equipment}
+  </select>
+
+  <select id="selectByNameAndMusclesAndEquipment" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    recipe_name like '%${recipeName}%'
+    and
+    muscles_trained = #{musclesTrained}
+    and
+    equipment = #{equipment}
+  </select>
+
+  <select id="selectByEffectAndMusclesAndEquipment" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    effect like '%${recipeEffect}%'
+    and
+    muscles_trained = #{musclesTrained}
+    and
+    equipment = #{equipment}
+  </select>
+
+  <select id="selectByNameAndEffectAndMusclesAndEquipment" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_recipe_strength_group
+    where
+    recipe_name like '%${recipeName}%'
+    and
+    effect like '%${recipeEffect}%'
+    and
+    muscles_trained = #{musclesTrained}
+    and
+    equipment = #{equipment}
+  </select>
+</mapper>

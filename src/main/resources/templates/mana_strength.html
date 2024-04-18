@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>力量运动处方</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="manage/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="manage/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <!-- jqgrid-->
+    <link href="manage/css/plugins/jqgrid/ui.jqgrid.css?0820" rel="stylesheet">
+
+    <link href="manage/css/animate.css" rel="stylesheet">
+    <link href="manage/css/style.css?v=4.1.0" rel="stylesheet">
+
+    <!--	select下拉多选-->
+    <script src=" js/jquery.min.js" type="text/javascript"></script>
+    <script src=" js/jquery.cookie.js" type="text/javascript"></script>
+
+    <style>
+        /* Additional style to fix warning dialog position */
+
+        #alertmod_table_list_2 {
+            top: 900px !important;
+        }
+        table th{
+            text-align:center;
+        }
+        table td{
+            text-align:center;
+        }
+
+
+        .dropdown {
+
+    position: relative;
+    font-size: 14px;
+    color: #333;
+    background-color: #cfcfca;
+    vertical-align: center;
+    margin-top: 6px;
+    /*height: 45px;*/
+}
+.dropdown .dropdown-list {
+    padding: 12px;
+    background: #cfcfca;
+    position: absolute;
+    top: 30px;
+    left: 2px;
+    right: 2px;
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.15);
+    transform-origin: 50% 0;
+    transform: scale(1, 0);
+    transition: transform .15s ease-in-out .15s;
+    max-height: 66vh;
+    overflow-y: scroll;
+}
+.dropdown .dropdown-option {
+    display: block;
+    padding: 8px 12px;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
+}
+.dropdown .dropdown-label {
+    display: block;
+    height: 30px;
+    background: #d6e9c6;
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    line-height: 1;
+    cursor: pointer;
+}
+.dropdown .dropdown-label:before {
+    content: '▼';
+    float: right;
+}
+.dropdown.on .dropdown-list {
+    transform: scale(1, 1);
+    transition-delay: 0s;
+}
+.dropdown.on .dropdown-list .dropdown-option {
+    opacity: 1;
+    transition-delay: .2s;
+}
+.dropdown.on .dropdown-label:before {
+    content: '▲';
+}
+.dropdown [type="checkbox"] {
+    position: relative;
+    top: -1px;
+    margin-right: 4px;
+}
+    </style>
+
+</head>
+
+<body onload="show_strength()" class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox ">
+                <div class="ibox-content">
+                    <div >
+                        <h4 style="width:150px;float:left" class="m-t">力量运动处方</h4>
+                        <h4 style="width:50px;float:left" class="m-t">查询：</h4>
+                        <div style="width:150px;float:left;margin-left:20px" id="search_name">
+                            <input id="name_val" type="text" placeholder="请输入处方名称" class="form-control">
+                        </div>
+                        <select style="width:150px;float:left;margin-left:20px" class="form-control" name="search" id="search_equip" data-placeholder="请选择器材">
+                            <option  value=""></option>
+                            <option  value="小哑铃">小哑铃</option>
+                            <option  value="哑铃">哑铃</option>
+                            <option  value="杠铃">杠铃</option>
+                            <option  value="蝴蝶机">蝴蝶机</option>
+                            <option  value="拉力器">拉力器</option>
+                            <option  value="杠铃片">杠铃片</option>
+                            <option  value="壶铃">壶铃</option>
+                            <option  value="沙袋">沙袋</option>
+                            <option  value="橡皮带">橡皮带</option>
+                        </select>
+                        <select style="width:150px;float:left;margin-left:20px" class="form-control" name="search" id="search_muscles" data-placeholder="请选择训练部位">
+                            <option  value=""></option>
+                            <option  value="前臂部">前臂部</option>
+                            <option  value="上臂部">上臂部</option>
+                            <option  value="颈部">颈部</option>
+                            <option  value="胸部">胸部</option>
+                            <option  value="腰腹部">腰腹部</option>
+                            <option  value="背部">背部option>
+                            <option  value="小腿部">小腿部</option>
+                            <option  value="大腿部">大腿部</option>
+
+                        </select>
+
+                        <button onclick="strength_select()" style="margin-left:20px" class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;查询</button>
+                        <button onclick="clean()" style="margin-left:20px" class="btn btn-success " type="button">重置</button>
+
+                    </div>
+
+                    <div class="jqGrid_wrapper" style="margin-top:20px">
+                        <table style="text-align:center" id="table_list_2"></table>
+                        <div id="pager_list_2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 全局js -->
+<script src="manage/js/jquery.min.js?v=2.1.4"></script>
+
+<!-- Peity -->
+<script src="manage/js/plugins/peity/jquery.peity.min.js"></script>
+
+<!-- jqGrid -->
+<script src="manage/js/plugins/jqgrid/i18n/grid.locale-cn.js?0820"></script>
+<script src="manage/js/plugins/jqgrid/jquery.jqGrid.min.js?0820"></script>
+
+<!-- 自定义js -->
+<script src="manage/js/content.js?v=1.0.0"></script>
+<script src="manage/js/strength_pre/strength_show.js"></script>
+<script src="manage/js/strength_pre/strength_select.js"></script>
+
+
+<script src="manage/js/demo/form-advanced-demo.js"></script>
+<script src="js/multipSelect.js"></script>
+<!-- Page-Level Scripts -->
+
+<!-- Chosen -->
+<script src="manage/js/plugins/chosen/chosen.jquery.js"></script>
+
+<!--   Core JS Files   -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+
+
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+
+</body>
+
+</html>

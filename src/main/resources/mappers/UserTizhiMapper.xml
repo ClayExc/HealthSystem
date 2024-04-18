@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.UserTizhiMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.UserTizhi">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="heart_lung_ability" jdbcType="INTEGER" property="heartLungAbility" />
+    <result column="muscular_endurance" jdbcType="INTEGER" property="muscularEndurance" />
+    <result column="physique" jdbcType="INTEGER" property="physique" />
+    <result column="within_fat" jdbcType="INTEGER" property="withinFat" />
+    <result column="quality_number" jdbcType="VARCHAR" property="qualityNumber" />
+    <result column="subhealt_num" jdbcType="INTEGER" property="subhealtNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userid, heart_lung_ability, muscular_endurance, physique, within_fat, quality_number, 
+    subhealt_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_tizhi
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_user_tizhi
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.UserTizhi">
+    insert into t_user_tizhi (id, userid, heart_lung_ability, 
+      muscular_endurance, physique, within_fat, 
+      quality_number, subhealt_num)
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{heartLungAbility,jdbcType=INTEGER}, 
+      #{muscularEndurance,jdbcType=INTEGER}, #{physique,jdbcType=INTEGER}, #{withinFat,jdbcType=INTEGER}, 
+      #{qualityNumber,jdbcType=VARCHAR}, #{subhealtNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.UserTizhi">
+    insert into t_user_tizhi
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="heartLungAbility != null">
+        heart_lung_ability,
+      </if>
+      <if test="muscularEndurance != null">
+        muscular_endurance,
+      </if>
+      <if test="physique != null">
+        physique,
+      </if>
+      <if test="withinFat != null">
+        within_fat,
+      </if>
+      <if test="qualityNumber != null">
+        quality_number,
+      </if>
+      <if test="subhealtNum != null">
+        subhealt_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="heartLungAbility != null">
+        #{heartLungAbility,jdbcType=INTEGER},
+      </if>
+      <if test="muscularEndurance != null">
+        #{muscularEndurance,jdbcType=INTEGER},
+      </if>
+      <if test="physique != null">
+        #{physique,jdbcType=INTEGER},
+      </if>
+      <if test="withinFat != null">
+        #{withinFat,jdbcType=INTEGER},
+      </if>
+      <if test="qualityNumber != null">
+        #{qualityNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="subhealtNum != null">
+        #{subhealtNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.UserTizhi">
+    update t_user_tizhi
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="heartLungAbility != null">
+        heart_lung_ability = #{heartLungAbility,jdbcType=INTEGER},
+      </if>
+      <if test="muscularEndurance != null">
+        muscular_endurance = #{muscularEndurance,jdbcType=INTEGER},
+      </if>
+      <if test="physique != null">
+        physique = #{physique,jdbcType=INTEGER},
+      </if>
+      <if test="withinFat != null">
+        within_fat = #{withinFat,jdbcType=INTEGER},
+      </if>
+      <if test="qualityNumber != null">
+        quality_number = #{qualityNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="subhealtNum != null">
+        subhealt_num = #{subhealtNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.UserTizhi">
+    update t_user_tizhi
+    set userid = #{userid,jdbcType=INTEGER},
+      heart_lung_ability = #{heartLungAbility,jdbcType=INTEGER},
+      muscular_endurance = #{muscularEndurance,jdbcType=INTEGER},
+      physique = #{physique,jdbcType=INTEGER},
+      within_fat = #{withinFat,jdbcType=INTEGER},
+      quality_number = #{qualityNumber,jdbcType=VARCHAR},
+      subhealt_num = #{subhealtNum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryUserid" parameterType="int" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_user_tizhi
+    where userid = #{userid}
+  </select>
+</mapper>

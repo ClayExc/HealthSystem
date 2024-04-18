@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.SportsEffectMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.SportsEffect">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sports_effect" jdbcType="VARCHAR" property="sportsEffect" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, sports_effect
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sports_effect
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_sports_effect
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.SportsEffect">
+    insert into t_sports_effect (id, sports_effect)
+    values (#{id,jdbcType=INTEGER}, #{sportsEffect,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.SportsEffect">
+    insert into t_sports_effect
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sportsEffect != null">
+        sports_effect,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sportsEffect != null">
+        #{sportsEffect,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.SportsEffect">
+    update t_sports_effect
+    <set>
+      <if test="sportsEffect != null">
+        sports_effect = #{sportsEffect,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.SportsEffect">
+    update t_sports_effect
+    set sports_effect = #{sportsEffect,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_sports_effect
+  </select>
+<select id="selectGetName" parameterType="java.lang.Integer" resultMap="BaseResultMap" >
+  select
+  sports_effect
+  from
+  t_sports_effect
+   where id = #{id,jdbcType=INTEGER}
+</select>
+
+</mapper>

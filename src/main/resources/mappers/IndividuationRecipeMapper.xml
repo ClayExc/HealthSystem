@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.IndividuationRecipeMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.IndividuationRecipe">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="standard_id" jdbcType="INTEGER" property="standardId" />
+    <result column="sports_effect_id" jdbcType="INTEGER" property="sportsEffectId" />
+    <result column="sports_type_id" jdbcType="INTEGER" property="sportsTypeId" />
+    <result column="sports_intensity_id" jdbcType="INTEGER" property="sportsIntensityId" />
+    <result column="sports_time" jdbcType="VARCHAR" property="sportsTime" />
+    <result column="sports_frequency" jdbcType="VARCHAR" property="sportsFrequency" />
+    <result column="sports_must_equipment" jdbcType="VARCHAR" property="sportsMustEquipment" />
+    <result column="sports_fatigue" jdbcType="INTEGER" property="sportsFatigue" />
+    <result column="run_speed" jdbcType="VARCHAR" property="runSpeed" />
+    <result column="subject_feel_id" jdbcType="INTEGER" property="subjectFeelId" />
+    <result column="taboo_disease_id" jdbcType="VARCHAR" property="tabooDiseaseId" />
+    <result column="methods_introduce" jdbcType="VARCHAR" property="methodsIntroduce" />
+    <result column="review_cycle" jdbcType="INTEGER" property="reviewCycle" />
+    <result column="video_url" jdbcType="VARCHAR" property="videoUrl" />
+    <result column="notice" jdbcType="VARCHAR" property="notice" />
+    <result column="recipe_num" jdbcType="INTEGER" property="recipeNum" />
+    <result column="recipe_time" jdbcType="DATE" property="recipeTime" />
+    <result column="effect_level" jdbcType="VARCHAR" property="effectLevel" />
+    <result column="satisfaction_level" jdbcType="VARCHAR" property="satisfactionLevel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, userid, standard_id, sports_effect_id, sports_type_id, sports_intensity_id, 
+    sports_time, sports_frequency, sports_must_equipment, sports_fatigue, run_speed, 
+    subject_feel_id, taboo_disease_id, methods_introduce, review_cycle, video_url, notice, 
+    recipe_num, recipe_time, effect_level, satisfaction_level
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_individuation_recipe
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_individuation_recipe
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.IndividuationRecipe">
+    insert into t_individuation_recipe (id, name, userid, 
+      standard_id, sports_effect_id, sports_type_id, 
+      sports_intensity_id, sports_time, sports_frequency, 
+      sports_must_equipment, sports_fatigue, run_speed, 
+      subject_feel_id, taboo_disease_id, methods_introduce, 
+      review_cycle, video_url, notice, 
+      recipe_num, recipe_time, effect_level, 
+      satisfaction_level)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, 
+      #{standardId,jdbcType=INTEGER}, #{sportsEffectId,jdbcType=INTEGER}, #{sportsTypeId,jdbcType=INTEGER}, 
+      #{sportsIntensityId,jdbcType=INTEGER}, #{sportsTime,jdbcType=VARCHAR}, #{sportsFrequency,jdbcType=VARCHAR}, 
+      #{sportsMustEquipment,jdbcType=VARCHAR}, #{sportsFatigue,jdbcType=INTEGER}, #{runSpeed,jdbcType=VARCHAR}, 
+      #{subjectFeelId,jdbcType=INTEGER}, #{tabooDiseaseId,jdbcType=VARCHAR}, #{methodsIntroduce,jdbcType=VARCHAR}, 
+      #{reviewCycle,jdbcType=INTEGER}, #{videoUrl,jdbcType=VARCHAR}, #{notice,jdbcType=VARCHAR}, 
+      #{recipeNum,jdbcType=INTEGER}, #{recipeTime,jdbcType=DATE}, #{effectLevel,jdbcType=VARCHAR}, 
+      #{satisfactionLevel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.IndividuationRecipe">
+    insert into t_individuation_recipe
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="standardId != null">
+        standard_id,
+      </if>
+      <if test="sportsEffectId != null">
+        sports_effect_id,
+      </if>
+      <if test="sportsTypeId != null">
+        sports_type_id,
+      </if>
+      <if test="sportsIntensityId != null">
+        sports_intensity_id,
+      </if>
+      <if test="sportsTime != null">
+        sports_time,
+      </if>
+      <if test="sportsFrequency != null">
+        sports_frequency,
+      </if>
+      <if test="sportsMustEquipment != null">
+        sports_must_equipment,
+      </if>
+      <if test="sportsFatigue != null">
+        sports_fatigue,
+      </if>
+      <if test="runSpeed != null">
+        run_speed,
+      </if>
+      <if test="subjectFeelId != null">
+        subject_feel_id,
+      </if>
+      <if test="tabooDiseaseId != null">
+        taboo_disease_id,
+      </if>
+      <if test="methodsIntroduce != null">
+        methods_introduce,
+      </if>
+      <if test="reviewCycle != null">
+        review_cycle,
+      </if>
+      <if test="videoUrl != null">
+        video_url,
+      </if>
+      <if test="notice != null">
+        notice,
+      </if>
+      <if test="recipeNum != null">
+        recipe_num,
+      </if>
+      <if test="recipeTime != null">
+        recipe_time,
+      </if>
+      <if test="effectLevel != null">
+        effect_level,
+      </if>
+      <if test="satisfactionLevel != null">
+        satisfaction_level,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="standardId != null">
+        #{standardId,jdbcType=INTEGER},
+      </if>
+      <if test="sportsEffectId != null">
+        #{sportsEffectId,jdbcType=INTEGER},
+      </if>
+      <if test="sportsTypeId != null">
+        #{sportsTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="sportsIntensityId != null">
+        #{sportsIntensityId,jdbcType=INTEGER},
+      </if>
+      <if test="sportsTime != null">
+        #{sportsTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsFrequency != null">
+        #{sportsFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsMustEquipment != null">
+        #{sportsMustEquipment,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsFatigue != null">
+        #{sportsFatigue,jdbcType=INTEGER},
+      </if>
+      <if test="runSpeed != null">
+        #{runSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectFeelId != null">
+        #{subjectFeelId,jdbcType=INTEGER},
+      </if>
+      <if test="tabooDiseaseId != null">
+        #{tabooDiseaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="methodsIntroduce != null">
+        #{methodsIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewCycle != null">
+        #{reviewCycle,jdbcType=INTEGER},
+      </if>
+      <if test="videoUrl != null">
+        #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="notice != null">
+        #{notice,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeNum != null">
+        #{recipeNum,jdbcType=INTEGER},
+      </if>
+      <if test="recipeTime != null">
+        #{recipeTime,jdbcType=DATE},
+      </if>
+      <if test="effectLevel != null">
+        #{effectLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="satisfactionLevel != null">
+        #{satisfactionLevel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.IndividuationRecipe">
+    update t_individuation_recipe
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="standardId != null">
+        standard_id = #{standardId,jdbcType=INTEGER},
+      </if>
+      <if test="sportsEffectId != null">
+        sports_effect_id = #{sportsEffectId,jdbcType=INTEGER},
+      </if>
+      <if test="sportsTypeId != null">
+        sports_type_id = #{sportsTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="sportsIntensityId != null">
+        sports_intensity_id = #{sportsIntensityId,jdbcType=INTEGER},
+      </if>
+      <if test="sportsTime != null">
+        sports_time = #{sportsTime,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsFrequency != null">
+        sports_frequency = #{sportsFrequency,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsMustEquipment != null">
+        sports_must_equipment = #{sportsMustEquipment,jdbcType=VARCHAR},
+      </if>
+      <if test="sportsFatigue != null">
+        sports_fatigue = #{sportsFatigue,jdbcType=INTEGER},
+      </if>
+      <if test="runSpeed != null">
+        run_speed = #{runSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="subjectFeelId != null">
+        subject_feel_id = #{subjectFeelId,jdbcType=INTEGER},
+      </if>
+      <if test="tabooDiseaseId != null">
+        taboo_disease_id = #{tabooDiseaseId,jdbcType=VARCHAR},
+      </if>
+      <if test="methodsIntroduce != null">
+        methods_introduce = #{methodsIntroduce,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewCycle != null">
+        review_cycle = #{reviewCycle,jdbcType=INTEGER},
+      </if>
+      <if test="videoUrl != null">
+        video_url = #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="notice != null">
+        notice = #{notice,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeNum != null">
+        recipe_num = #{recipeNum,jdbcType=INTEGER},
+      </if>
+      <if test="recipeTime != null">
+        recipe_time = #{recipeTime,jdbcType=DATE},
+      </if>
+      <if test="effectLevel != null">
+        effect_level = #{effectLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="satisfactionLevel != null">
+        satisfaction_level = #{satisfactionLevel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.IndividuationRecipe">
+    update t_individuation_recipe
+    set name = #{name,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=INTEGER},
+      standard_id = #{standardId,jdbcType=INTEGER},
+      sports_effect_id = #{sportsEffectId,jdbcType=INTEGER},
+      sports_type_id = #{sportsTypeId,jdbcType=INTEGER},
+      sports_intensity_id = #{sportsIntensityId,jdbcType=INTEGER},
+      sports_time = #{sportsTime,jdbcType=VARCHAR},
+      sports_frequency = #{sportsFrequency,jdbcType=VARCHAR},
+      sports_must_equipment = #{sportsMustEquipment,jdbcType=VARCHAR},
+      sports_fatigue = #{sportsFatigue,jdbcType=INTEGER},
+      run_speed = #{runSpeed,jdbcType=VARCHAR},
+      subject_feel_id = #{subjectFeelId,jdbcType=INTEGER},
+      taboo_disease_id = #{tabooDiseaseId,jdbcType=VARCHAR},
+      methods_introduce = #{methodsIntroduce,jdbcType=VARCHAR},
+      review_cycle = #{reviewCycle,jdbcType=INTEGER},
+      video_url = #{videoUrl,jdbcType=VARCHAR},
+      notice = #{notice,jdbcType=VARCHAR},
+      recipe_num = #{recipeNum,jdbcType=INTEGER},
+      recipe_time = #{recipeTime,jdbcType=DATE},
+      effect_level = #{effectLevel,jdbcType=VARCHAR},
+      satisfaction_level = #{satisfactionLevel,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

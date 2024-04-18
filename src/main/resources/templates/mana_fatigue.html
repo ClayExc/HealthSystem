@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>运动处方</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="manage/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="manage/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <!-- jqgrid-->
+    <link href="manage/css/plugins/jqgrid/ui.jqgrid.css?0820" rel="stylesheet">
+
+    <link href="manage/css/animate.css" rel="stylesheet">
+    <link href="manage/css/style.css?v=4.1.0" rel="stylesheet">
+
+    <!--	select下拉多选-->
+    <script src=" js/jquery.min.js" type="text/javascript"></script>
+    <script src=" js/jquery.cookie.js" type="text/javascript"></script>
+
+    <style>
+        /* Additional style to fix warning dialog position */
+
+        #alertmod_table_list_2 {
+            top: 900px !important;
+        }
+       table th{
+            text-align:center;
+        }
+        table td{
+            text-align:center;
+        }
+
+     </style>
+
+</head>
+
+<body onload="show_fatigue()" class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox ">
+                <div class="ibox-content">
+                    <div >
+                        <h4 style="width:150px;float:left" class="m-t">疲劳度</h4>
+                        <h4 style="width:50px;float:left" class="m-t">查询：</h4>
+                        <div style="width:150px;float:left;margin-left:20px" id="search_name">
+                            <input id="name_val" type="text" placeholder="请输入疲劳度名称" class="form-control">
+                        </div>
+                        <button onclick="search_fatigue()" style="margin-left:20px" class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;查询</button>
+                        <button onclick="clean()" style="margin-left:20px" class="btn btn-success " type="button">重置</button>
+
+                    </div>
+                    <div class="jqGrid_wrapper" style="margin-top:20px">
+                        <table  id="table_list_2"></table>
+                        <div id="pager_list_2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加——模态框-->
+<div id="modal-form" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">添加疲劳度</h4>
+            </div>
+            <div class="modal-body">
+
+                <form method="post" class="form-horizontal"  enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">疲劳度等级</label>
+                        <div class="col-sm-9">
+                            <input id="fatigue_name" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">面色</label>
+                        <div class="col-sm-9">
+                            <input id="fatigue_face" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">汗量</label>
+                        <div class="col-sm-9">
+                            <input id="fatigue_sweat" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">动作</label>
+                        <div class="col-sm-9">
+                            <input id="fatigue_action" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">注意力</label>
+                        <div class="col-sm-9">
+                            <input id="fatigue_attention" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">感觉</label>
+                        <div class="col-sm-9">
+                            <input id="fatigue_feel" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">心跳</label>
+                        <div class="col-sm-9">
+                            <input id="fatigue_breathe" type="text" class="form-control">
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+
+            </div>
+            <div class="modal-footer" id="show_btn">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+</div>
+<!--修改——模态框-->
+<div id="modal-update" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">修改疲劳度</h4>
+            </div>
+            <div class="modal-body">
+
+                <form  method="post" class="form-horizontal"  enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">疲劳度</label>
+                            <div class="col-sm-9">
+                                <input id="fatigue_name_update" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">面色</label>
+                            <div class="col-sm-9">
+                                <input id="fatigue_face_update" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">汗量</label>
+                            <div class="col-sm-9">
+                                <input id="fatigue_sweat_update" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">动作</label>
+                            <div class="col-sm-9">
+                                <input id="fatigue_action_update" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">注意力</label>
+                            <div class="col-sm-9">
+                                <input id="fatigue_attention_update" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">感觉</label>
+                            <div class="col-sm-9">
+                                <input id="fatigue_feel_update" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">心跳</label>
+                            <div class="col-sm-9">
+                                <input id="fatigue_breathe_update" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer" id="show_btn_update">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+</div>
+
+
+<!-- 全局js -->
+<script src="manage/js/jquery.min.js?v=2.1.4"></script>
+
+<!-- Peity -->
+<script src="manage/js/plugins/peity/jquery.peity.min.js"></script>
+
+<!-- jqGrid -->
+<script src="manage/js/plugins/jqgrid/i18n/grid.locale-cn.js?0820"></script>
+<script src="manage/js/plugins/jqgrid/jquery.jqGrid.min.js?0820"></script>
+<!-- 自定义js -->
+<script src="manage/js/content.js?v=1.0.0"></script>
+<script src="manage/js/fatigue/show_fatigue.js"></script>
+<script src="manage/js/fatigue/add_fatigue.js"></script>
+<script src="manage/js/fatigue/update_fatigue.js"></script>
+<script src="manage/js/fatigue/search_fatigue.js"></script>
+
+<script src="manage/js/demo/form-advanced-demo.js"></script>
+
+
+<!--   Core JS Files   -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+<!--统计代码，可删除-->
+
+</body>
+
+</html>

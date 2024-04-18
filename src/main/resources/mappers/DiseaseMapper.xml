@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.DiseaseMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.Disease">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="disease_name" jdbcType="VARCHAR" property="diseaseName" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, disease_name, description
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_disease
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_disease
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.Disease">
+    insert into t_disease (id, disease_name, description
+      )
+    values (#{id,jdbcType=INTEGER}, #{diseaseName,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.Disease">
+    insert into t_disease
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="diseaseName != null">
+        disease_name,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="diseaseName != null">
+        #{diseaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.Disease">
+    update t_disease
+    <set>
+      <if test="diseaseName != null">
+        disease_name = #{diseaseName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.Disease">
+    update t_disease
+    set disease_name = #{diseaseName,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+<select id="selectName" resultMap="BaseResultMap">
+  select
+  id,disease_name
+  from
+  t_disease
+</select>
+  <select id="selectGetName" resultMap="BaseResultMap">
+    select
+    disease_name
+    from
+    t_disease
+    where
+    id = #{id}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_disease
+
+  </select>
+
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_disease
+    where
+    disease_name like '%${name}%'
+  </select>
+
+  <select id="checkDiseaseName" parameterType="string" resultType="int">
+      select count(1) from t_disease
+      where disease_name = #{DiseaseName}
+</select>
+</mapper>

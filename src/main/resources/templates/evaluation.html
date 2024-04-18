@@ -1,0 +1,556 @@
+<!doctype html>
+<html class="no-js " lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+    <title>首页</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon-->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    <!-- Bootstrap Select Css -->
+    <link href="assets/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link  rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+
+
+    <!--star-->
+
+
+</head>
+<body class="theme-purple">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="Oreo"></div>
+        <p>正在努力加载中...</p>
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- Top Bar -->
+<nav class="navbar p-l-5 p-r-5">
+    <ul class="nav navbar-nav navbar-left">
+        <li>
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="index.html"><span class="m-l-10">首页</span></a>
+            </div>
+        </li>
+        <li><a href="#" title="订单"><i class="zmdi zmdi-reader"></i></a></li>
+        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i>
+            <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+        </a>
+            <ul class="dropdown-menu pullDown">
+                <li class="body">
+                    <ul class="menu list-unstyled">
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <span class="name">运动助手 <span class="time">30min ago</span></span>
+                                        <span class="message" style="margin-top: 10px;">今天天气非常适合当前运动，不要错过哦!</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="footer"> <a href="javascript:void(0);"></a> </li>
+            </ul>
+        </li>
+        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i>
+            <div class="notify">
+                <span class="heartbit"></span>
+                <span class="point"></span>
+            </div>
+        </a>
+            <ul class="dropdown-menu pullDown">
+                <li class="header">今日目标</li>
+                <li class="body">
+                    <ul class="menu tasks list-unstyled">
+                        <li>
+                            <a href="javascript:void(0);">
+                                <p style="color: #8BC34A;">运动类型：健身跑</p>
+                                <p style="color: #8BC34A;">运动心率：135-150/分钟</p>
+                                <p style="color: #8BC34A;">运动时间：40分钟-55分钟</p>
+                                <p style="color: #8BC34A;">跑步速度：7分20秒-8分10秒/公里</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">今日完成度</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                            <span class="progress-value">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="progress-container progress-info">
+                                    <span class="progress-badge">总完成度</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                                            <span class="progress-value">86%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="footer"><a href="javascript:void(0);"></a></li>
+            </ul>
+        </li>
+        <li class="hidden-sm-down">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search...">
+                <span class="input-group-addon">
+                    <i class="zmdi zmdi-search"></i>
+                </span>
+            </div>
+        </li>
+        <li class="float-right">
+            <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+            <a href="#" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>菜单</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#user"><i class="zmdi zmdi-account m-r-5"></i>我的</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane stretchRight active" id="dashboard">
+            <div class="menu">
+                <ul class="list">
+                    <li class="header" style="font-size: 17px; color:#009688 ;"><span style="margin-left: 10px;">运动</span></li>
+                    <li class="active open"><a href="prescription.html" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>运动处方</span></a></li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-copy"></i><span>自主运动</span></a>
+                        <ul class="ml-menu">
+                            <li class="active"><a href="run.html">跑步</a> </li>
+                            <li><a href="riding.html">骑行</a></li>
+                            <li><a href="course.html">课程</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="prescription.html" class="menu-toggle"><i class="zmdi zmdi-calendar"></i><span>更换处方</span></a></li>
+                    </li>
+                    <li class="header" style="font-size: 17px;color:#009688 ;"><span style="margin-left: 10px;color:#009688 ;">发现</span></li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-apps"></i><span>运动场地</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="exercise_field.html">健身场馆</a> </li>
+                            <li><a href="public_space.html">公共场地</a> </li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-shopping-cart"></i><span>运动设备</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="equipment.html">运动器械</a> </li>
+                            <li> <a href="clothes.html">运动服装</a> </li>
+                            <li> <a href="#">监控设备</a> </li>
+                            <li> <a href="#">淘二手</a> </li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">airplay</i><span>运动资讯</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="match.html">赛事</a> </li>
+                            <li> <a href="news.html">新闻</a> </li>
+                            <li> <a href="#">话题</a> </li>
+
+                        </ul>
+                    </li>
+                    <li class="header" style="font-size: 17px;color:#009688 ;"><span style="margin-left: 10px;color:#009688 ;">健康</span></li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">directions_run</i><span>运动状态</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="history.html">历史记录</a></li>
+                            <li><a href="#">效果预测</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="body_status.html" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">favorite</i><span>身体状态</span> </a>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">local_library</i><span>健康常识</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="#">我的推荐</a> </li>
+                            <li> <a href="#">分类检索</a> </li>
+                        </ul>
+                    </li>
+                    <li class="header" style="font-size: 17px;color:#009688 ;"><span style="margin-left: 10px;color:#009688 ;">进度</span></li>
+                    <li>
+                        <div class="progress-container progress-primary m-t-10">
+                            <span class="progress-badge">今日完成度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width: 67%;">
+                                    <span class="progress-value">67%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-container progress-info">
+                            <span class="progress-badge">总完成度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
+                                    <span class="progress-value">86%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tab-pane stretchLeft" id="user">
+            <div class="menu">
+                <ul class="list">
+                    <li>
+                        <div class="user-info m-b-20 p-b-15">
+                            <div class="image"><a href="profile.html"><img src="img/userimg.png" alt="User"></a></div>
+                            <div class="detail">
+                                <h4>wkz</h4>
+                                <small>加油，让自己动起来</small>
+                            </div>
+
+
+                            <!--<div class="row">
+                                <div class="col-4">
+                                    <h5 class="m-b-5">5852</h5>
+                                    <small>步数</small>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="m-b-5">256KJ</h5>
+                                    <small>消耗</small>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="m-b-5">0%</h5>
+                                    <small>完成度</small>
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </li>
+                    <li>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <div style="float: left;">今日完成度</div>
+                                <div style="float:none;" class="text-right">89%</div>
+                                <div class="progress m-b-20">
+                                    <div class="progress-bar l-blue " role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%"> <span class="sr-only">62% Complete</span> </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="float: left;">平均完成度</div>
+                                <div style="float:none;" class="text-right">82%</div>
+                                <div class="progress m-b-20">
+                                    <div class="progress-bar l-green " role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" style="width: 82%"> <span class="sr-only">82%</span> </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="float: left;">总完成度</div>
+                                <div style="float:none;" class="text-right">86%</div>
+                                <div class="progress m-b-20">
+                                    <div class="progress-bar l-amber " role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span class="sr-only">56%</span> </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">chrome_reader_mode</i><span>我的订单</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="#">运动场馆</a></li>
+                            <li><a href="#">运动设备</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">folder_special</i><span>我的收藏</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="#">运动课程</a></li>
+                            <li><a href="#">运动处方</a></li>
+                            <li><a href="#">运动场馆</a></li>
+                            <li><a href="#">运动设备</a></li>
+                            <li><a href="#">运动资讯</a></li>
+                            <li><a href="#">健康常识</a></li>
+                        </ul>
+                    </li>
+
+                    <li> <a href="javascript:void(0);" class="menu-toggle"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">assignment_ind</i><span>账号资料</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="#">修改个人信息</a></li>
+                            <li><a href="#">隐私设置</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Right Sidebar -->
+<aside id="rightsidebar" class="right-sidebar">
+    <div class="tab-content">
+        <div class="tab-pane slideRight active" id="setting">
+            <div class="slim_scroll">
+                <div class="card">
+                    <h6>皮肤</h6>
+                    <ul class="choose-skin list-unstyled">
+                        <li data-theme="purple" class="active">
+                            <div class="purple"></div>
+                        </li>
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                        </li>
+                        <li data-theme="cyan">
+                            <div class="cyan"></div>
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                        </li>
+                        <li data-theme="blush">
+                            <div class="blush"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card theme-light-dark">
+                    <h6>菜单样式</h6>
+                    <button class="t-light btn btn-default btn-simple btn-round btn-block">亮背景</button>
+                    <button class="t-dark btn btn-default btn-round btn-block">暗背景</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+<!--体质测评内容部分 -->
+<section class="content home">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>运动处方测评
+                    <small>请输入测评信息</small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> 运动处方</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">运动测评</a></li>
+                    <li class="breadcrumb-item active">减脂瘦身</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!-- Input -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>减脂瘦身处方测评</strong> </h2>
+                    </div>
+                    <div class="body">
+                        <h1 class="card-inside-title" style="font-size:18px">测试结果：</h1>
+
+                        <div class="row clearfix">
+                            <div class="col-sm-6">
+                                <div class="input-group colorpicker">
+                                    <input type="number" class="form-control" placeholder="请输入胸围" />
+                                    <span class="input-group-addon"> <i>cm</i> </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group colorpicker">
+                                    <input type="number" class="form-control" placeholder="请输入腰围" />
+                                    <span class="input-group-addon"> <i>cm</i> </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group colorpicker">
+                                    <input type="number" class="form-control" placeholder="请输入臀围" />
+                                    <span class="input-group-addon"> <i>cm</i> </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group colorpicker">
+                                    <input type="number" class="form-control" placeholder="请输入体重" />
+                                    <span class="input-group-addon"> <i>kg</i> </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <h1 class="card-inside-title" style="font-size:18px">运动强度：</h1>
+                        <div class="row clearfix">
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender1" id="01" class="with-gap" value="1">
+                                    <label for="01">极弱</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender1" id="02" class="with-gap" value="2">
+                                    <label for="02">较弱</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender1" id="03" class="with-gap" value="3">
+                                    <label for="03">微弱</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender1" id="04" class="with-gap" value="4" >
+                                    <label for="04">微强</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender1" id="05" class="with-gap" value="5">
+                                    <label for="05">较强</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender1" id="06" class="with-gap" value="6" >
+                                    <label for="06">极强</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender1" id="07" class="with-gap" value="7" >
+                                    <label for="07">合适</label>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="card-inside-title" style="font-size:18px">运动时间：</h1>
+                        <div class="row clearfix">
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender2" id="11" class="with-gap" value="1">
+                                    <label for="11">极弱</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender2" id="12" class="with-gap" value="2">
+                                    <label for="12">较弱</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender2" id="13" class="with-gap" value="3">
+                                    <label for="13">微弱</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender2" id="14" class="with-gap" value="4" >
+                                    <label for="14">微强</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender2" id="15" class="with-gap" value="5">
+                                    <label for="15">较强</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender2" id="16" class="with-gap" value="6" >
+                                    <label for="16">极强</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender2" id="17" class="with-gap" value="7" >
+                                    <label for="17">合适</label>
+                                </div>
+                            </div>
+                        </div>
+                        <h1 class="card-inside-title" style="font-size:18px">运动频率：</h1>
+                        <div class="row clearfix">
+                            <div class="row col-md-10">
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender3" id="21" class="with-gap" value="1">
+                                    <label for="21">极弱</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender3" id="22" class="with-gap" value="2">
+                                    <label for="22">较弱</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender3" id="23" class="with-gap" value="3">
+                                    <label for="23">微弱</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender3" id="24" class="with-gap" value="4" >
+                                    <label for="24">微强</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender3" id="25" class="with-gap" value="5">
+                                    <label for="25">较强</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender3" id="26" class="with-gap" value="6" >
+                                    <label for="26">极强</label>
+                                </div>
+                                <div class="radio inlineblock col-md-3">
+                                    <input type="radio" name="gender3" id="27" class="with-gap" value="7" >
+                                    <label for="27">合适</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- #END# Input -->
+        <!-- Textarea -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h1  style="font-size:18px"><strong>对运动处方打分</strong></h1>
+
+                    </div>
+                    <div class="body">
+                        <h2 class="card-inside-title">评价</h2>
+                        <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <textarea rows="4" class="form-control no-resize" placeholder="请输入您的评价。。。"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span style="margin-top:20px" class="total-comments-on-post pull-right">
+                            <h1  style="font-size:18px;margin-top:20px"><strong>综合评分：</strong></h1>
+
+                                                        <a href="">
+                                                            <div class="stars">
+                                                <span class="zmdi zmdi-star col-amber"></span>
+                                                <span class="zmdi zmdi-star col-amber"></span>
+                                                <span class="zmdi zmdi-star col-amber"></span>
+                                                <span class="zmdi zmdi-star col-amber"></span>
+                                                <span class="zmdi zmdi-star-outline"></span>
+                                            </div>
+                                                          </a></span>
+                    </div>
+                </div>
+
+                <a  style="margin-top:10px;" href="#" class="btn btn-primary btn-round" >提交评价</a>
+            </div>
+        </div>
+        <!-- #END# Textarea -->
+
+    </div>
+
+
+
+</section>
+<!-- Jquery Core Js -->
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+
+<script src="assets/bundles/morrisscripts.bundle.js"></script><!-- Morris Plugin Js -->
+<script src="assets/bundles/jvectormap.bundle.js"></script> <!-- JVectorMap Plugin Js -->
+<script src="assets/bundles/knob.bundle.js"></script> <!-- Jquery Knob, Count To, Sparkline Js -->
+
+<script src="assets/bundles/mainscripts.bundle.js"></script>
+<script src="assets/js/pages/index.js"></script>
+
+</body>
+</html>
+

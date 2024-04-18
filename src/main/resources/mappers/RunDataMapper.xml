@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.RunDataMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.RunData">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="record_time" jdbcType="TIMESTAMP" property="recordTime" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="run_time" jdbcType="VARCHAR" property="runTime" />
+    <result column="time_interval" jdbcType="INTEGER" property="timeInterval" />
+    <result column="heart_rate" jdbcType="VARCHAR" property="heartRate" />
+    <result column="quiet_heart_rate" jdbcType="DOUBLE" property="quietHeartRate" />
+    <result column="max_heart_rate" jdbcType="DOUBLE" property="maxHeartRate" />
+    <result column="min_heart_rate" jdbcType="DOUBLE" property="minHeartRate" />
+    <result column="run_speed" jdbcType="VARCHAR" property="runSpeed" />
+    <result column="average_speed" jdbcType="DOUBLE" property="averageSpeed" />
+    <result column="distance" jdbcType="DOUBLE" property="distance" />
+    <result column="calorie" jdbcType="DOUBLE" property="calorie" />
+    <result column="recipe_id" jdbcType="INTEGER" property="recipeId" />
+    <result column="temperature" jdbcType="DOUBLE" property="temperature" />
+    <result column="weather" jdbcType="VARCHAR" property="weather" />
+    <result column="altitude" jdbcType="DOUBLE" property="altitude" />
+    <result column="humidity" jdbcType="DOUBLE" property="humidity" />
+    <result column="step_number" jdbcType="INTEGER" property="stepNumber" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, user_name, record_time, start_time, end_time, run_time, time_interval, 
+    heart_rate, quiet_heart_rate, max_heart_rate, min_heart_rate, run_speed, average_speed, 
+    distance, calorie, recipe_id, temperature, weather, altitude, step_number,
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_run_data
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_run_data
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.RunData">
+    insert into t_run_data (id, user_id, user_name, 
+      record_time, start_time, end_time, 
+      run_time, time_interval, heart_rate, 
+      quiet_heart_rate, max_heart_rate, min_heart_rate, 
+      run_speed, average_speed, distance, 
+      calorie, recipe_id, temperature, 
+      weather, altitude, humidity, 
+      step_number)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
+      #{recordTime,jdbcType=TIMESTAMP}, #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, 
+      #{runTime,jdbcType=VARCHAR}, #{timeInterval,jdbcType=INTEGER}, #{heartRate,jdbcType=VARCHAR}, 
+      #{quietHeartRate,jdbcType=DOUBLE}, #{maxHeartRate,jdbcType=DOUBLE}, #{minHeartRate,jdbcType=DOUBLE}, 
+      #{runSpeed,jdbcType=VARCHAR}, #{averageSpeed,jdbcType=DOUBLE}, #{distance,jdbcType=DOUBLE}, 
+      #{calorie,jdbcType=DOUBLE}, #{recipeId,jdbcType=INTEGER}, #{temperature,jdbcType=DOUBLE}, 
+      #{weather,jdbcType=VARCHAR}, #{altitude,jdbcType=DOUBLE}, #{humidity,jdbcType=DOUBLE}, 
+      #{stepNumber,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.RunData">
+    insert into t_run_data
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="recordTime != null">
+        record_time,
+      </if>
+      <if test="startTime != null">
+        start_time,
+      </if>
+      <if test="endTime != null">
+        end_time,
+      </if>
+      <if test="runTime != null">
+        run_time,
+      </if>
+      <if test="timeInterval != null">
+        time_interval,
+      </if>
+      <if test="heartRate != null">
+        heart_rate,
+      </if>
+      <if test="quietHeartRate != null">
+        quiet_heart_rate,
+      </if>
+      <if test="maxHeartRate != null">
+        max_heart_rate,
+      </if>
+      <if test="minHeartRate != null">
+        min_heart_rate,
+      </if>
+      <if test="runSpeed != null">
+        run_speed,
+      </if>
+      <if test="averageSpeed != null">
+        average_speed,
+      </if>
+      <if test="distance != null">
+        distance,
+      </if>
+      <if test="calorie != null">
+        calorie,
+      </if>
+      <if test="recipeId != null">
+        recipe_id,
+      </if>
+      <if test="temperature != null">
+        temperature,
+      </if>
+      <if test="weather != null">
+        weather,
+      </if>
+      <if test="altitude != null">
+        altitude,
+      </if>
+      <if test="humidity != null">
+        humidity,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="runTime != null">
+        #{runTime,jdbcType=VARCHAR},
+      </if>
+      <if test="timeInterval != null">
+        #{timeInterval,jdbcType=INTEGER},
+      </if>
+      <if test="heartRate != null">
+        #{heartRate,jdbcType=VARCHAR},
+      </if>
+      <if test="quietHeartRate != null">
+        #{quietHeartRate,jdbcType=DOUBLE},
+      </if>
+      <if test="maxHeartRate != null">
+        #{maxHeartRate,jdbcType=DOUBLE},
+      </if>
+      <if test="minHeartRate != null">
+        #{minHeartRate,jdbcType=DOUBLE},
+      </if>
+      <if test="runSpeed != null">
+        #{runSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="averageSpeed != null">
+        #{averageSpeed,jdbcType=DOUBLE},
+      </if>
+      <if test="distance != null">
+        #{distance,jdbcType=DOUBLE},
+      </if>
+      <if test="calorie != null">
+        #{calorie,jdbcType=DOUBLE},
+      </if>
+      <if test="recipeId != null">
+        #{recipeId,jdbcType=INTEGER},
+      </if>
+      <if test="temperature != null">
+        #{temperature,jdbcType=DOUBLE},
+      </if>
+      <if test="weather != null">
+        #{weather,jdbcType=VARCHAR},
+      </if>
+      <if test="altitude != null">
+        #{altitude,jdbcType=DOUBLE},
+      </if>
+      <if test="humidity != null">
+        #{humidity,jdbcType=DOUBLE},
+      </if>
+      <if test="stepNumber != null">
+        #{stepNumber,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.RunData">
+    update t_run_data
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordTime != null">
+        record_time = #{recordTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startTime != null">
+        start_time = #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null">
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="runTime != null">
+        run_time = #{runTime,jdbcType=VARCHAR},
+      </if>
+      <if test="timeInterval != null">
+        time_interval = #{timeInterval,jdbcType=INTEGER},
+      </if>
+      <if test="heartRate != null">
+        heart_rate = #{heartRate,jdbcType=VARCHAR},
+      </if>
+      <if test="quietHeartRate != null">
+        quiet_heart_rate = #{quietHeartRate,jdbcType=DOUBLE},
+      </if>
+      <if test="maxHeartRate != null">
+        max_heart_rate = #{maxHeartRate,jdbcType=DOUBLE},
+      </if>
+      <if test="minHeartRate != null">
+        min_heart_rate = #{minHeartRate,jdbcType=DOUBLE},
+      </if>
+      <if test="runSpeed != null">
+        run_speed = #{runSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="averageSpeed != null">
+        average_speed = #{averageSpeed,jdbcType=DOUBLE},
+      </if>
+      <if test="distance != null">
+        distance = #{distance,jdbcType=DOUBLE},
+      </if>
+      <if test="calorie != null">
+        calorie = #{calorie,jdbcType=DOUBLE},
+      </if>
+      <if test="recipeId != null">
+        recipe_id = #{recipeId,jdbcType=INTEGER},
+      </if>
+      <if test="temperature != null">
+        temperature = #{temperature,jdbcType=DOUBLE},
+      </if>
+      <if test="weather != null">
+        weather = #{weather,jdbcType=VARCHAR},
+      </if>
+      <if test="altitude != null">
+        altitude = #{altitude,jdbcType=DOUBLE},
+      </if>
+      <if test="humidity != null">
+        humidity = #{humidity,jdbcType=DOUBLE},
+      </if>
+      <if test="stepNumber != null">
+        step_number = #{stepNumber,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.RunData">
+    update t_run_data
+    set user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR},
+      record_time = #{recordTime,jdbcType=TIMESTAMP},
+      start_time = #{startTime,jdbcType=TIMESTAMP},
+      end_time = #{endTime,jdbcType=TIMESTAMP},
+      run_time = #{runTime,jdbcType=VARCHAR},
+      time_interval = #{timeInterval,jdbcType=INTEGER},
+      heart_rate = #{heartRate,jdbcType=VARCHAR},
+      quiet_heart_rate = #{quietHeartRate,jdbcType=DOUBLE},
+      max_heart_rate = #{maxHeartRate,jdbcType=DOUBLE},
+      min_heart_rate = #{minHeartRate,jdbcType=DOUBLE},
+      run_speed = #{runSpeed,jdbcType=VARCHAR},
+      average_speed = #{averageSpeed,jdbcType=DOUBLE},
+      distance = #{distance,jdbcType=DOUBLE},
+      calorie = #{calorie,jdbcType=DOUBLE},
+      recipe_id = #{recipeId,jdbcType=INTEGER},
+      temperature = #{temperature,jdbcType=DOUBLE},
+      weather = #{weather,jdbcType=VARCHAR},
+      altitude = #{altitude,jdbcType=DOUBLE},
+      humidity = #{humidity,jdbcType=DOUBLE},
+      step_number = #{stepNumber,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectOneByUserId" parameterType="int" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_run_data
+    where
+    user_id = #{userId}
+
+    order by record_time desc limit 1
+  </select>
+
+  <select id="selectByRange" parameterType="map" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_run_data
+    <where>
+      <if test="startTime != null">
+        <![CDATA[AND DATE_FORMAT(record_time,'%Y-%m-%d') >=DATE_FORMAT(#{startTime},'%Y-%m-%d')]]>
+      </if>
+      <if test="endTime != null">
+        <![CDATA[AND DATE_FORMAT(record_time,'%Y-%m-%d') <= DATE_FORMAT(#{endTime},'%Y-%m-%d')]]>
+      </if>
+      <if test="userId != null">
+        and user_id = #{userId}
+      </if>
+    </where>
+    ORDER BY record_time ASC;
+  </select>
+
+  <select id="selectOneByUserId2" parameterType="int" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_run_data
+    where
+    user_id = #{userId}
+
+    order by record_time desc limit 1
+  </select>
+
+  <select id="selectByTime" parameterType="map" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_run_data
+    where
+    user_id = #{userId}
+    and
+    record_time like '%${recordTime}%'
+
+  </select>
+
+  <select id="selectRateByTime" parameterType="map" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_run_data
+    where
+    user_id = #{userId}
+    and
+    record_time like '%${recordTime}%'
+  </select>
+</mapper>

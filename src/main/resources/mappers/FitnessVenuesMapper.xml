@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.FitnessVenuesMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.FitnessVenues">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="type_value" jdbcType="VARCHAR" property="typeValue" />
+    <result column="sport_event" jdbcType="VARCHAR" property="sportEvent" />
+    <result column="voucher" jdbcType="VARCHAR" property="voucher" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="recommenda_rate" jdbcType="DOUBLE" property="recommendaRate" />
+    <result column="grade" jdbcType="DOUBLE" property="grade" />
+    <result column="style" jdbcType="VARCHAR" property="style" />
+    <result column="price" jdbcType="VARCHAR" property="price" />
+    <result column="distance" jdbcType="DOUBLE" property="distance" />
+    <result column="summarize" jdbcType="VARCHAR" property="summarize" />
+    <result column="brief_intro" jdbcType="VARCHAR" property="briefIntro" />
+    <result column="advantage" jdbcType="VARCHAR" property="advantage" />
+    <result column="equipment_intro" jdbcType="VARCHAR" property="equipmentIntro" />
+    <result column="image1" jdbcType="VARCHAR" property="image1" />
+    <result column="image2" jdbcType="VARCHAR" property="image2" />
+    <result column="image3" jdbcType="VARCHAR" property="image3" />
+    <result column="image4" jdbcType="VARCHAR" property="image4" />
+    <result column="image5" jdbcType="VARCHAR" property="image5" />
+    <result column="image6" jdbcType="VARCHAR" property="image6" />
+    <result column="image7" jdbcType="VARCHAR" property="image7" />
+    <result column="image8" jdbcType="VARCHAR" property="image8" />
+    <result column="image9" jdbcType="VARCHAR" property="image9" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, type, type_value, sport_event, voucher, address, area, recommenda_rate, 
+    grade, style, price, distance, summarize, brief_intro, advantage, equipment_intro, 
+    image1, image2, image3, image4, image5, image6, image7, image8, image9
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_fitness_venues
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_fitness_venues
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.FitnessVenues">
+    insert into t_fitness_venues (id, name, type, 
+      type_value, sport_event, voucher, 
+      address, area, recommenda_rate, 
+      grade, style, price, 
+      distance, summarize, brief_intro, 
+      advantage, equipment_intro, image1, 
+      image2, image3, image4, 
+      image5, image6, image7, 
+      image8, image9)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{typeValue,jdbcType=VARCHAR}, #{sportEvent,jdbcType=VARCHAR}, #{voucher,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{recommendaRate,jdbcType=DOUBLE}, 
+      #{grade,jdbcType=DOUBLE}, #{style,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{distance,jdbcType=DOUBLE}, #{summarize,jdbcType=VARCHAR}, #{briefIntro,jdbcType=VARCHAR}, 
+      #{advantage,jdbcType=VARCHAR}, #{equipmentIntro,jdbcType=VARCHAR}, #{image1,jdbcType=VARCHAR}, 
+      #{image2,jdbcType=VARCHAR}, #{image3,jdbcType=VARCHAR}, #{image4,jdbcType=VARCHAR}, 
+      #{image5,jdbcType=VARCHAR}, #{image6,jdbcType=VARCHAR}, #{image7,jdbcType=VARCHAR}, 
+      #{image8,jdbcType=VARCHAR}, #{image9,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.FitnessVenues">
+    insert into t_fitness_venues
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="typeValue != null">
+        type_value,
+      </if>
+      <if test="sportEvent != null">
+        sport_event,
+      </if>
+      <if test="voucher != null">
+        voucher,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="recommendaRate != null">
+        recommenda_rate,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="style != null">
+        style,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="distance != null">
+        distance,
+      </if>
+      <if test="summarize != null">
+        summarize,
+      </if>
+      <if test="briefIntro != null">
+        brief_intro,
+      </if>
+      <if test="advantage != null">
+        advantage,
+      </if>
+      <if test="equipmentIntro != null">
+        equipment_intro,
+      </if>
+      <if test="image1 != null">
+        image1,
+      </if>
+      <if test="image2 != null">
+        image2,
+      </if>
+      <if test="image3 != null">
+        image3,
+      </if>
+      <if test="image4 != null">
+        image4,
+      </if>
+      <if test="image5 != null">
+        image5,
+      </if>
+      <if test="image6 != null">
+        image6,
+      </if>
+      <if test="image7 != null">
+        image7,
+      </if>
+      <if test="image8 != null">
+        image8,
+      </if>
+      <if test="image9 != null">
+        image9,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typeValue != null">
+        #{typeValue,jdbcType=VARCHAR},
+      </if>
+      <if test="sportEvent != null">
+        #{sportEvent,jdbcType=VARCHAR},
+      </if>
+      <if test="voucher != null">
+        #{voucher,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendaRate != null">
+        #{recommendaRate,jdbcType=DOUBLE},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=DOUBLE},
+      </if>
+      <if test="style != null">
+        #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="distance != null">
+        #{distance,jdbcType=DOUBLE},
+      </if>
+      <if test="summarize != null">
+        #{summarize,jdbcType=VARCHAR},
+      </if>
+      <if test="briefIntro != null">
+        #{briefIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="advantage != null">
+        #{advantage,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentIntro != null">
+        #{equipmentIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="image1 != null">
+        #{image1,jdbcType=VARCHAR},
+      </if>
+      <if test="image2 != null">
+        #{image2,jdbcType=VARCHAR},
+      </if>
+      <if test="image3 != null">
+        #{image3,jdbcType=VARCHAR},
+      </if>
+      <if test="image4 != null">
+        #{image4,jdbcType=VARCHAR},
+      </if>
+      <if test="image5 != null">
+        #{image5,jdbcType=VARCHAR},
+      </if>
+      <if test="image6 != null">
+        #{image6,jdbcType=VARCHAR},
+      </if>
+      <if test="image7 != null">
+        #{image7,jdbcType=VARCHAR},
+      </if>
+      <if test="image8 != null">
+        #{image8,jdbcType=VARCHAR},
+      </if>
+      <if test="image9 != null">
+        #{image9,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.FitnessVenues">
+    update t_fitness_venues
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="typeValue != null">
+        type_value = #{typeValue,jdbcType=VARCHAR},
+      </if>
+      <if test="sportEvent != null">
+        sport_event = #{sportEvent,jdbcType=VARCHAR},
+      </if>
+      <if test="voucher != null">
+        voucher = #{voucher,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendaRate != null">
+        recommenda_rate = #{recommendaRate,jdbcType=DOUBLE},
+      </if>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=DOUBLE},
+      </if>
+      <if test="style != null">
+        style = #{style,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="distance != null">
+        distance = #{distance,jdbcType=DOUBLE},
+      </if>
+      <if test="summarize != null">
+        summarize = #{summarize,jdbcType=VARCHAR},
+      </if>
+      <if test="briefIntro != null">
+        brief_intro = #{briefIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="advantage != null">
+        advantage = #{advantage,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentIntro != null">
+        equipment_intro = #{equipmentIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="image1 != null">
+        image1 = #{image1,jdbcType=VARCHAR},
+      </if>
+      <if test="image2 != null">
+        image2 = #{image2,jdbcType=VARCHAR},
+      </if>
+      <if test="image3 != null">
+        image3 = #{image3,jdbcType=VARCHAR},
+      </if>
+      <if test="image4 != null">
+        image4 = #{image4,jdbcType=VARCHAR},
+      </if>
+      <if test="image5 != null">
+        image5 = #{image5,jdbcType=VARCHAR},
+      </if>
+      <if test="image6 != null">
+        image6 = #{image6,jdbcType=VARCHAR},
+      </if>
+      <if test="image7 != null">
+        image7 = #{image7,jdbcType=VARCHAR},
+      </if>
+      <if test="image8 != null">
+        image8 = #{image8,jdbcType=VARCHAR},
+      </if>
+      <if test="image9 != null">
+        image9 = #{image9,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.FitnessVenues">
+    update t_fitness_venues
+    set name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      type_value = #{typeValue,jdbcType=VARCHAR},
+      sport_event = #{sportEvent,jdbcType=VARCHAR},
+      voucher = #{voucher,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      recommenda_rate = #{recommendaRate,jdbcType=DOUBLE},
+      grade = #{grade,jdbcType=DOUBLE},
+      style = #{style,jdbcType=VARCHAR},
+      price = #{price,jdbcType=VARCHAR},
+      distance = #{distance,jdbcType=DOUBLE},
+      summarize = #{summarize,jdbcType=VARCHAR},
+      brief_intro = #{briefIntro,jdbcType=VARCHAR},
+      advantage = #{advantage,jdbcType=VARCHAR},
+      equipment_intro = #{equipmentIntro,jdbcType=VARCHAR},
+      image1 = #{image1,jdbcType=VARCHAR},
+      image2 = #{image2,jdbcType=VARCHAR},
+      image3 = #{image3,jdbcType=VARCHAR},
+      image4 = #{image4,jdbcType=VARCHAR},
+      image5 = #{image5,jdbcType=VARCHAR},
+      image6 = #{image6,jdbcType=VARCHAR},
+      image7 = #{image7,jdbcType=VARCHAR},
+      image8 = #{image8,jdbcType=VARCHAR},
+      image9 = #{image9,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="checkFitnessName" parameterType="string" resultType="int">
+      select count(1) from t_fitness_venues
+      where name = #{FitnessName}
+</select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_fitness_venues
+  </select>
+  <select id="selectByName" resultMap="BaseResultMap">
+        select
+        *
+        from
+        t_fitness_venues
+
+        where
+
+        name like '%${fitnessName}%'
+    </select>
+
+  <select id="selectByType" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_fitness_venues
+    where
+    type = #{type}
+  </select>
+
+  <select id="selectByTypeValue" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_fitness_venues
+    where
+    type_value = #{typeValue}
+  </select>
+
+  <select id="getImageUrl" resultMap="BaseResultMap">
+    select
+    id,image1,image2,image3,image4,image5,image6,image7,image8,image9
+    from
+    t_fitness_venues
+    where
+    id = #{id}
+  </select>
+</mapper>

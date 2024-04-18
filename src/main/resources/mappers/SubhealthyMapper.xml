@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.SubhealthyMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.Subhealthy">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="q_1" jdbcType="INTEGER" property="q1" />
+    <result column="q_2" jdbcType="INTEGER" property="q2" />
+    <result column="q_3" jdbcType="INTEGER" property="q3" />
+    <result column="q_4" jdbcType="INTEGER" property="q4" />
+    <result column="q_5" jdbcType="INTEGER" property="q5" />
+    <result column="q_6" jdbcType="INTEGER" property="q6" />
+    <result column="q_7" jdbcType="INTEGER" property="q7" />
+    <result column="q_8" jdbcType="INTEGER" property="q8" />
+    <result column="q_9" jdbcType="INTEGER" property="q9" />
+    <result column="q_10" jdbcType="INTEGER" property="q10" />
+    <result column="q_11" jdbcType="INTEGER" property="q11" />
+    <result column="q_12" jdbcType="INTEGER" property="q12" />
+    <result column="q_13" jdbcType="INTEGER" property="q13" />
+    <result column="q_14" jdbcType="INTEGER" property="q14" />
+    <result column="q_15" jdbcType="INTEGER" property="q15" />
+    <result column="q_16" jdbcType="INTEGER" property="q16" />
+    <result column="q_17" jdbcType="INTEGER" property="q17" />
+    <result column="q_18" jdbcType="INTEGER" property="q18" />
+    <result column="q_19" jdbcType="INTEGER" property="q19" />
+    <result column="q_20" jdbcType="INTEGER" property="q20" />
+    <result column="q_21" jdbcType="INTEGER" property="q21" />
+    <result column="q_22" jdbcType="INTEGER" property="q22" />
+    <result column="q_23" jdbcType="INTEGER" property="q23" />
+    <result column="q_24" jdbcType="INTEGER" property="q24" />
+    <result column="q_25" jdbcType="INTEGER" property="q25" />
+    <result column="q_26" jdbcType="INTEGER" property="q26" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, q_1, q_2, q_3, q_4, q_5, q_6, q_7, q_8, q_9, q_10, q_11, q_12, q_13, 
+    q_14, q_15, q_16, q_17, q_18, q_19, q_20, q_21, q_22, q_23, q_24, q_25, q_26
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_subhealthy
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_subhealthy
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.Subhealthy" keyColumn="id" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subhealthy (id, user_id, q_1, 
+      q_2, q_3, q_4, q_5, 
+      q_6, q_7, q_8, q_9, 
+      q_10, q_11, q_12, q_13, 
+      q_14, q_15, q_16, q_17, 
+      q_18, q_19, q_20, q_21, 
+      q_22, q_23, q_24, q_25, 
+      q_26)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{q1,jdbcType=INTEGER}, 
+      #{q2,jdbcType=INTEGER}, #{q3,jdbcType=INTEGER}, #{q4,jdbcType=INTEGER}, #{q5,jdbcType=INTEGER}, 
+      #{q6,jdbcType=INTEGER}, #{q7,jdbcType=INTEGER}, #{q8,jdbcType=INTEGER}, #{q9,jdbcType=INTEGER}, 
+      #{q10,jdbcType=INTEGER}, #{q11,jdbcType=INTEGER}, #{q12,jdbcType=INTEGER}, #{q13,jdbcType=INTEGER}, 
+      #{q14,jdbcType=INTEGER}, #{q15,jdbcType=INTEGER}, #{q16,jdbcType=INTEGER}, #{q17,jdbcType=INTEGER}, 
+      #{q18,jdbcType=INTEGER}, #{q19,jdbcType=INTEGER}, #{q20,jdbcType=INTEGER}, #{q21,jdbcType=INTEGER}, 
+      #{q22,jdbcType=INTEGER}, #{q23,jdbcType=INTEGER}, #{q24,jdbcType=INTEGER}, #{q25,jdbcType=INTEGER}, 
+      #{q26,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.Subhealthy" keyColumn="id" useGeneratedKeys="true" keyProperty="id">
+    insert into t_subhealthy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="q1 != null">
+        q_1,
+      </if>
+      <if test="q2 != null">
+        q_2,
+      </if>
+      <if test="q3 != null">
+        q_3,
+      </if>
+      <if test="q4 != null">
+        q_4,
+      </if>
+      <if test="q5 != null">
+        q_5,
+      </if>
+      <if test="q6 != null">
+        q_6,
+      </if>
+      <if test="q7 != null">
+        q_7,
+      </if>
+      <if test="q8 != null">
+        q_8,
+      </if>
+      <if test="q9 != null">
+        q_9,
+      </if>
+      <if test="q10 != null">
+        q_10,
+      </if>
+      <if test="q11 != null">
+        q_11,
+      </if>
+      <if test="q12 != null">
+        q_12,
+      </if>
+      <if test="q13 != null">
+        q_13,
+      </if>
+      <if test="q14 != null">
+        q_14,
+      </if>
+      <if test="q15 != null">
+        q_15,
+      </if>
+      <if test="q16 != null">
+        q_16,
+      </if>
+      <if test="q17 != null">
+        q_17,
+      </if>
+      <if test="q18 != null">
+        q_18,
+      </if>
+      <if test="q19 != null">
+        q_19,
+      </if>
+      <if test="q20 != null">
+        q_20,
+      </if>
+      <if test="q21 != null">
+        q_21,
+      </if>
+      <if test="q22 != null">
+        q_22,
+      </if>
+      <if test="q23 != null">
+        q_23,
+      </if>
+      <if test="q24 != null">
+        q_24,
+      </if>
+      <if test="q25 != null">
+        q_25,
+      </if>
+      <if test="q26 != null">
+        q_26,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="q1 != null">
+        #{q1,jdbcType=INTEGER},
+      </if>
+      <if test="q2 != null">
+        #{q2,jdbcType=INTEGER},
+      </if>
+      <if test="q3 != null">
+        #{q3,jdbcType=INTEGER},
+      </if>
+      <if test="q4 != null">
+        #{q4,jdbcType=INTEGER},
+      </if>
+      <if test="q5 != null">
+        #{q5,jdbcType=INTEGER},
+      </if>
+      <if test="q6 != null">
+        #{q6,jdbcType=INTEGER},
+      </if>
+      <if test="q7 != null">
+        #{q7,jdbcType=INTEGER},
+      </if>
+      <if test="q8 != null">
+        #{q8,jdbcType=INTEGER},
+      </if>
+      <if test="q9 != null">
+        #{q9,jdbcType=INTEGER},
+      </if>
+      <if test="q10 != null">
+        #{q10,jdbcType=INTEGER},
+      </if>
+      <if test="q11 != null">
+        #{q11,jdbcType=INTEGER},
+      </if>
+      <if test="q12 != null">
+        #{q12,jdbcType=INTEGER},
+      </if>
+      <if test="q13 != null">
+        #{q13,jdbcType=INTEGER},
+      </if>
+      <if test="q14 != null">
+        #{q14,jdbcType=INTEGER},
+      </if>
+      <if test="q15 != null">
+        #{q15,jdbcType=INTEGER},
+      </if>
+      <if test="q16 != null">
+        #{q16,jdbcType=INTEGER},
+      </if>
+      <if test="q17 != null">
+        #{q17,jdbcType=INTEGER},
+      </if>
+      <if test="q18 != null">
+        #{q18,jdbcType=INTEGER},
+      </if>
+      <if test="q19 != null">
+        #{q19,jdbcType=INTEGER},
+      </if>
+      <if test="q20 != null">
+        #{q20,jdbcType=INTEGER},
+      </if>
+      <if test="q21 != null">
+        #{q21,jdbcType=INTEGER},
+      </if>
+      <if test="q22 != null">
+        #{q22,jdbcType=INTEGER},
+      </if>
+      <if test="q23 != null">
+        #{q23,jdbcType=INTEGER},
+      </if>
+      <if test="q24 != null">
+        #{q24,jdbcType=INTEGER},
+      </if>
+      <if test="q25 != null">
+        #{q25,jdbcType=INTEGER},
+      </if>
+      <if test="q26 != null">
+        #{q26,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.Subhealthy">
+    update t_subhealthy
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="q1 != null">
+        q_1 = #{q1,jdbcType=INTEGER},
+      </if>
+      <if test="q2 != null">
+        q_2 = #{q2,jdbcType=INTEGER},
+      </if>
+      <if test="q3 != null">
+        q_3 = #{q3,jdbcType=INTEGER},
+      </if>
+      <if test="q4 != null">
+        q_4 = #{q4,jdbcType=INTEGER},
+      </if>
+      <if test="q5 != null">
+        q_5 = #{q5,jdbcType=INTEGER},
+      </if>
+      <if test="q6 != null">
+        q_6 = #{q6,jdbcType=INTEGER},
+      </if>
+      <if test="q7 != null">
+        q_7 = #{q7,jdbcType=INTEGER},
+      </if>
+      <if test="q8 != null">
+        q_8 = #{q8,jdbcType=INTEGER},
+      </if>
+      <if test="q9 != null">
+        q_9 = #{q9,jdbcType=INTEGER},
+      </if>
+      <if test="q10 != null">
+        q_10 = #{q10,jdbcType=INTEGER},
+      </if>
+      <if test="q11 != null">
+        q_11 = #{q11,jdbcType=INTEGER},
+      </if>
+      <if test="q12 != null">
+        q_12 = #{q12,jdbcType=INTEGER},
+      </if>
+      <if test="q13 != null">
+        q_13 = #{q13,jdbcType=INTEGER},
+      </if>
+      <if test="q14 != null">
+        q_14 = #{q14,jdbcType=INTEGER},
+      </if>
+      <if test="q15 != null">
+        q_15 = #{q15,jdbcType=INTEGER},
+      </if>
+      <if test="q16 != null">
+        q_16 = #{q16,jdbcType=INTEGER},
+      </if>
+      <if test="q17 != null">
+        q_17 = #{q17,jdbcType=INTEGER},
+      </if>
+      <if test="q18 != null">
+        q_18 = #{q18,jdbcType=INTEGER},
+      </if>
+      <if test="q19 != null">
+        q_19 = #{q19,jdbcType=INTEGER},
+      </if>
+      <if test="q20 != null">
+        q_20 = #{q20,jdbcType=INTEGER},
+      </if>
+      <if test="q21 != null">
+        q_21 = #{q21,jdbcType=INTEGER},
+      </if>
+      <if test="q22 != null">
+        q_22 = #{q22,jdbcType=INTEGER},
+      </if>
+      <if test="q23 != null">
+        q_23 = #{q23,jdbcType=INTEGER},
+      </if>
+      <if test="q24 != null">
+        q_24 = #{q24,jdbcType=INTEGER},
+      </if>
+      <if test="q25 != null">
+        q_25 = #{q25,jdbcType=INTEGER},
+      </if>
+      <if test="q26 != null">
+        q_26 = #{q26,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.Subhealthy">
+    update t_subhealthy
+    set user_id = #{userId,jdbcType=INTEGER},
+      q_1 = #{q1,jdbcType=INTEGER},
+      q_2 = #{q2,jdbcType=INTEGER},
+      q_3 = #{q3,jdbcType=INTEGER},
+      q_4 = #{q4,jdbcType=INTEGER},
+      q_5 = #{q5,jdbcType=INTEGER},
+      q_6 = #{q6,jdbcType=INTEGER},
+      q_7 = #{q7,jdbcType=INTEGER},
+      q_8 = #{q8,jdbcType=INTEGER},
+      q_9 = #{q9,jdbcType=INTEGER},
+      q_10 = #{q10,jdbcType=INTEGER},
+      q_11 = #{q11,jdbcType=INTEGER},
+      q_12 = #{q12,jdbcType=INTEGER},
+      q_13 = #{q13,jdbcType=INTEGER},
+      q_14 = #{q14,jdbcType=INTEGER},
+      q_15 = #{q15,jdbcType=INTEGER},
+      q_16 = #{q16,jdbcType=INTEGER},
+      q_17 = #{q17,jdbcType=INTEGER},
+      q_18 = #{q18,jdbcType=INTEGER},
+      q_19 = #{q19,jdbcType=INTEGER},
+      q_20 = #{q20,jdbcType=INTEGER},
+      q_21 = #{q21,jdbcType=INTEGER},
+      q_22 = #{q22,jdbcType=INTEGER},
+      q_23 = #{q23,jdbcType=INTEGER},
+      q_24 = #{q24,jdbcType=INTEGER},
+      q_25 = #{q25,jdbcType=INTEGER},
+      q_26 = #{q26,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByUser_id" parameterType="int" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_subhealthy
+    where user_id = #{user_id}
+  </select>
+
+</mapper>

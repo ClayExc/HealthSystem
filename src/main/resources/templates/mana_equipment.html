@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>运动处方</title>
+
+    <link rel="shortcut icon" href="favicon.ico"> <link href="manage/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="manage/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <!-- jqgrid-->
+    <link href="manage/css/plugins/jqgrid/ui.jqgrid.css?0820" rel="stylesheet">
+
+    <link href="manage/css/animate.css" rel="stylesheet">
+    <link href="manage/css/style.css?v=4.1.0" rel="stylesheet">
+
+    <!--	select下拉多选-->
+    <script src=" js/jquery.min.js" type="text/javascript"></script>
+    <script src=" js/jquery.cookie.js" type="text/javascript"></script>
+
+    <style>
+        /* Additional style to fix warning dialog position */
+
+        #alertmod_table_list_2 {
+            top: 900px !important;
+        }
+       table th{
+            text-align:center;
+        }
+        table td{
+            text-align:center;
+        }
+
+     </style>
+
+</head>
+
+<body onload="show_equip()" class="gray-bg">
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox ">
+                <div class="ibox-content">
+                    <div >
+                        <h4 style="width:150px;float:left" class="m-t">运动器材</h4>
+                        <h4 style="width:50px;float:left" class="m-t">查询：</h4>
+                        <div style="width:150px;float:left;margin-left:20px" id="search_name">
+                            <input id="name_val" type="text" placeholder="请输入器材名称" class="form-control">
+                        </div>
+                        <button onclick="search_equip()" style="margin-left:20px" class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;查询</button>
+                        <button onclick="clean()" style="margin-left:20px" class="btn btn-success " type="button">重置</button>
+
+                    </div>
+                    <div class="jqGrid_wrapper" style="margin-top:20px">
+                        <table  id="table_list_2"></table>
+                        <div id="pager_list_2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加——模态框-->
+<div id="modal-form" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">添加运动器材</h4>
+            </div>
+            <div class="modal-body">
+
+                    <form method="post" class="form-horizontal"  enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">器材名称</label>
+                            <div class="col-sm-9">
+                                <input id="equip_name" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">器材描述</label>
+                            <div class="col-sm-9">
+                                <input id="equip_des" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">上传图片</label>
+                            <div class="col-sm-9">
+                                <input type=file name="doc" id="doc" onchange="javascript:setImagePreview();">
+                                <p>
+                                <div id="localImag"><img id="preview" width=-1 height=-1 style="diplay:none" /></div>
+                                </p>
+
+                            </div>
+                        </div>
+
+
+
+                    </form>
+
+            </div>
+            <div class="modal-footer" id="show_btn">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+</div>
+<!--修改——模态框-->
+<div id="modal-update" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">修改运动器材</h4>
+            </div>
+            <div class="modal-body">
+
+                    <form  method="post" class="form-horizontal"  enctype="multipart/form-data">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">器材名称</label>
+                                <div class="col-sm-9">
+                                    <input id="equip_name_update" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">器材描述</label>
+                                <div class="col-sm-9">
+                                    <input id="equip_des_update" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">器材图片</label>
+                                <div class="col-sm-9">
+                                    <input type=file name="doc_update" id="doc_update" onchange="javascript:setImagePreview_update();">
+                                    <div id="img_update" ><img id="equip_img_update" width=-1 height=-1 style="diplay:none;margin-top:20px;width:300px;height:200px" /></div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+            </div>
+            <div class="modal-footer" id="show_btn_update">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+</div>
+<!--图片展示-->
+<div id="modal-img" class="modal fade" aria-hidden="true">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title">运动器材图片展示</h4>
+            </div>
+            <div class="modal-body">
+
+                    <div id="img_show" style="text-align:center" ><img id="show_img" width=-1 height=-1 style="diplay:none;margin-top:20px;width:400px;height:200px" /></div>
+
+            </div>
+            <div class="modal-footer" id="show_btn_img">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+</div>
+
+<!-- 全局js -->
+<script src="manage/js/jquery.min.js?v=2.1.4"></script>
+
+<!-- Peity -->
+<script src="manage/js/plugins/peity/jquery.peity.min.js"></script>
+
+<!-- jqGrid -->
+<script src="manage/js/plugins/jqgrid/i18n/grid.locale-cn.js?0820"></script>
+<script src="manage/js/plugins/jqgrid/jquery.jqGrid.min.js?0820"></script>
+<!-- 自定义js -->
+<script src="manage/js/content.js?v=1.0.0"></script>
+<script src="manage/js/equipment/show_equip.js"></script>
+<script src="manage/js/equipment/search_equip.js"></script>
+<script src="manage/js/equipment/add_equip.js"></script>
+<script src="manage/js/equipment/update_equip.js"></script>
+<script src="manage/js/demo/form-advanced-demo.js"></script>
+
+
+<!--   Core JS Files   -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+<!--统计代码，可删除-->
+
+</body>
+
+</html>
+<script>
+function setImagePreview() {
+        var docObj=document.getElementById("doc");
+         var img_file= docObj.files[0];
+        var imgObjPreview=document.getElementById("preview");
+                if(docObj.files &&    docObj.files[0]){
+                        //火狐下，直接设img属性
+                        imgObjPreview.style.display = 'block';
+                        imgObjPreview.style.width = '300px';
+                        imgObjPreview.style.height = '120px';
+                        //imgObjPreview.src = docObj.files[0].getAsDataURL();
+
+      //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+      imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+
+                }else{
+                        //IE下，使用滤镜
+                        docObj.select();
+                        var imgSrc = document.selection.createRange().text;
+                        var localImagId = document.getElementById("localImag");
+                        //必须设置初始大小
+                        localImagId.style.width = "300px";
+                        localImagId.style.height = "120px";
+                        //图片异常的捕捉，防止用户修改后缀来伪造图片
+try{
+                                localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                                localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+                        }catch(e){
+                                alert("您上传的图片格式不正确，请重新选择!");
+                                return false;
+                        }
+                        imgObjPreview.style.display = 'none';
+                        document.selection.empty();
+                }
+                return true;
+        }
+
+</script>

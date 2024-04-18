@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.SportEquipmentMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.SportEquipment">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="equipment_name" jdbcType="VARCHAR" property="equipmentName" />
+    <result column="equipment_description" jdbcType="VARCHAR" property="equipmentDescription" />
+    <result column="equipment_image" jdbcType="BLOB" property="equipmentImage" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, equipment_name, equipment_description
+  </sql>
+  <sql id="Blob_Column_List">
+    equipment_image
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_sport_equipment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_sport_equipment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.SportEquipment">
+    insert into t_sport_equipment (id, equipment_name, equipment_description,
+      equipment_image)
+    values (#{id,jdbcType=INTEGER}, #{equipmentName,jdbcType=VARCHAR}, #{equipmentDescription,jdbcType=VARCHAR},
+      #{equipmentImage,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.SportEquipment">
+    insert into t_sport_equipment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="equipmentName != null">
+        equipment_name,
+      </if>
+      <if test="equipmentDescription != null">
+        equipment_description,
+      </if>
+      <if test="equipmentImage != null">
+        equipment_image,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="equipmentName != null">
+        #{equipmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentDescription != null">
+        #{equipmentDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentImage != null">
+        #{equipmentImage,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.SportEquipment">
+    update t_sport_equipment
+    <set>
+      <if test="equipmentName != null">
+        equipment_name = #{equipmentName,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentDescription != null">
+        equipment_description = #{equipmentDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="equipmentImage != null">
+        equipment_image = #{equipmentImage,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sports.entity.SportEquipment">
+    update t_sport_equipment
+    set equipment_name = #{equipmentName,jdbcType=VARCHAR},
+      equipment_description = #{equipmentDescription,jdbcType=VARCHAR},
+      equipment_image = #{equipmentImage,jdbcType=LONGVARBINARY}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.SportEquipment">
+    update t_sport_equipment
+    set equipment_name = #{equipmentName,jdbcType=VARCHAR},
+      equipment_description = #{equipmentDescription,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_sport_equipment
+  </select>
+  <select id="selectByName" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_sport_equipment
+    where
+    equipment_name like '%${name}%'
+  </select>
+  <select id="selectGetName" resultMap="BaseResultMap">
+    select
+    equipment_name
+    from
+    t_sport_equipment
+    where
+    id = #{id}
+  </select>
+  <insert id="addSE" parameterType="com.sports.entity.SportEquipment">
+   insert into t_sport_equipment (id, equipment_name, equipment_description,
+      equipment_image)
+    values (#{id,jdbcType=INTEGER}, #{equipmentName,jdbcType=VARCHAR}, #{equipmentDescription,jdbcType=VARCHAR},
+      #{equipmentImage,jdbcType=LONGVARBINARY})
+  </insert>
+
+  <delete id="deleteByPrimaryKey1" parameterType="java.lang.Integer">
+    delete from t_sport_equipment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <select id="selectImageById" parameterType="Integer" resultMap="BaseResultMap">
+    select
+    *
+    from
+    t_sport_equipment
+    where
+    id = #{id}
+  </select>
+
+
+  <select id="checkEquipmentName" parameterType="string" resultType="int">
+      select count(1) from t_sport_equipment
+      where equipment_name = #{EquipmentName}
+</select>
+</mapper>

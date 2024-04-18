@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>跑步</title>
+    <script>
+			function countDown(){
+				//获取初始时间
+				var time = document.getElementById("Time");
+
+				//获取到id为time标签中的数字时间
+				if(time.innerHTML == "Go"){
+					window.location.href="running.html";
+				}
+			    else if(time.innerHTML == 1)
+				    {
+				        time.innerHTML ="Go";
+				    }
+				else{
+				    time.innerHTML = time.innerHTML-1;
+				}
+			}
+			//1000毫秒调用一次
+			window.setInterval("countDown()",1000);
+		</script>
+    <style>
+            body{
+                background-color:#778899;
+            }
+			#Time,#p{
+				font-size: 150px;
+				text-align: center;
+			}
+			#Font,#p{
+				font-size: 100px;
+				text-align: center;
+			}
+			*{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            width: 200px;
+            height: 200px;
+
+        }
+        #Time{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+		</style>
+</head>
+<body>
+<font color="white"><p id="Time" >3</p></font>
+</body>
+</html>

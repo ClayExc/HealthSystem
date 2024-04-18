@@ -1,0 +1,6 @@
+.datetimepicker.quarter .month {
+    width: 48%;
+}
+.datetimepicker.quarter .month:nth-child(n+5){
+    display: none;
+}

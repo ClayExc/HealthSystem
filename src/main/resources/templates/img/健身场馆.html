@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://localhost:63342/sport/templates/exeicise_field_details.html -->
+<html class="no-js chrome" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+    <title>健身场馆</title>
+    <link rel="icon" href="http://localhost:63342/sport/templates/favicon.ico" type="image/x-icon"> <!-- Favicon-->
+    <link rel="stylesheet" href="./健身场馆_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./健身场馆_files/main.css">
+    <link rel="stylesheet" href="./健身场馆_files/inbox.css">
+    <link rel="stylesheet" href="./健身场馆_files/lightgallery.css">
+    <link rel="stylesheet" href="./健身场馆_files/color_skins.css">
+
+
+
+    <!-- 引入 -->
+    <link rel="stylesheet" href="./健身场馆_files/index.css">
+
+    <style>
+    *{ margin: 0;padding: 0;}
+</style>
+
+<style type="text/css">.jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;box-sizing: content-box;z-index: 10000;}.jqsfield { color: white;font: 10px arial, san serif;text-align: left;}</style></head>
+<body class="theme-purple" style="overflow: auto;">
+<!-- Page Loader -->
+<div class="page-loader-wrapper" style="display: none;">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="./健身场馆_files/logo.svg" width="48" height="48" alt="Oreo"></div>
+        <p>正在努力加载中...</p>
+    </div>
+</div>
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+<!-- Top Bar -->
+<nav class="navbar p-l-5 p-r-5">
+    <ul class="nav navbar-nav navbar-left">
+        <li>
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars" style="display: none;"></a>
+                <a class="navbar-brand" href="http://localhost:63342/sport/templates/index.html"><span class="m-l-10">首页</span></a>
+            </div>
+        </li>
+        <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" title="订单"><i class="zmdi zmdi-reader"></i></a></li>
+        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-notifications"></i>
+            <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+        </a>
+            <ul class="dropdown-menu pullDown">
+                <li class="body">
+                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 300px;"><ul class="menu list-unstyled" style="overflow: hidden; width: auto; height: 300px;">
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="media">
+                                    <div class="media-body">
+                                        <span class="name">运动助手 <span class="time">30min ago</span></span>
+                                        <span class="message" style="margin-top: 10px;">今天天气非常适合当前运动，不要错过哦!</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.2); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 3px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 0px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                </li>
+                <li class="footer"> <a href="javascript:void(0);"></a> </li>
+            </ul>
+        </li>
+        <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="zmdi zmdi-flag"></i>
+            <div class="notify">
+                <span class="heartbit"></span>
+                <span class="point"></span>
+            </div>
+        </a>
+            <ul class="dropdown-menu pullDown">
+                <li class="header">今日目标</li>
+                <li class="body">
+                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 300px;"><ul class="menu tasks list-unstyled" style="overflow: hidden; width: auto; height: 300px;">
+                        <li>
+                            <a href="javascript:void(0);">
+                                <p style="color: #8BC34A;">运动类型：健身跑</p>
+                                <p style="color: #8BC34A;">运动心率：135-150/分钟</p>
+                                <p style="color: #8BC34A;">运动时间：40分钟-55分钟</p>
+                                <p style="color: #8BC34A;">跑步速度：7分20秒-8分10秒/公里</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="progress-container progress-primary">
+                                    <span class="progress-badge">今日完成度</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                            <span class="progress-value">0%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);">
+                                <div class="progress-container progress-info">
+                                    <span class="progress-badge">总完成度</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                                            <span class="progress-value">86%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.2); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 3px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 0px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                </li>
+                <li class="footer"><a href="javascript:void(0);"></a></li>
+            </ul>
+        </li>
+        <li class="hidden-sm-down">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search...">
+                <span class="input-group-addon">
+                    <i class="zmdi zmdi-search"></i>
+                </span>
+            </div>
+        </li>
+        <li class="float-right">
+            <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+            <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a>
+            <a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a>
+        </li>
+    </ul>
+</nav>
+
+<!-- Left Sidebar -->
+<aside id="leftsidebar" class="sidebar">
+    <ul class="nav nav-tabs">
+        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="http://localhost:63342/sport/templates/exeicise_field_details.html#dashboard"><i class="zmdi zmdi-home m-r-5"></i>菜单</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="http://localhost:63342/sport/templates/exeicise_field_details.html#user"><i class="zmdi zmdi-account m-r-5"></i>我的</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane stretchRight active" id="dashboard">
+            <div class="menu">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: calc(100vh - 60px);"><ul class="list" style="overflow: hidden; width: auto; height: calc(100vh - 60px);">
+                    <li class="header" style="font-size: 17px; color:#009688 ;"><span style="margin-left: 10px;">运动</span></li>
+                    <li class="active open"><a href="http://localhost:63342/sport/templates/index.html" class="menu-toggle toggled waves-effect waves-block"><i class="zmdi zmdi-assignment"></i><span>运动处方</span></a></li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="zmdi zmdi-copy"></i><span>自主运动</span></a>
+                        <ul class="ml-menu">
+                            <li class="active"><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class="toggled waves-effect waves-block">跑步</a> </li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">骑行</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">课程</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://localhost:63342/sport/templates/prescription.html" class="menu-toggle waves-effect waves-block"><i class="zmdi zmdi-calendar"></i><span>更换处方</span></a></li>
+                    
+                    <li class="header" style="font-size: 17px;color:#009688 ;"><span style="margin-left: 10px;color:#009688 ;">发现</span></li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="zmdi zmdi-apps"></i><span>运动场地</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">健身场馆</a> </li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">公共场地</a> </li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="zmdi zmdi-shopping-cart"></i><span>运动设备</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">运动器械</a> </li>
+                            <li> <a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">运动服装</a> </li>
+                            <li> <a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">监控设备</a> </li>
+                            <li> <a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">淘二手</a> </li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">airplay</i><span>运动资讯</span> </a>
+                        <ul class="ml-menu">
+                            <li> <a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">赛事</a> </li>
+                            <li> <a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">新闻</a> </li>
+                            <li> <a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">话题</a> </li>
+
+                        </ul>
+                    </li>
+                    <li class="header" style="font-size: 17px;color:#009688 ;"><span style="margin-left: 10px;color:#009688 ;">健康</span></li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">directions_run</i><span>运动状态</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">历史记录</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">效果预测</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">favorite</i><span>身体状态</span> </a>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">local_library</i><span>健康常识</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">我的推荐</a> </li>
+                            <li> <a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">分类检索</a> </li>
+                        </ul>
+                    </li>
+                    <li class="header" style="font-size: 17px;color:#009688 ;"><span style="margin-left: 10px;color:#009688 ;">进度</span></li>
+                    <li>
+                        <div class="progress-container progress-primary m-t-10">
+                            <span class="progress-badge">今日完成度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100" style="width: 67%;">
+                                    <span class="progress-value">67%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-container progress-info">
+                            <span class="progress-badge">总完成度</span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100" style="width: 86%;">
+                                    <span class="progress-value">86%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.2); width: 2px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 3px; z-index: 99; left: 1px; height: 351.146px;"></div><div class="slimScrollRail" style="width: 2px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 0px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; left: 1px;"></div></div>
+            </div>
+        </div>
+        <div class="tab-pane stretchLeft" id="user">
+            <div class="menu">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: calc(100vh - 60px);"><ul class="list" style="overflow: hidden; width: auto; height: calc(100vh - 60px);">
+                    <li>
+                        <div class="user-info m-b-20 p-b-15">
+                            <div class="image"><a href="http://localhost:63342/sport/templates/profile.html" class=" waves-effect waves-block"><img src="./健身场馆_files/userimg.png" alt="User"></a></div>
+                            <div class="detail">
+                                <h4>wkz</h4>
+                                <small>加油，让自己动起来</small>
+                            </div>
+
+
+                            <!--<div class="row">
+                                <div class="col-4">
+                                    <h5 class="m-b-5">5852</h5>
+                                    <small>步数</small>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="m-b-5">256KJ</h5>
+                                    <small>消耗</small>
+                                </div>
+                                <div class="col-4">
+                                    <h5 class="m-b-5">0%</h5>
+                                    <small>完成度</small>
+                                </div>
+                            </div>-->
+
+                        </div>
+                    </li>
+                    <li>
+
+                        <ul class="list-unstyled">
+                            <li>
+                                <div style="float: left;">今日完成度</div>
+                                <div style="float:none;" class="text-right">89%</div>
+                                <div class="progress m-b-20">
+                                    <div class="progress-bar l-blue " role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%"> <span class="sr-only">62% Complete</span> </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="float: left;">平均完成度</div>
+                                <div style="float:none;" class="text-right">82%</div>
+                                <div class="progress m-b-20">
+                                    <div class="progress-bar l-green " role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" style="width: 82%"> <span class="sr-only">82%</span> </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="float: left;">总完成度</div>
+                                <div style="float:none;" class="text-right">86%</div>
+                                <div class="progress m-b-20">
+                                    <div class="progress-bar l-amber " role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 56%"> <span class="sr-only">56%</span> </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">chrome_reader_mode</i><span>我的订单</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">运动场馆</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">运动设备</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">folder_special</i><span>我的收藏</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">运动课程</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">运动处方</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">运动场馆</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">运动设备</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">运动资讯</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">健康常识</a></li>
+                        </ul>
+                    </li>
+                    <li> <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block"><i class="material-icons" style="margin: 0; position: relative;top: 2.5px;">assignment_ind</i><span>账号资料</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">修改密码</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">修改个人信息</a></li>
+                            <li><a href="http://localhost:63342/sport/templates/exeicise_field_details.html#" class=" waves-effect waves-block">隐私设置</a></li>
+
+                        </ul>
+                    </li>
+
+                </ul><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.2); width: 2px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 3px; z-index: 99; left: 1px;"></div><div class="slimScrollRail" style="width: 2px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 0px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; left: 1px;"></div></div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- Right Sidebar -->
+<aside id="rightsidebar" class="right-sidebar">
+    <div class="tab-content">
+        <div class="tab-pane slideRight active" id="setting">
+            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: calc(100vh - 60px);"><div class="slim_scroll" style="overflow: hidden; width: auto; height: calc(100vh - 60px);">
+                <div class="card">
+                    <h6>皮肤</h6>
+                    <ul class="choose-skin list-unstyled">
+                        <li data-theme="purple" class="active">
+                            <div class="purple"></div>
+                        </li>
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                        </li>
+                        <li data-theme="cyan">
+                            <div class="cyan"></div>
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                        </li>
+                        <li data-theme="blush">
+                            <div class="blush"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card theme-light-dark">
+                    <h6>菜单样式</h6>
+                    <button class="t-light btn btn-default btn-simple btn-round btn-block">亮背景</button>
+                    <button class="t-dark btn btn-default btn-round btn-block">暗背景</button>
+                </div>
+            </div><div class="slimScrollBar" style="background: rgba(0, 0, 0, 0.4); width: 2px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 3px; z-index: 99; right: 1px; height: 532px;"></div><div class="slimScrollRail" style="width: 2px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 0px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+        </div>
+    </div>
+</aside>
+<!--体质测评内容部分 -->
+<section class="content home">
+
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>健身场馆
+
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="http://localhost:63342/sport/templates/index.html"><i class="zmdi zmdi-home"></i> 场馆详情</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">健身场馆</a></li>
+                    <li class="breadcrumb-item active">运动场地</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>深圳ParT帕汀健身房</strong></h2>
+
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="http://localhost:63342/sport/templates/exeicise_field_details.html#tab01" aria-expanded="true">基本信息</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="http://localhost:63342/sport/templates/exeicise_field_details.html#tab02" aria-expanded="false">场馆简介</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="http://localhost:63342/sport/templates/exeicise_field_details.html#tab03" aria-expanded="false">场馆优势</a></li>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="http://localhost:63342/sport/templates/exeicise_field_details.html#tab04" aria-expanded="false">器材介绍</a></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="body">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab01" aria-expanded="true">
+                                <div style="width:300px;float:left" class="review-item-creator"><b>地址：</b>深圳·深圳创客大街创意盒子5F</div>
+                                <div style="width:300px;float:left" class="review-item-creator"><b>面积：</b>1500平方米</div>
+                                <div style="width:300px;float:left" class="review-item-creator"><b>风格：</b>黑色调、极简、智能</div>
+                                <div style="width:300px;float:left" class="review-item-creator"><b>价格：</b>3600元/年</div>
+                                <div style="width:300px;float:left" class="review-item-creator"><b>当前距离：</b>3.4KM</div>
+                            </div>
+                            <div class="tab-pane" id="tab02" aria-expanded="false">
+                                <span>Par T健身会所是位于深圳深圳创客街区的一家专业健身连锁机构。Par T的创始人留学北美，Par T的设计理念来源于美国高端健身俱乐部的时尚健身理念。设计团队致力于打造智能开放并拥有聚会文化的健身空间，以解决当下热爱健身的年轻人面临的健身困境。</span>
+                            </div>
+                            <div class="tab-pane" id="tab03" aria-expanded="false">
+
+                                <span>传统健身会所太远太贵，年卡制和当下多数健身房缺乏专业性，经常加班错过营业时间。因为不需要工作人员值守，仅仅通过智能硬件就可以24小时自助运营。用户通过自助服务，Par T的门禁，灯光，空调，新风系统，音响将根据用户预约情况自助调节。</span>
+                            </div>
+                            <div class="tab-pane" id="tab04" aria-expanded="false">
+
+                                <p>单车房用变色LED灯打造出动感氛围，让空间在夜店和健身房两者之间交错变化，使得空间充满戏剧性。健身会所设有会员通道和非会员通道，设计师为俱乐部会员设计了24小时专属通道，会员可以凭借智能设备自由进出，提高了会员的归属感和自由性。盥洗室整个空间采用黑灰的色调，暗藏的 LED 灯带给盥洗室带来了更多的活力，强调了空间感。淋浴区的小单间设计更多的考虑会员的隐私。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="header">
+                        <h2><strong>深圳ParT帕汀健身房</strong> <small>图片展示</small> </h2>
+
+                    </div>
+                    <div class="body">
+                        <div id="" class="list-unstyled row clearfix">
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="./健身场馆_files/01.jpg"> <img class="img-fluid img-thumbnail" src="./健身场馆_files/01.jpg" alt=""> </a> </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="./健身场馆_files/02.jpg"> <img class="img-fluid img-thumbnail" src="./健身场馆_files/02.jpg" alt=""> </a> </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="./健身场馆_files/03.jpg"> <img class="img-fluid img-thumbnail" src="./健身场馆_files/03.jpg" alt=""> </a> </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="./健身场馆_files/04.jpg"> <img class="img-fluid img-thumbnail" src="./健身场馆_files/04.jpg" alt=""> </a> </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="./健身场馆_files/05.jpg"> <img class="img-fluid img-thumbnail" src="./健身场馆_files/05.jpg" alt=""> </a> </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="./健身场馆_files/06.jpg"> <img class="img-fluid img-thumbnail" src="./健身场馆_files/06.jpg" alt=""> </a> </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="./健身场馆_files/07.jpg"> <img class="img-fluid img-thumbnail" src="./健身场馆_files/07.jpg" alt=""> </a> </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="./健身场馆_files/08.jpg"> <img class="img-fluid img-thumbnail" src="./健身场馆_files/08.jpg" alt=""> </a> </div>
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 m-b-20"> <a href="./健身场馆_files/09.jpg"> <img class="img-fluid img-thumbnail" src="./健身场馆_files/09.jpg" alt=""> </a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- Jquery Core Js -->
+<script async="" src="./健身场馆_files/analytics.js"></script><script src="./健身场馆_files/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="./健身场馆_files/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+<script src="./健身场馆_files/lightgallery-all.min.js"></script> <!-- Light Gallery Plugin Js -->
+
+<script src="./健身场馆_files/mainscripts.bundle.js"></script><!-- Custom Js -->
+<script src="./健身场馆_files/image-gallery.js"></script>
+
+<!-- 分类模块js -->
+
+
+
+
+
+
+
+</body></html>

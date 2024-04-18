@@ -1,0 +1,232 @@
+<!doctype html>
+<html class="no-js " lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+    <title>跑步</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Favicon-->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+    <link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css"/>
+
+
+    <link rel="stylesheet" href="assets/css/timeline.css">
+    <link rel="stylesheet" href="assets/plugins/bootstrap-select/css/bootstrap-select.css" />
+    <link rel="stylesheet" href="assets/css/ecommerce.css">
+    <style>
+
+     body{
+                background-color:#778899;
+
+            }
+        .images img{
+            border-radius:10px;
+        }
+      #all{
+        position:fixed;left:0px;bottom:0px;width:100%;height:100px;z-index:999;
+      }
+    </style>
+</head>
+<body class="theme-purple" onload="hide_stop()">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <div class="loader">
+        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="Oreo"></div>
+        <p>Please wait...</p>
+    </div>
+</div>
+
+<!-- Overlay For Sidebars -->
+<div class="overlay"></div>
+
+
+
+
+
+<div class="container-fluid">
+
+    <div class="row clearfix">
+        <div class="col-lg-12">
+            <div class="card"  style=" background-color:#778899; ">
+                <div class="card tasks_report">
+                    <div class="body "  style=" background-color:#778899;">
+                        <div class="card weather2"  style=" background-color:#778899;">
+                            <div class="city-selected body text-center" >
+                                <div class="row">
+                                    <div class="col-6" >
+                                        <div class="city " style="text-align:left"><p style="color:#FFFFFF;">户外跑</p> </div>
+
+                                    </div>
+                                    <div class="col-4">
+
+                                    </div>
+
+                                    <div class="icon col-2">
+                                        <div class="temp" style="margin-top:10px"><i class="material-icons">music_note</i> </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="temp"><span style="font-size:6em;font-weight:bold;color:#FFFFFF;">0.00</span><em style="color:#FFFFFF;">公里</em></div>
+                                <div class="row" style="margin-top:10px">
+                                    <div class="col-3">
+                                        <i class="material-icons">network_check</i>
+                                        <h6  style="margin-top:10px;color:#FFFFFF;">60‘00”</h6>
+                                        <small style="margin-top:10px;color:#FFFFFF;">平均配速</small>
+                                    </div>
+                                    <div class="col-6">
+                                        <i class="material-icons">access_time</i>
+                                        <h6 style="margin-top:10px;color:#FFFFFF;">
+                                            <span id="id_H">00</span>：
+                                            <span id="id_M">00</span>：
+                                            <span id="id_S">00</span>
+                                        </h6>
+                                        <small style="margin-top:10px;color:#FFFFFF;">总计时间</small>
+                                    </div>
+                                    <div class="col-3">
+                                        <i class="material-icons">whatshot</i>
+                                        <h6 style="margin-top:10px;color:#FFFFFF;">13</h6>
+                                        <small style="margin-top:10px;color:#FFFFFF;">消耗千卡</small>
+                                    </div>
+                                </div>
+                                <ul style="margin-top:30px" class="nav nav-pills nav-pills-primary m-b-20 " role="tablist">
+                                    <li class="nav-item "  style="width:80px;height:80px;line-height:80px;margin:0 auto;">
+                                        <button style="width:50px;height:50px;line-height:60px;margin:0 auto;" class =" btn btn-primary btn-icon btn-icon-mini btn-round">
+                                            <i style=" margin-top:-5px;" class="material-icons">brightness_high</i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item "  style="width:60px;height:60px;line-height:60px;margin:0 auto;">
+                                        <button style="width:60px;height:60px;" class =" btn  btn-icon btn-icon-mini btn-round">
+                                            <img style="width:60px;height:60px;" src="img/地图.png" alt="">
+                                        </button>
+                                    </li>
+                                    <li class="nav-item "  style="width:80px;height:80px;line-height:80px;margin:0 auto;">
+                                        <button style="width:50px;height:50px;line-height:60px;margin:0 auto;" class =" btn btn-warning btn-icon btn-icon-mini btn-round">
+                                            <i style=" margin-top:-5px;" class="material-icons">enhanced_encryption</i>
+                                        </button>
+                                    </li>
+
+
+                                </ul>
+                                <div id="all">
+                                    <div id="begin">
+                                        <ul  class="nav nav-pills nav-pills-primary m-b-20 " role="tablist">
+
+                                            <li class="nav-item "  style="width:80px;height:80px;line-height:80px;margin:0 auto;">
+                                                <button style="width:70px;height:70px;line-height:70px;margin:0 auto;border-radius:50%;" onclick="hide_begin()" class =" btn  btn-success">
+                                                    <i style=" margin-top:-15px;" class="material-icons">pause<p style=" margin-top:-20px;font-size:0.1em">暂停</p></i>
+                                                </button>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div id="stop">
+                                        <ul  class="nav nav-pills nav-pills-primary m-b-20 " role="tablist">
+
+                                            <li class="nav-item "  style="width:80px;height:80px;line-height:80px;margin:0 auto;">
+                                                <button style="width:70px;height:70px;line-height:70px;margin:0 auto;border-radius:50%;" onclick="hide_stop()" class =" btn btn-success ">
+                                                    <i style=" margin-top:-15px;" class="material-icons">play_arrow<p style=" margin-top:-20px;font-size:0.1em">开始</p></i>
+                                                </button>
+                                            </li>
+                                            <li class="nav-item "  style="width:80px;height:80px;line-height:80px;margin:0 auto;">
+                                                <button style="width:70px;height:70px;line-height:70px;margin:0 auto;border-radius:50%;" onclick="stop_time()" class =" btn btn-danger ">
+                                                    <i style=" margin-top:-15px;" class="material-icons">stop<p style=" margin-top:-20px;font-size:0.1em">结束</p></i>
+                                                </button>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+<script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+<script src="assets/bundles/flotchartsscripts.bundle.js"></script> <!-- flot charts Plugin Js -->
+
+<script src="assets/js/pages/index.js"></script>
+
+<script src="assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+
+<script src="assets/js/pages/charts/flot.js"></script>
+<script src="https://cdn.bootcss.com/echarts/4.2.1-rc1/echarts.min.js"></script>
+<script src="assets/js/pages/charts/sparkline.js"></script>
+
+<script src="assets/js/pages/ecommerce.js"></script>
+<!--自定义-->
+<script src="js/run/run.js"></script>
+
+<script>
+            //点击开始建 开始计数
+            var count = 0
+            var timer = null //timer变量记录定时器setInterval的返回值
+    function hide_stop(){
+        document.getElementById('stop').style.display='none';
+        document.getElementById('begin').style.display='block';
+        timer = setInterval(function() {
+                    count++;
+                    console.log(count);
+                        // 需要改变页面上时分秒的值
+                    console.log($("id_S"));
+                    document.getElementById('id_S').innerHTML = showNum(count % 60);
+                    document.getElementById('id_M').innerHTML = showNum(parseInt(count / 60) % 60);
+                    document.getElementById('id_H').innerHTML = showNum(parseInt(count / 60 / 60));
+                }, 1000);
+    }
+    function hide_begin(){
+        document.getElementById('begin').style.display='none';
+        document.getElementById('stop').style.display='block';
+        //取消定时器
+        clearInterval(timer);
+    }
+    function stop_time(){
+
+                count = 0;
+                    //页面展示数据清零
+                document.getElementById('id_S').innerHTML = "00";
+                document.getElementById('id_M').innerHTML = "00";
+                document.getElementById('id_H').innerHTML = "00";
+    }
+    //封装一个处理单位数字的函数
+            function showNum(num) {
+                if (num < 10) {
+                    return '0' + num;
+                }
+                return num;
+            }
+</script>
+</body>
+</html>

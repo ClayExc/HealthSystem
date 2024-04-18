@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>运动场地录入</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="manage/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="manage/css/animate.css" rel="stylesheet">
+    <link href="manage/css/style.css?v=4.1.0" rel="stylesheet">
+    <!-- CSS Files -->
+
+    <link href=" css/register/multipCheck.css" rel="stylesheet">
+
+
+    <!--	select下拉多选-->
+    <script src=" js/jquery.min.js" type="text/javascript"></script>
+    <script src=" js/jquery.cookie.js" type="text/javascript"></script>
+
+</head>
+
+<style type="text/css">
+        .imageDiv {
+            display:inline-block;
+            width:160px;
+            height:130px;
+            -webkit-box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+            border:1px dashed darkgray;
+            background:#f8f8f8;
+            position:relative;
+            overflow:hidden;
+            margin:10px
+        }
+        .cover {
+            position:absolute;
+            z-index:1;
+            top:0;
+            left:0;
+            width:160px;
+            height:130px;
+            background-color:rgba(0,0,0,.3);
+            display:none;
+            line-height:125px;
+            text-align:center;
+            cursor:pointer;
+        }
+        .cover .delbtn {
+            color:red;
+            font-size:20px;
+        }
+        .imageDiv:hover .cover {
+            display:block;
+        }
+        .addImages {
+            display:inline-block;
+            width:160px;
+            height:130px;
+            -webkit-box-sizing:border-box;
+            -moz-box-sizing:border-box;
+            box-sizing:border-box;
+            border:1px dashed darkgray;
+            background:#f8f8f8;
+            position:relative;
+            overflow:hidden;
+            margin:10px;
+        }
+        .text-detail {
+            margin-top:40px;
+            text-align:center;
+        }
+        .text-detail span {
+            font-size:40px;
+        }
+        .file {
+            position:absolute;
+            top:0;
+            left:0;
+            width:160px;
+            height:130px;
+            opacity:0;
+        }
+
+    </style>
+
+<body  class="gray-bg">
+<div class="  fadeInRight" style="width:100%;height:100%;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>运动场地录入 <small>请填写场地信息</small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="form_basic.html#">选项1</a>
+                            </li>
+                            <li><a href="form_basic.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form method="get" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">场地名称</label>
+                            <div class="col-sm-10">
+                                <input id="ground_name" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group" >
+                            <label class="col-sm-2 control-label">运动场地</label>
+                            <div class="col-sm-10">
+                                <div  style="margin-left:20px;" id="heart01" class="radio radio-info radio-inline">
+                                    <input  style="margin-top:5px;"  type="radio"  onclick="strength()" id="inlineRadio1" value="1" name="radioInline" checked="">
+                                    <label for="inlineRadio1">健身场馆 </label>
+                                </div>
+                                <div class="radio radio-inline" id="weight01" style="margin-left:40px;">
+                                    <input  style="margin-top:5px;"  type="radio"  onclick="strength()" id="inlineRadio2" value="2"  name="radioInline">
+                                    <label for="inlineRadio2">公共场地 </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">场地类型</label>
+                            <div class="col-sm-10">
+                                <div id="public_space" class="form-group row" style="display:none">
+                                    <div class="col-sm-2">
+                                        <div  style="margin-left:20px;" id="open_park" class="radio radio-info radio-inline">
+                                            <input  style="margin-top:5px;"  type="radio"   id="public_space1" value="1" name="radio_public" checked="">
+                                            <label for="public_space1">开放公园 </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="radio radio-inline" id="school" style="margin-left:40px;">
+                                            <input  style="margin-top:5px;"  type="radio" id="public_space2" value="2"  name="radio_public">
+                                            <label for="public_space2">学校 </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div  style="margin-left:20px;" id="open_gym" class="radio radio-info radio-inline">
+                                            <input  style="margin-top:5px;"  type="radio"   id="public_space3" value="3" name="radio_public" checked="">
+                                            <label for="public_space3">体育馆 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="gymnasium" class="form-group row">
+                                    <div class="col-sm-3">
+                                        <div  style="margin-left:20px;" id="indoor_gym" class="radio radio-info radio-inline">
+                                            <input  style="margin-top:5px;"  type="radio"   id="gymnasium1" value="1" name="radio_indoor" checked="">
+                                            <label for="gymnasium1">室内健身房</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2" style="margin-left:-70px">
+                                        <div class="radio radio-inline" id="basketball" style="margin-left:40px;">
+                                            <input  style="margin-top:5px;"  type="radio" id="gymnasium2" value="2"  name="radio_indoor">
+                                            <label for="gymnasium2">篮球场 </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div  style="margin-left:20px;" id="tennis" class="radio radio-info radio-inline">
+                                            <input  style="margin-top:5px;"  type="radio"   id="gymnasium3" value="3" name="radio_indoor" checked="">
+                                            <label for="gymnasium3">网球场 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动项目</label>
+                            <div class="col-sm-9"  style="margin-left:20px; z-index:101">
+                                <div class="form-group">
+                                    <div class="dropdown" data-control="checkbox-dropdown">
+                                        <label class="dropdown-label" id="check_sport_effect">运动项目（多选）</label>
+                                        <div class="dropdown-list" data-placeholder="选择运动效果" id="sport_event">
+                                            <a href='#' data-toggle='check-all' class='选择运动效果'>全选</a>
+                                            <label class='dropdown-option'> <input type='checkbox'   name='dropdown-group03' value="跑步" /> 跑步 </label>
+                                            <label class='dropdown-option'> <input type='checkbox'   name='dropdown-group03' value="哑铃" /> 哑铃 </label>
+                                            <label class='dropdown-option'> <input type='checkbox'   name='dropdown-group03' value="杠铃" /> 杠铃 </label>
+                                            <label class='dropdown-option'> <input type='checkbox'   name='dropdown-group03' value="游泳" /> 游泳 </label>
+                                            <label class='dropdown-option'> <input type='checkbox'   name='dropdown-group03' value="快跑" /> 快跑 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group" >
+                            <label class="col-sm-2 control-label">出入凭证</label>
+                            <div class="col-sm-9"  style="margin-left:20px; z-index:100">
+                                <div class="form-group">
+                                    <select class="form-control" name="fatigueList" id="access" data-placeholder="选择出入凭证">
+                                        <option value="身份证">身份证</option>
+                                        <option value="学生证">学生证</option>
+                                        <option value="门票">门票</option>
+                                        <option value="会员卡">会员卡</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">地址 *</label>
+                            <div class="col-sm-10">
+                                <input id="address"  type="text" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">面积 *</label>
+                            <div class="col-sm-10">
+                                <input id="area"  type="text" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">价格 *</label>
+                            <div class="col-sm-10">
+                                <input id="price"  type="text" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">风格信息 *</label>
+                            <div class="col-sm-10">
+                                <input  id="style" type="text" class="form-control ">
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">场馆简介</label>
+                            <div class="col-sm-10">
+                                <textarea id="ground_introduction" class="form-control message-input" name="message" placeholder="请输入场馆简介"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">场馆优势</label>
+                            <div class="col-sm-10">
+                                <textarea id="ground_advantage" class="form-control message-input" name="message" placeholder="请输入场馆优势"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">器材介绍</label>
+                            <div class="col-sm-10">
+                                <textarea id="equip_introduction" class="form-control message-input" name="message" placeholder="请输入运动器材介绍"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图片上传</label>
+                            <div class="col-sm-10">
+                                <div id="Pic_pass">
+
+
+                                    <div class="picDiv">
+                                        <div class="addImages">
+
+                                            <input type="file" class="file" id="uploadFilexxx" multiple="multiple" accept="image/png, image/jpeg, image/gif, image/jpg">
+                                            <div class="text-detail">
+                                                <span>+</span>
+                                                <p>点击上传</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="msg" style="display: none;"></div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <button type="button" id="submit"  class="btn btn-w-m btn-primary">添加场地</button>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">颜色选择</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group colorpicker-component demo demo-auto">
+                    <input type="text" value="" class="form-control" />
+                    <span class="input-group-addon"><i></i></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script src="manage/js/jquery.min.js?v=2.1.4"></script>
+
+
+
+<script src="manage/js/content.js?v=1.0.0"></script>
+
+<!-- Chosen -->
+<script src="manage/js/plugins/chosen/chosen.jquery.js"></script>
+
+<script src="manage/js/demo/form-advanced-demo.js"></script>
+
+<!--   Core JS Files   -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+
+<script src="js/multipSelect.js"></script>
+<!--图片上传-->
+<script src="js/jquery.min.js"></script>
+
+
+
+<script>
+
+
+//图片上传预览功能
+    var userAgent = navigator.userAgent; //用于判断浏览器类型
+    //使用formData完成多图片上传
+    var formData = new FormData();
+    var formData2 = new FormData();
+    $(".file").change(function() {
+        //获取选择图片的对象
+        var docObj = $(this)[0];
+        var picDiv = $(this).parents(".picDiv");
+        //得到所有的图片文件
+        var fileList = docObj.files;
+        //将图片数据放到formData中传递后台
+        if($(this)[0].files.length==1){
+            formData.append("files",docObj.files[0]);
+            formData2.append("files",docObj.files[0]);
+        }else{
+            for(var i=0; i<$(this)[0].files.length;i++){
+
+                formData.append("files",$(this)[0].files[i]);
+                formData2.append("files",$(this)[0].files[i]);
+            }
+        }
+        //循环遍历
+        for (var i = 0; i < fileList.length; i++) {
+            //动态添加html元素
+            var picHtml = "<div class='imageDiv' nm='"+fileList[i].name+"'> <img id='img" + fileList[i].name + "' /> <div class='cover delbtn'><i class='delbtn' >删除</i></div></div>";
+            console.log(picHtml);
+            picDiv.prepend(picHtml);
+            //获取图片imgi的对象
+            var imgObjPreview = document.getElementById("img" + fileList[i].name);
+            if (fileList && fileList[i]) {
+                //图片属性
+                imgObjPreview.style.display = 'block';
+                imgObjPreview.style.width = '160px';
+                imgObjPreview.style.height = '130px';
+                //imgObjPreview.src = docObj.files[0].getAsDataURL();
+                //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要以下方式
+                if (userAgent.indexOf('MSIE') == -1) {
+                    //IE以外浏览器
+                    imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]); //获取上传图片文件的物理路径;
+                    console.log(imgObjPreview.src);
+                    // var msgHtml = '<input type="file" id="fileInput" multiple/>';
+                } else {
+                    //IE浏览器
+                    if (docObj.value.indexOf(",") != -1) {
+                        var srcArr = docObj.value.split(",");
+                        imgObjPreview.src = srcArr[i];
+                    } else {
+                        imgObjPreview.src = docObj.value;
+                    }
+                }
+            }
+        }
+ /*删除功能*/
+        $(".delbtn").click(function() {
+            if(formData.getAll("files").length==0){
+                formData=formData2;
+            }else{
+                formData2.delete("files");
+                for(var i=0;i<formData.getAll("files").length;i++){
+                    if(formData.getAll("files")[i].name==$(this).parents(".imageDiv").attr("nm")){
+
+                    }else{
+                        formData2.append("files",formData.getAll("files")[i]);
+                    }
+                }
+            }
+            formData.delete("files");
+            for(var i=0;i<formData2.getAll("files").length;i++){
+                formData.append("files",formData2.getAll("files")[i]);
+            }
+            var _this = $(this);
+            _this.parents(".imageDiv").remove();
+        });
+    });
+    </script>
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+<!--统计代码，可删除-->
+
+<!-- 自定义js -->
+<script src="manage/js/ground/ground_add.js"></script>
+
+
+</body>
+
+</html>

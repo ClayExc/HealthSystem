@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.UserRecipeMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.UserRecipe">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="userid" jdbcType="INTEGER" property="userid" />
+    <result column="sport_way" jdbcType="VARCHAR" property="sportWay" />
+    <result column="sport_strength" jdbcType="INTEGER" property="sportStrength" />
+    <result column="min_strength_type" jdbcType="INTEGER" property="minStrengthType" />
+    <result column="sport_time" jdbcType="INTEGER" property="sportTime" />
+    <result column="min_time_type" jdbcType="INTEGER" property="minTimeType" />
+    <result column="sport_frequency" jdbcType="INTEGER" property="sportFrequency" />
+    <result column="strength_show_type" jdbcType="VARCHAR" property="strengthShowType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, userid, sport_way, sport_strength, min_strength_type, sport_time, min_time_type, 
+    sport_frequency, strength_show_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_recipe
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_user_recipe
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.UserRecipe">
+    insert into t_user_recipe (id, userid, sport_way, 
+      sport_strength, min_strength_type, sport_time, 
+      min_time_type, sport_frequency, strength_show_type
+      )
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{sportWay,jdbcType=VARCHAR}, 
+      #{sportStrength,jdbcType=INTEGER}, #{minStrengthType,jdbcType=INTEGER}, #{sportTime,jdbcType=INTEGER}, 
+      #{minTimeType,jdbcType=INTEGER}, #{sportFrequency,jdbcType=INTEGER}, #{strengthShowType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.UserRecipe">
+    insert into t_user_recipe
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="sportWay != null">
+        sport_way,
+      </if>
+      <if test="sportStrength != null">
+        sport_strength,
+      </if>
+      <if test="minStrengthType != null">
+        min_strength_type,
+      </if>
+      <if test="sportTime != null">
+        sport_time,
+      </if>
+      <if test="minTimeType != null">
+        min_time_type,
+      </if>
+      <if test="sportFrequency != null">
+        sport_frequency,
+      </if>
+      <if test="strengthShowType != null">
+        strength_show_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="sportWay != null">
+        #{sportWay,jdbcType=VARCHAR},
+      </if>
+      <if test="sportStrength != null">
+        #{sportStrength,jdbcType=INTEGER},
+      </if>
+      <if test="minStrengthType != null">
+        #{minStrengthType,jdbcType=INTEGER},
+      </if>
+      <if test="sportTime != null">
+        #{sportTime,jdbcType=INTEGER},
+      </if>
+      <if test="minTimeType != null">
+        #{minTimeType,jdbcType=INTEGER},
+      </if>
+      <if test="sportFrequency != null">
+        #{sportFrequency,jdbcType=INTEGER},
+      </if>
+      <if test="strengthShowType != null">
+        #{strengthShowType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.UserRecipe">
+    update t_user_recipe
+    <set>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="sportWay != null">
+        sport_way = #{sportWay,jdbcType=VARCHAR},
+      </if>
+      <if test="sportStrength != null">
+        sport_strength = #{sportStrength,jdbcType=INTEGER},
+      </if>
+      <if test="minStrengthType != null">
+        min_strength_type = #{minStrengthType,jdbcType=INTEGER},
+      </if>
+      <if test="sportTime != null">
+        sport_time = #{sportTime,jdbcType=INTEGER},
+      </if>
+      <if test="minTimeType != null">
+        min_time_type = #{minTimeType,jdbcType=INTEGER},
+      </if>
+      <if test="sportFrequency != null">
+        sport_frequency = #{sportFrequency,jdbcType=INTEGER},
+      </if>
+      <if test="strengthShowType != null">
+        strength_show_type = #{strengthShowType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.UserRecipe">
+    update t_user_recipe
+    set userid = #{userid,jdbcType=INTEGER},
+      sport_way = #{sportWay,jdbcType=VARCHAR},
+      sport_strength = #{sportStrength,jdbcType=INTEGER},
+      min_strength_type = #{minStrengthType,jdbcType=INTEGER},
+      sport_time = #{sportTime,jdbcType=INTEGER},
+      min_time_type = #{minTimeType,jdbcType=INTEGER},
+      sport_frequency = #{sportFrequency,jdbcType=INTEGER},
+      strength_show_type = #{strengthShowType,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByUserId" parameterType="int" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_user_recipe
+    where userid = #{userid}
+  </select>
+</mapper>

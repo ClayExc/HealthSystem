@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>运动课程添加</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="manage/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="manage/css/animate.css" rel="stylesheet">
+    <link href="manage/css/style.css?v=4.1.0" rel="stylesheet">
+    <!-- CSS Files -->
+
+    <link href=" css/register/multipCheck.css" rel="stylesheet">
+
+
+    <!--	select下拉多选-->
+    <script src=" js/jquery.min.js" type="text/javascript"></script>
+    <script src=" js/jquery.cookie.js" type="text/javascript"></script>
+
+    <style>
+
+</style>
+
+</head>
+
+<body  onload="course_data()"  class="gray-bg">
+<div class="  fadeInRight" style="width:100%;height:100%;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>运动课程录入 <small>请填写课程信息</small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="form_basic.html#">选项1</a>
+                            </li>
+                            <li><a href="form_basic.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form method="get" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">课程名称</label>
+                            <div class="col-sm-10">
+                                <input id="course_name" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group ">
+                            <label class="col-sm-2 control-label">课程类型 *</label>
+                            <div class="col-sm-9"  style="margin-left:20px; z-index:100">
+                                <div class="form-group">
+                                    <select class="form-control" name="course_type" id="course_type" data-placeholder="选择课程类型">
+                                        <option value="减脂">减脂</option>
+                                        <option value="瘦身">瘦身</option>
+                                        <option value="塑形">塑形</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">课程时长</label>
+                            <div class="col-sm-10">
+                                <input id="course_time" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">禁忌疾病</label>
+                            <div class="col-sm-9" style="margin-left:20px; z-index:120">
+                                <div class="form-group" >
+                                    <div class="dropdown" data-control="checkbox-dropdown">
+                                        <label class="dropdown-label">禁忌疾病（多选）</label>
+                                        <div class="dropdown-list" id="diseaseList">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动器材</label>
+                            <div class="col-sm-9" style="margin-left:20px; z-index:119">
+                                <div class="form-group" >
+                                    <div class="dropdown" data-control="checkbox-dropdown">
+                                        <label class="dropdown-label">运动器材（多选）</label>
+                                        <div class="dropdown-list" id="equipment">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">适宜人群</label>
+
+                            <div class="col-sm-9"  style="margin-left:20px; z-index:100">
+                                <div class="form-group">
+                                    <select class="form-control" name="course_type" id="course_person" data-placeholder="选择课程类型">
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                        <option value="男女通用">男女通用</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">适宜年龄</label>
+                            <div class="col-sm-9"  style="margin-left:20px; z-index:101">
+                                <div class="form-group">
+                                    <div class="dropdown" data-control="checkbox-dropdown">
+                                        <label class="dropdown-label" id="check_course_age">适宜年龄（多选）</label>
+                                        <div class="dropdown-list" data-placeholder="选择适宜年龄" id="course_age">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">练习人次</label>
+                            <div class="col-sm-10">
+                                <input id="course_num"  placeholder="请输入人数"  type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">课程介绍</label>
+                            <div class="col-sm-10">
+                                <textarea id="course_introduce" class="form-control message-input" name="message" placeholder="请输入运动处方注意事项"></textarea>
+                            </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">注意事项</label>
+                            <div class="col-sm-10">
+                                <textarea id="course_notice" class="form-control message-input" name="message" placeholder="请输入运动处方注意事项"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">上传视频</label>
+                            <div class="col-sm-3">
+                                <input id="file"   style="background-color:white" type="file"  name="myfile" onchange="UpladFile();" />
+                            </div>
+
+                            <div class="el-progress col-sm-2 el-progress--line" style="display: none;">
+                                <div class="el-progress-bar">
+                                    <div class="el-progress-bar__outer" style="height: 6px;">
+                                        <div class="el-progress-bar__inner" style="width: 0%;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="el-progress__text" style="font-size: 14.4px;">0%</div>
+                            </div>
+                            <p class="_p col-sm-2"><button class="btn btn-primary" type="button" >上传</button></p>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <button type="button" id="submit" onclick="sub();" class="btn btn-w-m btn-primary">添加课程</button>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">颜色选择</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group colorpicker-component demo demo-auto">
+                    <input type="text" value="" class="form-control" />
+                    <span class="input-group-addon"><i></i></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script src="manage/js/jquery.min.js?v=2.1.4"></script>
+<script src="manage/js/content.js?v=1.0.0"></script>
+
+
+<!-- Chosen -->
+<script src="manage/js/plugins/chosen/chosen.jquery.js"></script>
+
+<script src="manage/js/demo/form-advanced-demo.js"></script>
+
+<!--   Core JS Files   -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+
+<script src="js/multipSelect.js"></script>
+
+<!--自定义-->
+<script src="manage/js/course/data_info.js"></script>
+<script src="manage/js/course/video.js"></script>
+<script src="text.js"></script>
+<script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+
+
+    </script>
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+<!--统计代码，可删除-->
+
+</body>
+
+</html>

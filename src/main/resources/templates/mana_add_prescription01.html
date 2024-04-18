@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>运动处方管理</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="manage/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="manage/css/animate.css" rel="stylesheet">
+    <link href="manage/css/style.css?v=4.1.0" rel="stylesheet">
+    <!-- CSS Files -->
+
+    <link href=" css/register/multipCheck.css" rel="stylesheet">
+
+
+    <!--	select下拉多选-->
+    <script src=" js/jquery.min.js" type="text/javascript"></script>
+    <script src=" js/jquery.cookie.js" type="text/javascript"></script>
+
+</head>
+
+<body  onload="all_info()"  class="gray-bg">
+<div class="  fadeInRight" style="width:100%;height:100%;">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>标准处方录入 <small>请填写处方信息</small></h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="form_basic.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="form_basic.html#">选项1</a>
+                            </li>
+                            <li><a href="form_basic.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form method="get" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">处方名称</label>
+                            <div class="col-sm-10">
+                                <input id="pre_name" type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                            <div class="form-group ">
+                                <label class="col-sm-2 control-label">运动时间 *</label>
+                                <div class="col-sm-4">
+                                    <input id="pre_time01" type="text" placeholder="最短时间" class="form-control">
+                                </div>
+                                <div class="col-sm-4">
+                                    <input id="pre_time02" type="text" placeholder="最长时间" class="form-control">
+                                </div>
+
+
+                            </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动强度</label>
+                            <div class="col-sm-10">
+                                <div  style="margin-left:20px;" id="heart01" class="radio radio-info radio-inline">
+                                    <input  style="margin-top:5px;"  type="radio"  onclick="strength()" id="inlineRadio1" value="1" name="radioInline" checked="">
+                                    <label for="inlineRadio1">心率 </label>
+                                </div>
+                                <div class="radio radio-inline" id="weight01" style="margin-left:40px;">
+                                    <input  style="margin-top:5px;"  type="radio" id="inlineRadio2" value="2"  onclick="strength()" name="radioInline">
+                                    <label for="inlineRadio2">负重 </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group" style="height:34px">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <div id="heart_rate" class="form-group row">
+                                        <div class="col-sm-4">
+                                            <input id="pre_min_heart" type="text" placeholder="最低心率" class="form-control">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input id="pre_max_heart" type="text" placeholder="最高心率" class="form-control">
+                                        </div>
+                                </div>
+                                <div id="weight" class="form-group row">
+                                        <div class="col-sm-3">
+                                            <input  id="pre_weight" type="text" placeholder="负重" class="form-control">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input  id="pre_number" type="text" placeholder="每组运动次数" class="form-control">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input  id="pre_group_num" type="text" placeholder="运动组数" class="form-control">
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动频率 *</label>
+                            <div class="col-sm-10">
+                                <input id="pre_frequency"  type="text" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动疲劳度等级 *</label>
+                            <div class="col-sm-9"  style="margin-left:20px; z-index:102">
+                                <div class="form-group">
+                                    <select class="form-control" name="fatigueList" id="fatigueList" data-placeholder="选择运动类型">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动效果</label>
+                                <div class="col-sm-9"  style="margin-left:20px; z-index:101">
+                                    <div class="form-group">
+                                        <div class="dropdown" data-control="checkbox-dropdown">
+                                            <label class="dropdown-label" id="check_sport_effect">运动效果（多选）</label>
+                                            <div class="dropdown-list" data-placeholder="选择运动效果" id="sportsEffect">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动类型</label>
+                            <div class="col-sm-9"  style="margin-left:20px; z-index:100">
+                                <div class="form-group">
+                                    <select class="form-control" name="sportsLike" id="sportsLike" data-placeholder="选择运动类型">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">运动器材</label>
+                            <div class="col-sm-9" style="margin-left:20px; z-index:99">
+                                <div class="form-group" >
+                                    <div class="dropdown" data-control="checkbox-dropdown">
+                                        <label class="dropdown-label">运动器材（多选）</label>
+                                        <div class="dropdown-list" id="equipment">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">禁忌疾病</label>
+                            <div class="col-sm-9" style="margin-left:20px; z-index:97">
+                                <div class="form-group" >
+                                    <div class="dropdown" data-control="checkbox-dropdown">
+                                        <label class="dropdown-label">禁忌疾病（多选）</label>
+                                        <div class="dropdown-list" id="diseaseList">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">方法介绍</label>
+                            <div class="col-sm-10">
+                                <textarea id="pre_ways" class="form-control message-input" name="message" placeholder="请输入运动处方方法介绍"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">评测周期</label>
+                            <div class="col-sm-10">
+                                <input id="pre_cycle"  placeholder="请输入天数"  type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">技巧视频地址</label>
+                            <div class="col-sm-10">
+                                <input id="pre_address" placeholder="请输入视频地址"  type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">注意事项</label>
+                            <div class="col-sm-10">
+                                <textarea id="pre_notice" class="form-control message-input" name="message" placeholder="请输入运动处方注意事项"></textarea>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                                <button type="button" id="submit"  class="btn btn-w-m btn-primary">生成处方</button>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">颜色选择</h4>
+            </div>
+            <div class="modal-body">
+                <div class="input-group colorpicker-component demo demo-auto">
+                    <input type="text" value="" class="form-control" />
+                    <span class="input-group-addon"><i></i></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script src="manage/js/jquery.min.js?v=2.1.4"></script>
+
+
+<!-- 自定义js -->
+<script src="manage/js/content.js?v=1.0.0"></script>
+<script src="manage/js/prescription/add_prescription.js"></script>
+
+
+
+
+<!-- Chosen -->
+<script src="manage/js/plugins/chosen/chosen.jquery.js"></script>
+
+<script src="manage/js/demo/form-advanced-demo.js"></script>
+
+<!--   Core JS Files   -->
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+
+<!--  Plugin for the Wizard -->
+<script src="js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+
+<script src="js/multipSelect.js"></script>
+<script>
+        $(document).ready(function () {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+
+
+    </script>
+
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+<!--统计代码，可删除-->
+
+</body>
+
+</html>
+<script src="manage/js/prescription/prescription_info.js"></script>

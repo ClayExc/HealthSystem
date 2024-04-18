@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sports.dao.SportAbilityMapper">
+  <resultMap id="BaseResultMap" type="com.sports.entity.SportAbility">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="yangwoqizuo" jdbcType="INTEGER" property="yangwoqizuo" />
+    <result column="fuwocheng" jdbcType="INTEGER" property="fuwocheng" />
+    <result column="taijieceshi" jdbcType="REAL" property="taijieceshi" />
+    <result column="fenzhongpao" jdbcType="REAL" property="fenzhongpao" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, yangwoqizuo, fuwocheng, taijieceshi, fenzhongpao
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sport_ability
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_sport_ability
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.sports.entity.SportAbility">
+    insert into t_sport_ability (id, user_id, yangwoqizuo, 
+      fuwocheng, taijieceshi, fenzhongpao
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{yangwoqizuo,jdbcType=INTEGER}, 
+      #{fuwocheng,jdbcType=INTEGER}, #{taijieceshi,jdbcType=REAL}, #{fenzhongpao,jdbcType=REAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sports.entity.SportAbility">
+    insert into t_sport_ability
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="yangwoqizuo != null">
+        yangwoqizuo,
+      </if>
+      <if test="fuwocheng != null">
+        fuwocheng,
+      </if>
+      <if test="taijieceshi != null">
+        taijieceshi,
+      </if>
+      <if test="fenzhongpao != null">
+        fenzhongpao,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="yangwoqizuo != null">
+        #{yangwoqizuo,jdbcType=INTEGER},
+      </if>
+      <if test="fuwocheng != null">
+        #{fuwocheng,jdbcType=INTEGER},
+      </if>
+      <if test="taijieceshi != null">
+        #{taijieceshi,jdbcType=REAL},
+      </if>
+      <if test="fenzhongpao != null">
+        #{fenzhongpao,jdbcType=REAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sports.entity.SportAbility">
+    update t_sport_ability
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="yangwoqizuo != null">
+        yangwoqizuo = #{yangwoqizuo,jdbcType=INTEGER},
+      </if>
+      <if test="fuwocheng != null">
+        fuwocheng = #{fuwocheng,jdbcType=INTEGER},
+      </if>
+      <if test="taijieceshi != null">
+        taijieceshi = #{taijieceshi,jdbcType=REAL},
+      </if>
+      <if test="fenzhongpao != null">
+        fenzhongpao = #{fenzhongpao,jdbcType=REAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sports.entity.SportAbility">
+    update t_sport_ability
+    set user_id = #{userId,jdbcType=INTEGER},
+      yangwoqizuo = #{yangwoqizuo,jdbcType=INTEGER},
+      fuwocheng = #{fuwocheng,jdbcType=INTEGER},
+      taijieceshi = #{taijieceshi,jdbcType=REAL},
+      fenzhongpao = #{fenzhongpao,jdbcType=REAL}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectByUser_id" parameterType="int" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_sport_ability
+    where user_id = #{user_id}
+  </select>
+
+</mapper>

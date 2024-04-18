@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>H+ 后台主题UI框架 - 表单向导</title>
+    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
+    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="manage/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="manage/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="manage/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="manage/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+    <link href="manage/css/animate.css" rel="stylesheet">
+    <link href="manage/css/style.css?v=4.1.0" rel="stylesheet">
+
+    <link href="manage/css/plugins/chosen/chosen.css" rel="stylesheet">
+
+    <link href="manage/css/plugins/colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+
+    <link href="manage/css/plugins/cropper/cropper.min.css" rel="stylesheet">
+
+    <link href="manage/css/plugins/switchery/switchery.css" rel="stylesheet">
+
+    <link href="manage/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
+
+    <link href="manage/css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
+
+    <link href="manage/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+    <link href="manage/css/plugins/ionRangeSlider/ion.rangeSlider.css" rel="stylesheet">
+    <link href="manage/css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+
+    <link href="manage/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+
+    <link href="manage/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+
+
+
+
+</head>
+
+<body onload="all_info()"  class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>标准处方录入</h5>
+                        <div class="form-group">
+                            <label class="font-noraml">多选</label>
+                            <div class="input-group">
+                                <select data-placeholder="选择省份" class="chosen-select" multiple style="width:350px;" tabindex="4">
+                                    <option value="">请选择省份</option>
+                                    <option value="110000" hassubinfo="true">北京</option>
+                                    <option value="120000" hassubinfo="true">天津</option>
+                                    <option value="130000" hassubinfo="true">河北省</option>
+                                    <option value="140000" hassubinfo="true">山西省</option>
+                                    <option value="150000" hassubinfo="true">内蒙古自治区</option>
+                                    <option value="210000" hassubinfo="true">辽宁省</option>
+                                    <option value="220000" hassubinfo="true">吉林省</option>
+                                    <option value="230000" hassubinfo="true">黑龙江省</option>
+                                    <option value="310000" hassubinfo="true">上海</option>
+                                    <option value="320000" hassubinfo="true">江苏省</option>
+                                    <option value="330000" hassubinfo="true">浙江省</option>
+                                    <option value="340000" hassubinfo="true">安徽省</option>
+                                    <option value="350000" hassubinfo="true">福建省</option>
+                                    <option value="360000" hassubinfo="true">江西省</option>
+                                    <option value="370000" hassubinfo="true">山东省</option>
+                                    <option value="410000" hassubinfo="true">河南省</option>
+                                    <option value="420000" hassubinfo="true">湖北省</option>
+                                    <option value="430000" hassubinfo="true">湖南省</option>
+                                    <option value="440000" hassubinfo="true">广东省</option>
+                                    <option value="450000" hassubinfo="true">广西壮族自治区</option>
+                                    <option value="460000" hassubinfo="true">海南省</option>
+                                    <option value="500000" hassubinfo="true">重庆</option>
+                                    <option value="510000" hassubinfo="true">四川省</option>
+                                    <option value="520000" hassubinfo="true">贵州省</option>
+                                    <option value="530000" hassubinfo="true">云南省</option>
+                                    <option value="540000" hassubinfo="true">西藏自治区</option>
+                                    <option value="610000" hassubinfo="true">陕西省</option>
+                                    <option value="620000" hassubinfo="true">甘肃省</option>
+                                    <option value="630000" hassubinfo="true">青海省</option>
+                                    <option value="640000" hassubinfo="true">宁夏回族自治区</option>
+                                    <option value="650000" hassubinfo="true">新疆维吾尔自治区</option>
+                                    <option value="710000" hassubinfo="true">台湾省</option>
+                                    <option value="810000" hassubinfo="true">香港特别行政区</option>
+                                    <option value="820000" hassubinfo="true">澳门特别行政区</option>
+                                    <option value="990000" hassubinfo="true">海外</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="form_wizard.html#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="form_wizard.html#">选项1</a>
+                                </li>
+                                <li><a href="form_wizard.html#">选项2</a>
+                                </li>
+                            </ul>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <h2>
+                                请填写处方信息
+                            </h2>
+
+
+                        <form id="form" action="form_wizard.html#" class="wizard-big">
+                            <h1>基本信息</h1>
+                            <fieldset >
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>处方名称 *</label>
+                                            <input  name="userName" type="text" class="form-control ">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>运动种类 *</label>
+                                            <input  name="password" type="text" class="form-control ">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group row">
+                                            <label>运动时间 *</label>
+                                            <div class="form-group ">
+
+                                                <div class="col-md-4">
+                                                    <input type="text" placeholder="最短时间" class="form-control">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" placeholder="最长时间" class="form-control">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>运动强度 *</label>
+                                            <div  style="margin-left:20px;" id="heart01" class="radio radio-info radio-inline">
+                                                <input  style="margin-top:5px;"  type="radio"  onclick="strength()" id="inlineRadio1" value="1" name="radioInline" checked="">
+                                                <label for="inlineRadio1">心率 </label>
+                                            </div>
+                                            <div class="radio radio-inline" id="weight01" style="margin-left:40px;">
+                                                <input  style="margin-top:5px;"  type="radio" id="inlineRadio2" value="2"  onclick="strength()" name="radioInline">
+                                                <label for="inlineRadio2">负重 </label>
+                                            </div>
+                                        </div>
+
+                                        <div id="heart_rate" class="form-group row">
+
+                                            <div class="form-group ">
+
+                                                <div class="col-md-4">
+                                                    <input type="text" placeholder="最低心率" class="form-control">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" placeholder="最高心率" class="form-control">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div id="weight" class="form-group row">
+
+                                            <div class="form-group ">
+
+                                                <div class="col-md-4">
+                                                    <input type="text" placeholder="负重" class="form-control">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" placeholder="每组运动次数" class="form-control">
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" placeholder="运动组数" class="form-control">
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>运动频率 *</label>
+                                            <input   type="text" class="form-control ">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>跑步速度 *</label>
+                                            <input   type="text" class="form-control">
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+                            </fieldset>
+                            <h1>运动信息</h1>
+                            <fieldset>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>运动疲劳度等级 *</label>
+                                            <input  name="confirm" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="font-noraml">多选</label>
+                                            <div class="input-group">
+                                                <select data-placeholder="选择省份" name="sportsEffect" id="sportsEffect" class="chosen-select" multiple style="width:350px;" tabindex="4">
+                                                    <option value="">请选择省份</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>运动效果 *</label>
+                                            <select class="form-control"  data-placeholder="选择运动目的">
+                                                <option value=""></option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>主观运动感觉 *</label>
+                                            <input  name="email" type="text" class="form-control required email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>评测周期 *</label>
+                                            <input  name="email" type="text" class="form-control required email">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <h1>方法与技巧</h1>
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>方法介绍 *</label>
+                                            <input  name="confirm" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>技巧视频地址 *</label>
+                                            <input  name="name" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </fieldset>
+
+                            <h1>注意事项</h1>
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>禁忌疾病 *</label>
+                                            <input  name="confirm" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>notice *</label>
+                                            <input  name="name" type="text" class="form-control required">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/register/data_info.js"></script>
+    <!-- 全局js -->
+    <script src="manage/js/jquery.min.js?v=2.1.4"></script>
+    <script src="manage/js/bootstrap.min.js?v=3.3.6"></script>
+
+
+    <!-- 自定义js -->
+    <script src="manage/js/content.js?v=1.0.0"></script>
+    <script src="manage/js/prescription/add_prescription.js"></script>
+
+    <!-- Steps -->
+    <script src="manage/js/plugins/staps/jquery.steps.min.js"></script>
+
+    <!-- Jquery Validate -->
+    <script src="manage/js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="manage/js/plugins/validate/messages_zh.min.js"></script>
+
+    <!-- Chosen -->
+    <script src="manage/js/plugins/chosen/chosen.jquery.js"></script>
+
+
+
+
+
+    <script>
+
+
+        $(document).ready(function () {
+
+
+            var config = {
+            '.chosen-select': {},
+            '.chosen-select-deselect': {
+                allow_single_deselect: true
+            },
+            '.chosen-select-no-single': {
+                disable_search_threshold: 10
+            },
+            '.chosen-select-no-results': {
+                no_results_text: 'Oops, nothing found!'
+            },
+            '.chosen-select-width': {
+                width: "95%"
+            }
+        }
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
+
+
+
+
+
+        });
+
+        $(document).ready(function () {
+            $("#wizard").steps();
+            $("#form").steps({
+                bodyTag: "fieldset",
+                onStepChanging: function (event, currentIndex, newIndex) {
+                    // Always allow going backward even if the current step contains invalid fields!
+                    if (currentIndex > newIndex) {
+                        return true;
+                    }
+
+                    // Forbid suppressing "Warning" step if the user is to young
+                    if (newIndex === 3 && Number($("#age").val()) < 18) {
+                        return false;
+                    }
+
+                    var form = $(this);
+
+                    // Clean up if user went backward before
+                    if (currentIndex < newIndex) {
+                        // To remove error styles
+                        $(".body:eq(" + newIndex + ") label.error", form).remove();
+                        $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                    }
+
+
+                    return form.valid();
+                },
+                onStepChanged: function (event, currentIndex, priorIndex) {
+                    // Suppress (skip) "Warning" step if the user is old enough.
+                    if (currentIndex === 2 && Number($("#age").val()) >= 18) {
+                        $(this).steps("next");
+                    }
+
+                    // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
+                    if (currentIndex === 2 && priorIndex === 3) {
+                        $(this).steps("previous");
+                    }
+                },
+                onFinishing: function (event, currentIndex) {
+                    var form = $(this);
+                    return form.valid();
+                },
+                onFinished: function (event, currentIndex) {
+                    var form = $(this);
+                    // Submit form input
+                    form.submit();
+                }
+            }).validate({
+                errorPlacement: function (error, element) {
+                    element.before(error);
+                },
+
+            });
+        });
+    </script>
+
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+    <!--统计代码，可删除-->
+
+</body>
+
+</html>
