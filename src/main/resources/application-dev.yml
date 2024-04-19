@@ -55,4 +55,9 @@ password:
 #      keyid: LTAI4GCFeP6gnz7Ru4Z4tuSa
 #      keysecret: iMg6aNpSrtpQMyeV1sD83GF0I5PbTP
 
-
+oss:
+  endpoint: oss-cn-beijing.aliyuncs.com
+  url: https://sport-image-manage.oss-cn-beijing.aliyuncs.com/
+  accessKeyId: LTAI4GCFeP6gnz7Ru4Z4tuSa
+  accessKeySecret: iMg6aNpSrtpQMyeV1sD83GF0I5PbTP
+  bucketName: sport-image-manage

@@ -3,16 +3,9 @@ server:
   tomcat:
     max-swallow-size: 500MB
 spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/bishe
-    username: root
-    password: 7410
-    driver-class-name: com.mysql.cj.jdbc.Driver
+  profiles:
+    active: dev
 
-mybatis:
-  type-aliases-package: com.sports.entity # 这里放置你的实体类包名
-  configuration:
-    map-underscore-to-camel-case: true # 开启驼峰命名自动转换
 
 
 
