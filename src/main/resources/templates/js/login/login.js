@@ -115,11 +115,13 @@ $("body").keydown(function (event) {
     Focuss($(".msgInput"), "输入 6 位短信验证码");
     Focuss($(".phoneInput"), "手机号");
     Focuss($(".accountUsername"), "用户名/手机号/邮箱");
+    Focuss($(".verificationCode"), "验证码");
     Focuss($(".accountPwd"), "密码");
 
     Blurr($(".phoneInput"), "请输入手机号");
     Blurr($(".msgInput"), "请输入短信验证码");
     Blurr($(".accountUsername"), "请输入用户名/手机号/邮箱");
+    Blurr($(".verificationCode"), "请输入验证码");
     Blurr($(".accountPwd"), "请输入密码");
 
 
