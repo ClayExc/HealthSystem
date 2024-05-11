@@ -303,9 +303,11 @@ button:focus {
 }
 
 .phoneInputGroup {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: relative;
-    width: 213px;
+    width: 100%;
 }
 
 .Select-arrow {
@@ -341,12 +343,18 @@ button:focus {
     z-index: 90;
 }
 
+.captchaImage {
+    height: 40px; /* 调整图像高度以与输入框相匹配 */
+    cursor: pointer; /* 将光标变为指针形状，提示用户图像是可交互的 */
+}
+
 .inputStyle {
     display: inline-block;
     outline: none;
     flex: 1 1;
     padding: 0;
     overflow: hidden;
+    margin-right: 10px;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
